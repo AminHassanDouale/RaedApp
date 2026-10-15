@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Compte suspendu — ScolApp</title>
+    <title>Compte suspendu — RaedApp</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="min-h-screen bg-base-200 flex items-center justify-center p-4">
@@ -22,7 +22,7 @@
                 </p>
             @endif
         </div>
-        <p class="text-sm text-gray-500">Contactez le support ScolApp pour plus d'informations.</p>
+        <p class="text-sm text-gray-500">Contactez le support RaedApp pour plus d'informations.</p>
         <a href="{{ route('login') }}" class="btn btn-primary">Retour à la connexion</a>
     </div>
 </body>

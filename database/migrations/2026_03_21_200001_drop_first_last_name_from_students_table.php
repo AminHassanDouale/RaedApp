@@ -23,6 +23,14 @@ return new class extends Migration
         // Migrate data
         DB::statement("UPDATE students SET name = TRIM(CONCAT(COALESCE(first_name,''), ' ', COALESCE(last_name,'')))");
 
+        // Drop the index on last_name first — SQLite refuses to drop a column
+        // while an index still references it (no-op/safe on other drivers).
+        if (Schema::hasIndex('students', ['school_id', 'last_name'])) {
+            Schema::table('students', function (Blueprint $table) {
+                $table->dropIndex(['school_id', 'last_name']);
+            });
+        }
+
         // Drop old columns
         Schema::table('students', function (Blueprint $table) {
             $table->dropColumn(['first_name', 'last_name']);

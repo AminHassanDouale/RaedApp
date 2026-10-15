@@ -5,11 +5,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name', 'ScolApp SMS') }} - @yield('title', 'Dashboard')</title>
+    <title>{{ config('app.name', 'RaedApp SMS') }} - @yield('title', 'Dashboard')</title>
 
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600,700&display=swap" rel="stylesheet"/>
 
+    <link rel="icon" href="{{ asset('images/logoraedapp.png') }}" type="image/png">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
 
@@ -30,7 +31,7 @@
         <label for="main-drawer" class="lg:hidden cursor-pointer mr-2 p-1 rounded-lg hover:bg-base-200">
             <x-icon name="o-bars-3" class="w-6 h-6" />
         </label>
-        <img src="{{ asset('images/logo_ScolApp.png') }}" alt="ScolApp" class="h-8 object-contain">
+        <img src="{{ asset('images/logoraedapp.png') }}" alt="RaedApp" class="h-8 object-contain">
     </x-slot:brand>
 
     <x-slot:actions>
@@ -68,7 +69,7 @@
             @if(auth()->user()?->school?->logo)
                 <img src="{{ auth()->user()->school->logo_url }}" alt="logo" class="w-10 h-10 rounded-full object-cover shrink-0">
             @else
-                <img src="{{ asset('images/logo_ScolApp.png') }}" alt="ScolApp" class="w-10 h-10 rounded-full object-contain shrink-0">
+                <img src="{{ asset('images/logoraedapp.png') }}" alt="RaedApp" class="w-10 h-10 rounded-full object-contain shrink-0">
             @endif
             <div class="min-w-0">
                 <p class="font-bold text-sm truncate">{{ auth()->user()?->school?->name ?? config('app.name') }}</p>
@@ -192,7 +193,7 @@
 
     {{-- ── Main content ── --}}
     <x-slot:content>
-        {{ $slot }}
+        <div data-page>{{ $slot }}</div>
     </x-slot:content>
 </x-main>
 

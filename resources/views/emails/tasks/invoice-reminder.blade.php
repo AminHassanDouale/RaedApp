@@ -40,7 +40,7 @@ body{font-family:Arial,sans-serif;font-size:14px;color:#1e293b;background:#f8faf
     </div>
     <div class="footer">
         {{ $school->name }}@if($school->address) — {{ $school->address }}@endif<br>
-        Généré le {{ now()->format('d/m/Y à H:i') }} · ScolApp SMS
+        Généré le {{ now()->format('d/m/Y à H:i') }} · RaedApp SMS
     </div>
 </div>
 </body></html>

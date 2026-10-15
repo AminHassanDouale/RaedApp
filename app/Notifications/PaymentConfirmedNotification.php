@@ -29,8 +29,8 @@ class PaymentConfirmedNotification extends Notification implements ShouldQueue
     public function toWhatsappImage(object $notifiable): array
     {
         return [
-            'url'     => url('images/logo_ScolApp.png'),
-            'caption' => $this->payment->school?->name ?? 'ScolApp',
+            'url'     => url('images/logoraedapp.png'),
+            'caption' => $this->payment->school?->name ?? 'RaedApp',
         ];
     }
 
@@ -45,7 +45,7 @@ class PaymentConfirmedNotification extends Notification implements ShouldQueue
         $amount   = number_format($payment->amount, 0, ',', ' ') . ' DJF';
 
         $lines = [
-            "✅ *Paiement confirmé — " . ($school?->name ?? 'ScolApp') . "*",
+            "✅ *Paiement confirmé — " . ($school?->name ?? 'RaedApp') . "*",
             "",
             "Bonjour *{$this->guardian->full_name}*,",
             "",

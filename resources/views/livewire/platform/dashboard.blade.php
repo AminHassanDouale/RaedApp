@@ -41,14 +41,14 @@ new #[Layout('layouts.platform')] class extends Component {
 ?>
 
 <div class="p-4 lg:p-8 space-y-6">
-    <x-header title="Tableau de bord" subtitle="Vue globale de la plateforme ScolApp SMS" separator>
+    <x-header title="Tableau de bord" subtitle="Vue globale de la plateforme RaedApp SMS" separator>
         <x-slot:actions>
             <x-button label="Nouvelle école" icon="o-plus" link="{{ route('platform.schools.create') }}" class="btn-primary btn-sm" />
         </x-slot:actions>
     </x-header>
 
     {{-- KPI Cards --}}
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 stagger">
         <x-card shadow class="border-0">
             <div class="flex items-center gap-3">
                 <div class="w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center shrink-0">

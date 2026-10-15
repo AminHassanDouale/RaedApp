@@ -292,7 +292,7 @@ new #[Layout('layouts.empty')] class extends Component {
                     <p style="margin:0;">Imprimé le {{ now()->format('d/m/Y à H:i') }}</p>
                 </div>
                 <div style="display:flex;align-items:center;gap:5px;opacity:0.45;">
-                    <span style="font-size:0.7rem;font-weight:700;color:#059669;letter-spacing:0.05em;">ScolApp SMS</span>
+                    <span style="font-size:0.7rem;font-weight:700;color:#059669;letter-spacing:0.05em;">RaedApp SMS</span>
                 </div>
             </div>
         </div>

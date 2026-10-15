@@ -22,7 +22,7 @@
     </style>
 </head>
 <body>
-    <h1>ScolApp SMS — Export Factures</h1>
+    <h1>RaedApp SMS — Export Factures</h1>
     <p>Généré le {{ now()->format('d/m/Y à H:i') }}</p>
     <p>Total : <strong>{{ $invoices->count() }}</strong> facture(s)</p>
 

@@ -52,7 +52,7 @@ class TestWhatsApp extends Command
 
         $this->info("Sending ping to {$phone}...");
         $ok = $whatsapp->sendMessage($phone, implode("\n", [
-            '✅ *ScolApp — Test WhatsApp*',
+            '✅ *RaedApp — Test WhatsApp*',
             '',
             'Ce message confirme que l\'intégration WhatsApp fonctionne correctement.',
             '_Instance : ' . config('services.ultramsg.instance_id') . '_',

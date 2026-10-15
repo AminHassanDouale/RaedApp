@@ -69,6 +69,6 @@ Cordialement,<br>
 
 <x-mail::subcopy>
 Ce message a été envoyé automatiquement — merci de ne pas y répondre directement.
-Propulsé par **ScolApp SMS**.
+Propulsé par **RaedApp SMS**.
 </x-mail::subcopy>
 </x-mail::message>

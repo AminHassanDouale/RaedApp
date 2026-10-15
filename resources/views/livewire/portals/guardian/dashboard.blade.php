@@ -91,7 +91,7 @@ new #[Layout('layouts.guardian')] class extends Component {
     </div>
 
     {{-- KPI --}}
-    <div class="grid grid-cols-2 lg:grid-cols-3 gap-4">
+    <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 stagger">
         <x-card class="border-0 shadow-sm bg-gradient-to-br from-emerald-50 to-white">
             <div class="flex items-center gap-3">
                 <div class="w-10 h-10 rounded-xl bg-emerald-100 flex items-center justify-center">

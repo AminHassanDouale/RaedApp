@@ -117,7 +117,7 @@ new #[Layout('layouts.student')] class extends Component {
     </div>
 
     {{-- KPI cards --}}
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 stagger">
         <x-card class="border-0 shadow-sm bg-gradient-to-br from-violet-50 to-white text-center">
             <div class="w-10 h-10 rounded-xl bg-violet-100 flex items-center justify-center mx-auto mb-2">
                 <x-icon name="o-chart-bar" class="w-5 h-5 text-violet-600" />

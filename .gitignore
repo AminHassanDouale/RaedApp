@@ -22,3 +22,10 @@
 Homestead.json
 Homestead.yaml
 Thumbs.db
+
+# Local Composer binary (not for repo)
+/composer.phar
+
+# Stray shell-redirect artifacts
+/git
+/ls

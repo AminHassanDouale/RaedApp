@@ -202,7 +202,7 @@ new #[Layout('layouts.app')] class extends Component
     </x-header>
 
     {{-- KPI cards --}}
-    <div class="grid grid-cols-2 gap-4 lg:grid-cols-4">
+    <div class="grid grid-cols-2 gap-4 lg:grid-cols-4 stagger">
         @foreach([
             ['label' => 'Encaissé (période)', 'value' => number_format($revenuePeriod) . ' DJF', 'icon' => 'o-banknotes',            'grad' => 'from-emerald-500 to-teal-600'],
             ['label' => 'Paiements (période)','value' => number_format($paymentsCount),           'icon' => 'o-credit-card',          'grad' => 'from-cyan-500 to-sky-600'],

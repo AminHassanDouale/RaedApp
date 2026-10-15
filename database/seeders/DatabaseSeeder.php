@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
             ['slug' => 'ecole-demo'],
             [
                 'uuid'           => (string) Str::uuid(),
-                'name'           => 'École Démo ScolApp',
+                'name'           => 'École Démo RaedApp',
                 'code'           => 'DEMO001',
                 'city'           => 'Djibouti',
                 'country'        => 'DJ',
@@ -156,7 +156,7 @@ class DatabaseSeeder extends Seeder
 
         // ── Summary ────────────────────────────────────────────────────────────
         $this->command->newLine();
-        $this->command->info('🎉 ScolApp SMS fully seeded!');
+        $this->command->info('🎉 RaedApp SMS fully seeded!');
         $this->command->table(
             ['Rôle', 'Email', 'Mot de passe', 'Portail'],
             [

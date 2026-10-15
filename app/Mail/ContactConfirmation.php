@@ -20,7 +20,7 @@ class ContactConfirmation extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: '✅ Votre message a bien été reçu — ScolApp',
+            subject: '✅ Votre message a bien été reçu — RaedApp',
         );
     }
 

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ $success ? 'Paiement en cours' : 'Paiement annulé' }} — ScolApp</title>
+    <title>{{ $success ? 'Paiement en cours' : 'Paiement annulé' }} — RaedApp</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <meta http-equiv="refresh" content="5;url={{ $redirect }}">
 </head>

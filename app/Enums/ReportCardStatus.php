@@ -4,12 +4,12 @@ namespace App\Enums;
 
 /**
  * Report-card approval lifecycle (adapted from the INTEC bulletin spec to
- * ScolApp's roles):
+ * RaedApp's roles):
  *
  *   draft → submitted → pedagogie_approved → finance_approved → approved → published
  *   (rejected can happen from any approval step and returns the card to draft-editable)
  *
- * Role mapping (INTEC → ScolApp):
+ * Role mapping (INTEC → RaedApp):
  *   direction  → director
  *   pédagogie  → director / admin
  *   finance    → accountant / admin

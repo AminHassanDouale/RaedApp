@@ -186,7 +186,7 @@
             {{ $school->name }}@if($school->address) — {{ $school->address }}@endif<br>
             Généré le {{ now()->format('d/m/Y à H:i') }}
         </div>
-        <div class="footer-right">ScolApp SMS</div>
+        <div class="footer-right">RaedApp SMS</div>
     </div>
 </div>
 </body>

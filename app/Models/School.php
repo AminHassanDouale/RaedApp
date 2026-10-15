@@ -75,7 +75,7 @@ class School extends Model
         return Attribute::make(
             get: fn () => $this->logo
                 ? Storage::url($this->logo)
-                : asset('images/logo_ScolApp.png'),
+                : asset('images/logoraedapp.png'),
         );
     }
 

@@ -5,11 +5,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name', 'ScolApp SMS') }}</title>
+    <title>{{ config('app.name', 'RaedApp SMS') }}</title>
 
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600,700,800&display=swap" rel="stylesheet"/>
 
+    <link rel="icon" href="{{ asset('images/logoraedapp.png') }}" type="image/png">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
 </head>
@@ -30,15 +31,10 @@
         {{-- Top: Logo --}}
         <div class="relative z-10">
             <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl bg-white/20 backdrop-blur flex items-center justify-center">
-                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="M12 14l9-5-9-5-9 5 9 5z"/>
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
-                    </svg>
+                <div class="w-11 h-11 rounded-xl bg-white flex items-center justify-center p-1.5 shadow-lg">
+                    <img src="{{ asset('images/logoraedapp.png') }}" alt="RaedApp" class="w-full h-full object-contain">
                 </div>
-                <span class="text-white font-bold text-xl tracking-tight">ScolApp</span>
+                <span class="text-white font-bold text-xl tracking-tight">RaedApp</span>
             </div>
         </div>
 
@@ -79,11 +75,19 @@
     </div>
 
     {{-- Right panel — form --}}
-    <div class="w-full lg:w-1/2 xl:w-2/5 flex flex-col items-center justify-center min-h-screen px-6 py-12 bg-base-100">
+    <div class="relative w-full lg:w-1/2 xl:w-2/5 flex flex-col items-center justify-center min-h-screen px-6 py-12 bg-base-100">
+
+        {{-- Language switcher (fr / en / ar) --}}
+        <div class="absolute top-5 right-5 rtl:right-auto rtl:left-5 z-10 inline-flex items-center gap-1 rounded-full bg-base-200 p-1 text-xs font-semibold">
+            @foreach(['fr' => 'FR', 'en' => 'EN', 'ar' => 'ع'] as $code => $label)
+            <a href="{{ route('locale.switch', $code) }}"
+               class="px-2.5 py-1 rounded-full transition {{ app()->getLocale() === $code ? 'bg-primary text-primary-content' : 'text-base-content/60 hover:text-base-content' }}">{{ $label }}</a>
+            @endforeach
+        </div>
 
         {{-- Mobile logo (shown only on small screens) --}}
         <div class="lg:hidden text-center mb-8">
-            <img src="{{ asset('images/logo_ScolApp.png') }}" alt="ScolApp" class="h-14 mx-auto object-contain">
+            <img src="{{ asset('images/logoraedapp.png') }}" alt="RaedApp" class="h-14 mx-auto object-contain">
             <p class="text-base-content/50 text-xs uppercase tracking-widest mt-2">School Management</p>
         </div>
 
@@ -93,7 +97,7 @@
 
         {{-- Footer --}}
         <p class="mt-8 text-xs text-base-content/30 text-center">
-            © {{ date('Y') }} ScolApp · Tous droits réservés
+            © {{ date('Y') }} RaedApp · Tous droits réservés
         </p>
     </div>
 

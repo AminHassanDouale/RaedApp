@@ -108,7 +108,7 @@ new #[Layout('layouts.app')] class extends Component {
                     <code class="font-mono text-xs break-all">{{ $cfgNotifyUrl }}</code>
                 </div>
                 <div class="flex justify-between items-center py-2">
-                    <span class="text-base-content/60">Webhook D-Money → ScolApp</span>
+                    <span class="text-base-content/60">Webhook D-Money → RaedApp</span>
                     <code class="font-mono text-xs break-all">{{ url('/webhooks/billing') }}</code>
                 </div>
             </div>

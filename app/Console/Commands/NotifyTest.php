@@ -26,7 +26,7 @@ class NotifyTest extends Command
     {
         $email = (string) $this->option('email');
         $phone = (string) $this->option('whatsapp');
-        $app   = config('app.name', 'ScolApp');
+        $app   = config('app.name', 'RaedApp');
         $now   = now()->format('d/m/Y H:i');
 
         $emailOk = false;

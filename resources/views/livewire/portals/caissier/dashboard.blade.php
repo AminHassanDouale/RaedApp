@@ -78,7 +78,7 @@ new #[Layout('layouts.caissier')] class extends Component {
     </div>
 
     {{-- KPI --}}
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 stagger">
         <x-card class="border-0 shadow-sm bg-gradient-to-br from-cyan-50 to-white">
             <div class="flex items-center gap-3">
                 <div class="w-10 h-10 rounded-xl bg-cyan-100 flex items-center justify-center">

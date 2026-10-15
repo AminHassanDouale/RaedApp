@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Message reçu — ScolApp</title>
+    <title>Message reçu — RaedApp</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
@@ -414,7 +414,7 @@
                 <div class="step-num">2</div>
                 <div class="step-content">
                     <div class="step-title">Réponse personnalisée</div>
-                    <div class="step-desc">Un conseiller ScolApp vous répondra sous 24h ouvrables avec une réponse adaptée.</div>
+                    <div class="step-desc">Un conseiller RaedApp vous répondra sous 24h ouvrables avec une réponse adaptée.</div>
                 </div>
             </div>
             <div class="step">
@@ -428,8 +428,8 @@
 
         {{-- CTA --}}
         <div class="cta-wrap">
-            <a href="https://scolapp.com" class="cta-btn">
-                Visiter scolapp.com →
+            <a href="https://raedapp.com" class="cta-btn">
+                Visiter raedapp.com →
             </a>
         </div>
 
@@ -439,7 +439,7 @@
         <div class="contact-info">
             <p>
                 Vous pouvez également nous joindre directement à
-                <a href="mailto:contact@scolapp.com">contact@scolapp.com</a>.
+                <a href="mailto:contact@raedapp.com">contact@raedapp.com</a>.
             </p>
             <p style="margin-top: 8px;">
                 💬 WhatsApp : <a href="https://wa.me/25377049495" style="color:#25d366; font-weight:600;">+253 77 04 94 95</a>
@@ -451,26 +451,26 @@
 
         <p style="font-size: 14px; color: #94a3b8; line-height: 1.7;">
             Cet email a été envoyé automatiquement suite à votre demande de contact sur
-            <a href="https://scolapp.com" style="color: #6366f1; text-decoration: none;">scolapp.com</a>.
+            <a href="https://raedapp.com" style="color: #6366f1; text-decoration: none;">raedapp.com</a>.
             Si vous n'êtes pas à l'origine de cette demande, veuillez ignorer cet email.
         </p>
     </div>
 
     {{-- ── FOOTER ── --}}
     <div class="footer">
-        <div class="footer-logo">ScolApp</div>
+        <div class="footer-logo">RaedApp</div>
         <div class="footer-tagline">
             La plateforme de gestion scolaire nouvelle génération.<br>
             Simplifiez. Automatisez. Excellez.
         </div>
         <div class="footer-links">
-            <a href="https://scolapp.com">Accueil</a>
-            <a href="https://scolapp.com/#features">Fonctionnalités</a>
-            <a href="https://scolapp.com/#contact">Contact</a>
+            <a href="https://raedapp.com">Accueil</a>
+            <a href="https://raedapp.com/#features">Fonctionnalités</a>
+            <a href="https://raedapp.com/#contact">Contact</a>
         </div>
         <div class="footer-copy">
-            © {{ date('Y') }} ScolApp. Tous droits réservés.<br>
-            <a href="mailto:contact@scolapp.com" style="color: #4a5568; text-decoration: none;">contact@scolapp.com</a>
+            © {{ date('Y') }} RaedApp. Tous droits réservés.<br>
+            <a href="mailto:contact@raedapp.com" style="color: #4a5568; text-decoration: none;">contact@raedapp.com</a>
         </div>
     </div>
 

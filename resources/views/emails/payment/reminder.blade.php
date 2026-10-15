@@ -56,6 +56,6 @@ Email : {{ $invoice->school->email }}
 
 <x-mail::subcopy>
 Ce message est généré automatiquement — merci de ne pas y répondre directement.
-Propulsé par **ScolApp SMS**.
+Propulsé par **RaedApp SMS**.
 </x-mail::subcopy>
 </x-mail::message>

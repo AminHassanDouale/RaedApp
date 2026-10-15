@@ -12,9 +12,121 @@
 @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
+
+    /* ── Motion system ────────────────────────────────────────────────────────
+       Philosophy (Emil Kowalski / Apple): UI motion is fast, decelerating
+       (ease-out), and interruptible. It should be felt, not watched. Every
+       animation below collapses to nothing under `prefers-reduced-motion`.
+       Exposed as tokens so views share one scale instead of ad-hoc values. */
+    --ease-out-quad:  cubic-bezier(0.25, 0.46, 0.45, 0.94);  /* snappy UI feedback   */
+    --ease-out-cubic: cubic-bezier(0.215, 0.61, 0.355, 1);   /* content enters       */
+    --ease-out-expo:  cubic-bezier(0.16, 1, 0.3, 1);         /* large/overlay enters */
+    --ease-spring:    cubic-bezier(0.34, 1.40, 0.64, 1);     /* gentle overshoot     */
+
+    --duration-fast: 140ms;   /* hover / press         */
+    --duration-base: 220ms;   /* page & content enters */
+    --duration-slow: 360ms;   /* large surfaces        */
 }
 
 /* RTL support for Arabic */
 [dir="rtl"] .rtl\:text-right {
     text-align: right;
+}
+
+/* ===========================================================================
+   Motion — keyframes
+   =========================================================================== */
+@keyframes raed-page-enter {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: none; }
+}
+
+@keyframes raed-rise-in {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: none; }
+}
+
+@keyframes raed-fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* ===========================================================================
+   Motion — behaviour
+   =========================================================================== */
+@layer components {
+
+    /* Page enter: plays on first paint and is re-triggered by app.js after
+       every `wire:navigate` so SPA route changes glide in instead of popping.
+       Does NOT replay on normal Livewire component updates (morph keeps the
+       node), so typing in a filter never re-animates the page. */
+    [data-page] {
+        animation: raed-page-enter var(--duration-base) var(--ease-out-cubic) both;
+    }
+
+    /* Staggered rise for card grids / lists. Opt in: add `stagger` to the
+       parent (e.g. a KPI grid). Cheap — transform + opacity only. */
+    .stagger > * {
+        animation: raed-rise-in var(--duration-base) var(--ease-out-cubic) both;
+    }
+    .stagger > *:nth-child(1)  { animation-delay: 30ms;  }
+    .stagger > *:nth-child(2)  { animation-delay: 70ms;  }
+    .stagger > *:nth-child(3)  { animation-delay: 110ms; }
+    .stagger > *:nth-child(4)  { animation-delay: 150ms; }
+    .stagger > *:nth-child(5)  { animation-delay: 190ms; }
+    .stagger > *:nth-child(6)  { animation-delay: 230ms; }
+    .stagger > *:nth-child(7)  { animation-delay: 270ms; }
+    .stagger > *:nth-child(8)  { animation-delay: 310ms; }
+    .stagger > *:nth-child(9)  { animation-delay: 350ms; }
+    .stagger > *:nth-child(10) { animation-delay: 390ms; }
+
+    /* Buttons are always interactive → give every press tactile feedback and a
+       smooth (not `transition-all`) hover. Composite-only properties. */
+    .btn {
+        transition: transform      var(--duration-fast) var(--ease-out-quad),
+                    background-color var(--duration-fast) var(--ease-out-quad),
+                    border-color    var(--duration-fast) var(--ease-out-quad),
+                    box-shadow      var(--duration-fast) var(--ease-out-quad),
+                    color           var(--duration-fast) var(--ease-out-quad);
+    }
+    .btn:active:not(:disabled):not(.btn-disabled) {
+        transform: translateY(0.5px) scale(0.98);
+    }
+
+    /* Smooth colour-only hover for nav, tabs and table rows (no layout cost). */
+    .menu :where(a, button, summary),
+    .tabs :where(a, button),
+    .table tbody tr {
+        transition: background-color var(--duration-fast) var(--ease-out-quad),
+                    color            var(--duration-fast) var(--ease-out-quad);
+    }
+
+    /* Opt-in lift for cards that are actually clickable. Add `hover-lift`. */
+    .hover-lift {
+        transition: transform  var(--duration-base) var(--ease-out-cubic),
+                    box-shadow var(--duration-base) var(--ease-out-cubic);
+    }
+    .hover-lift:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.12), 0 8px 10px -6px rgb(0 0 0 / 0.08);
+    }
+
+    /* Overlays decelerate from their trigger edge, not the viewport centre. */
+    .dropdown-content { transform-origin: top; }
+}
+
+/* ===========================================================================
+   Accessibility — honour a reduced-motion request by removing motion entirely.
+   Covers everything above AND third-party / inline animations (e.g. the
+   welcome-page blobs), so there is one authoritative off-switch.
+   =========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
 }

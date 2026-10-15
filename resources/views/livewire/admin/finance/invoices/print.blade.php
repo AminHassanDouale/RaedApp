@@ -295,7 +295,7 @@ new #[Layout('layouts.empty')] class extends Component {
                 </div>
                 <div style="display:flex;align-items:center;gap:5px;opacity:0.45;">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="5" fill="#1d4ed8"/><path d="M6 8h12M6 12h8M6 16h10" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
-                    <span style="font-size:0.7rem;font-weight:700;color:#1d4ed8;letter-spacing:0.05em;">ScolApp SMS</span>
+                    <span style="font-size:0.7rem;font-weight:700;color:#1d4ed8;letter-spacing:0.05em;">RaedApp SMS</span>
                 </div>
             </div>
         </div>

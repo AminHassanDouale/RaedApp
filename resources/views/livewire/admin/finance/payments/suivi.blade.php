@@ -226,31 +226,28 @@ new #[Layout('layouts.app')] class extends Component {
     </x-header>
 
     {{-- Stats --}}
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        <div class="stat bg-base-100 rounded-2xl shadow-sm border border-base-200 py-4">
-            <div class="stat-figure text-success"><x-icon name="o-device-phone-mobile" class="w-8 h-8" /></div>
-            <div class="stat-title text-xs">Mobile Money encaissé</div>
-            <div class="stat-value text-success text-xl">{{ number_format($dmoneyTotal, 0, ',', ' ') }}</div>
-            <div class="stat-desc">DJF — confirmés</div>
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 stagger">
+        @php $kpis = [
+            ['label' => 'Mobile Money encaissé',  'value' => number_format($dmoneyTotal, 0, ',', ' '), 'unit' => 'DJF · confirmés',  'icon' => 'o-device-phone-mobile', 'grad' => 'from-emerald-500 to-teal-600'],
+            ['label' => 'Mobile Money en attente', 'value' => number_format($dmoneyPending),            'unit' => 'transactions',     'icon' => 'o-clock',              'grad' => 'from-amber-500 to-orange-600'],
+            ['label' => 'Caisse physique',         'value' => number_format($manualTotal, 0, ',', ' '), 'unit' => 'DJF',              'icon' => 'o-banknotes',          'grad' => 'from-violet-500 to-indigo-600'],
+            ['label' => "Encaissé aujourd'hui",    'value' => number_format($todayTotal, 0, ',', ' '),  'unit' => 'DJF · tous modes', 'icon' => 'o-calendar-days',      'grad' => 'from-cyan-500 to-sky-600'],
+        ]; @endphp
+        @foreach($kpis as $kpi)
+        <div class="relative p-5 overflow-hidden bg-base-100 rounded-2xl border border-base-200 shadow-sm hover:shadow-lg transition-shadow">
+            <div class="absolute top-0 right-0 w-24 h-24 translate-x-1/2 -translate-y-1/2 rounded-full opacity-10 bg-gradient-to-br {{ $kpi['grad'] }}"></div>
+            <div class="relative flex items-center gap-4">
+                <div class="p-3 rounded-xl bg-gradient-to-br {{ $kpi['grad'] }} shadow shrink-0">
+                    <x-icon name="{{ $kpi['icon'] }}" class="w-6 h-6 text-white" />
+                </div>
+                <div class="min-w-0">
+                    <p class="text-xs font-medium text-base-content/60 truncate">{{ $kpi['label'] }}</p>
+                    <p class="text-xl font-black text-base-content leading-tight">{{ $kpi['value'] }}</p>
+                    <p class="text-[11px] text-base-content/40">{{ $kpi['unit'] }}</p>
+                </div>
+            </div>
         </div>
-        <div class="stat bg-base-100 rounded-2xl shadow-sm border border-base-200 py-4">
-            <div class="stat-figure text-warning"><x-icon name="o-clock" class="w-8 h-8" /></div>
-            <div class="stat-title text-xs">Mobile Money en attente</div>
-            <div class="stat-value text-warning text-xl">{{ $dmoneyPending }}</div>
-            <div class="stat-desc">transactions</div>
-        </div>
-        <div class="stat bg-base-100 rounded-2xl shadow-sm border border-base-200 py-4">
-            <div class="stat-figure text-primary"><x-icon name="o-banknotes" class="w-8 h-8" /></div>
-            <div class="stat-title text-xs">Caisse physique</div>
-            <div class="stat-value text-primary text-xl">{{ number_format($manualTotal, 0, ',', ' ') }}</div>
-            <div class="stat-desc">DJF</div>
-        </div>
-        <div class="stat bg-base-100 rounded-2xl shadow-sm border border-base-200 py-4">
-            <div class="stat-figure text-cyan-500"><x-icon name="o-calendar-days" class="w-8 h-8" /></div>
-            <div class="stat-title text-xs">Encaissé aujourd'hui</div>
-            <div class="stat-value text-cyan-600 text-xl">{{ number_format($todayTotal, 0, ',', ' ') }}</div>
-            <div class="stat-desc">DJF — tous modes</div>
-        </div>
+        @endforeach
     </div>
 
     {{-- Dependent filters --}}
@@ -288,7 +285,7 @@ new #[Layout('layouts.app')] class extends Component {
                         <span class="text-base-content/60">{{ $pct }}% · {{ number_format($c->collected, 0, ',', ' ') }} / {{ number_format($c->expected, 0, ',', ' ') }}</span>
                     </div>
                     <div class="w-full bg-base-200 rounded-full h-2">
-                        <div class="{{ $pct >= 80 ? 'bg-success' : ($pct >= 50 ? 'bg-warning' : 'bg-error') }} h-2 rounded-full" style="width:{{ $pct }}%"></div>
+                        <div class="{{ $pct >= 80 ? 'bg-success' : ($pct >= 50 ? 'bg-warning' : 'bg-error') }} h-2 rounded-full transition-all duration-700 ease-out" style="width:{{ $pct }}%"></div>
                     </div>
                 </div>
                 @empty
@@ -307,7 +304,7 @@ new #[Layout('layouts.app')] class extends Component {
                         <span class="text-base-content/60">{{ $pct }}% · {{ number_format($e->collected, 0, ',', ' ') }} / {{ number_format($e->expected, 0, ',', ' ') }}</span>
                     </div>
                     <div class="w-full bg-base-200 rounded-full h-2">
-                        <div class="{{ $pct >= 80 ? 'bg-success' : ($pct >= 50 ? 'bg-warning' : 'bg-error') }} h-2 rounded-full" style="width:{{ $pct }}%"></div>
+                        <div class="{{ $pct >= 80 ? 'bg-success' : ($pct >= 50 ? 'bg-warning' : 'bg-error') }} h-2 rounded-full transition-all duration-700 ease-out" style="width:{{ $pct }}%"></div>
                     </div>
                 </div>
                 @empty
@@ -372,8 +369,9 @@ new #[Layout('layouts.app')] class extends Component {
                     </td>
                     <td class="text-xs text-base-content/60">{{ $pay->receivedBy?->name ?? '—' }}</td>
                     <td>
-                        @if($pay->meta['proof_screenshot'] ?? null)
-                        <a href="{{ Storage::url($pay->meta['proof_screenshot']) }}" target="_blank" class="btn btn-xs btn-ghost text-primary"><x-icon name="o-photo" class="w-4 h-4" /></a>
+                        @php $proof = data_get($pay->meta, 'proof_screenshot'); @endphp
+                        @if($proof)
+                        <a href="{{ Storage::url($proof) }}" target="_blank" class="btn btn-xs btn-ghost text-primary"><x-icon name="o-photo" class="w-4 h-4" /></a>
                         @else <span class="text-base-content/30 text-xs">—</span> @endif
                     </td>
                 </tr>

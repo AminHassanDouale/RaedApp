@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Abonnement expiré — ScolApp</title>
+    <title>Abonnement expiré — RaedApp</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="min-h-screen bg-base-200 flex items-center justify-center p-4">
@@ -15,10 +15,10 @@
         </div>
         <div>
             <h1 class="text-2xl font-bold text-gray-900">Abonnement expiré</h1>
-            <p class="text-gray-600 mt-2">Votre abonnement ScolApp a expiré. Veuillez renouveler pour continuer à accéder à la plateforme.</p>
+            <p class="text-gray-600 mt-2">Votre abonnement RaedApp a expiré. Veuillez renouveler pour continuer à accéder à la plateforme.</p>
         </div>
         <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm text-amber-800">
-            Contactez votre administrateur ou le support ScolApp pour renouveler votre abonnement.
+            Contactez votre administrateur ou le support RaedApp pour renouveler votre abonnement.
         </div>
         <a href="{{ route('login') }}" class="btn btn-ghost btn-sm">Retour à la connexion</a>
     </div>

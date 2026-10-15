@@ -1,0 +1,31 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="RaedApp">
+  <defs>
+    <linearGradient id="raedBrand" x1="40" y1="40" x2="472" y2="472" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7c3aed"/>
+      <stop offset="0.48" stop-color="#d946ef"/>
+      <stop offset="1" stop-color="#22d3ee"/>
+    </linearGradient>
+    <linearGradient id="raedShine" x1="256" y1="40" x2="256" y2="300" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Brand squircle tile -->
+  <rect x="24" y="24" width="464" height="464" rx="116" fill="url(#raedBrand)"/>
+  <rect x="24" y="24" width="464" height="232" rx="116" fill="url(#raedShine)"/>
+
+  <!-- Graduation cap (education mark) -->
+  <g fill="#ffffff">
+    <!-- cap head / base that tucks under the board -->
+    <path d="M188 212 L324 212 L324 258 C324 292 296 310 256 310 C216 310 188 292 188 258 Z" fill-opacity="0.92"/>
+    <!-- mortarboard -->
+    <path d="M256 150 L392 200 L256 250 L120 200 Z"/>
+    <!-- center button -->
+    <circle cx="256" cy="200" r="11" fill="#7c3aed"/>
+    <!-- tassel cord + bead -->
+    <path d="M392 200 L392 286" stroke="#ffffff" stroke-width="9" stroke-linecap="round"/>
+    <circle cx="392" cy="300" r="13"/>
+    <path d="M392 313 L392 338" stroke="#ffffff" stroke-width="7" stroke-linecap="round"/>
+  </g>
+</svg>
