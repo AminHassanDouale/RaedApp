@@ -78,7 +78,7 @@ new #[Layout('layouts.app')] class extends Component {
 ?>
 
 <div>
-    <x-header title="API Paiement D-Money" subtitle="Passerelle api.scolapp.com — aucune authentification requise" separator>
+    <x-header title="API Paiement D-Money" subtitle="Passerelle api.raedapp.com — aucune authentification requise" separator>
         <x-slot:actions>
             <x-button label="Transactions locales" icon="o-banknotes"
                       link="{{ route('admin.billing.index') }}" class="btn-ghost btn-sm" />

@@ -115,7 +115,7 @@ class SeedSchoolTestUsers extends Command
         $this->info("Comptes de test — {$school->name} [{$school->code}]");
         $this->table(['Rôle', 'Email', 'Mot de passe'], $this->rows);
         $this->newLine();
-        $this->line('super-admin : admin@scolapp.com / password (accès plateforme, toutes les écoles)');
+        $this->line('super-admin : admin@raedapp.com / password (accès plateforme, toutes les écoles)');
 
         return self::SUCCESS;
     }

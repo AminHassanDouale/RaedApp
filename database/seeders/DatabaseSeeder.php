@@ -51,14 +51,14 @@ class DatabaseSeeder extends Seeder
         // ── 3. Demo Users (school-level roles) ────────────────────────────────
         $demoUsers = [
             // Platform
-            ['email' => 'admin@scolapp.com',       'name' => 'Super Admin',      'role' => 'super-admin', 'school_id' => null],
+            ['email' => 'admin@raedapp.com',       'name' => 'Super Admin',      'role' => 'super-admin', 'school_id' => null],
             // Admin panel roles
-            ['email' => 'directeur@scolapp.com',   'name' => 'Ahmed Diriye',     'role' => 'admin',       'school_id' => $school->id],
-            ['email' => 'proviseur@scolapp.com',   'name' => 'Khadija Abdi',     'role' => 'director',    'school_id' => $school->id],
-            ['email' => 'comptable@scolapp.com',   'name' => 'Mariam Osman',     'role' => 'accountant',  'school_id' => $school->id],
+            ['email' => 'directeur@raedapp.com',   'name' => 'Ahmed Diriye',     'role' => 'admin',       'school_id' => $school->id],
+            ['email' => 'proviseur@raedapp.com',   'name' => 'Khadija Abdi',     'role' => 'director',    'school_id' => $school->id],
+            ['email' => 'comptable@raedapp.com',   'name' => 'Mariam Osman',     'role' => 'accountant',  'school_id' => $school->id],
             // Portal-only roles
-            ['email' => 'caissier@scolapp.com',    'name' => 'Hassan Caissier',  'role' => 'caissier',    'school_id' => $school->id],
-            ['email' => 'surveillant@scolapp.com', 'name' => 'Omar Surveillant', 'role' => 'monitor',     'school_id' => $school->id],
+            ['email' => 'caissier@raedapp.com',    'name' => 'Hassan Caissier',  'role' => 'caissier',    'school_id' => $school->id],
+            ['email' => 'surveillant@raedapp.com', 'name' => 'Omar Surveillant', 'role' => 'monitor',     'school_id' => $school->id],
         ];
 
         foreach ($demoUsers as $data) {
@@ -160,12 +160,12 @@ class DatabaseSeeder extends Seeder
         $this->command->table(
             ['Rôle', 'Email', 'Mot de passe', 'Portail'],
             [
-                ['super-admin', 'admin@scolapp.com',              'password', '/platform — gestion plateforme SaaS'],
-                ['admin',       'directeur@scolapp.com',           'password', '/admin    — tout sauf rôles'],
-                ['director',    'proviseur@scolapp.com',           'password', '/admin    — académique + lecture finance'],
-                ['accountant',  'comptable@scolapp.com',           'password', '/admin    — finance complète'],
-                ['caissier',    'caissier@scolapp.com',            'password', '/caissier — paiements + factures'],
-                ['monitor',     'surveillant@scolapp.com',         'password', '/monitor  — présences + élèves'],
+                ['super-admin', 'admin@raedapp.com',              'password', '/platform — gestion plateforme SaaS'],
+                ['admin',       'directeur@raedapp.com',           'password', '/admin    — tout sauf rôles'],
+                ['director',    'proviseur@raedapp.com',           'password', '/admin    — académique + lecture finance'],
+                ['accountant',  'comptable@raedapp.com',           'password', '/admin    — finance complète'],
+                ['caissier',    'caissier@raedapp.com',            'password', '/caissier — paiements + factures'],
+                ['monitor',     'surveillant@raedapp.com',         'password', '/monitor  — présences + élèves'],
                 ['teacher',     'amina.hassan@ecole-demo.dj',     'password', '/teacher  — EDT + présences + notes'],
                 ['guardian',    'abdi.hassan1@parent.ecole-demo.dj',  'password', '/guardian — enfants + factures + notes'],
                 ['student',     'amina.hassan1@eleve.ecole-demo.dj',  'password', '/student  — EDT + notes + présences'],

@@ -146,7 +146,7 @@ class BillingApiService
             throw new \RuntimeException('D-Money est temporairement indisponible. Veuillez réessayer plus tard.');
         }
 
-        $notifyUrl = config('billing.notify_url', 'https://scolapp.com/webhooks/billing');
+        $notifyUrl = config('billing.notify_url', 'https://raedapp.com/webhooks/billing');
 
         return $this->createPayment(
             $amountDjf,

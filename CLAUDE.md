@@ -6,9 +6,13 @@ Guidance for working in this repository. Read this first.
 
 **RaedApp** — a multi-tenant SaaS **school management platform** (SMS) for schools in
 Djibouti / French-speaking regions. One Laravel app serves many schools; the UI is in
-**French** (routes, labels, UI strings), with locale switching for `fr` / `en` / `ar`.
+**French** (routes, labels, UI strings). **French is the default locale** (`config/app.php`
+`locale`/`fallback_locale` = `fr`, and the `users.ui_lang` column defaults to `fr`). Users switch
+between `fr` / `en` / `ar` (Arabic renders **RTL**) via the in-app language switcher; the choice is
+saved to `User::$ui_lang` and resolved per request by the `SetLocale` middleware. Only the nav menu
+and enums are fully translated across all three — most body text is hardcoded French by design.
 
-Formerly branded "ScolApp" (the billing API and seed emails still use `scolapp.com`).
+Formerly branded "ScolApp" — now fully rebranded to **RaedApp**; emails, seed logins, and the billing API default all use `raedapp.com`.
 
 ## Stack
 
@@ -66,7 +70,13 @@ don't carry admin permissions (except `caissier`, which keeps `invoices.*`/`paym
 ### Layout per portal
 Each portal has a dedicated Blade layout in `resources/views/layouts/`
 (`app`, `platform`, `teacher`, `monitor`, `guardian`, `student`, `caissier`, `guest`, `empty`).
-Volt components declare theirs with `#[Layout('layouts.app')]`.
+Volt components declare theirs with `#[Layout('layouts.app')]`. All layouts carry the language
+switcher + dynamic `dir` (RTL for `ar`); the `guest` layout is the split-screen login/register shell.
+
+> ⚠️ **Public landing page gotcha:** `resources/views/welcome.blade.php` (route `/`) is a
+> **standalone** page that loads **CDN Tailwind v3 + Alpine** with its own inline `<style>`/`<script>` —
+> it does **NOT** use the compiled Vite build, DaisyUI, Mary UI, or the app's Tailwind 4 config.
+> Edit its inline CSS/JS directly; the app's utility classes/tokens don't apply there.
 
 ### Code organization (`app/`)
 - **`Models/`** — Eloquent models. Shared traits in `app/Traits/`: `BelongsToSchool`, `HasUuid`
@@ -104,7 +114,8 @@ Views mirror the route tree under `resources/views/livewire/{admin,platform,port
 ## Integrations
 
 - **D-Money / Billing API** (`config/billing.php`, `BillingApiService`, `app/Models/DmoneyTransaction`):
-  payment gateway at `api.scolapp.com`. Create payment → poll notify endpoint for status.
+  gateway host from `BILLING_API_URL` (default `api.raedapp.com` — set the real host in `.env`).
+  Create payment → poll notify endpoint for status.
   Gated by `DMONEY_ENABLED`. Guardian portal pays invoices through it; callbacks at
   `/guardian/paiement/{succes,annule}`.
 - **Webhook** `POST /webhooks/billing` — **CSRF-exempt** (see `bootstrap/app.php`), verified via
@@ -125,9 +136,9 @@ Attendance: `AttendanceSession` → `AttendanceEntry`. Timetable: `TimetableTemp
 ## Local demo data
 
 `php artisan migrate:fresh --seed` creates "École Démo RaedApp" (pro plan) with test logins
-(all password `password`): `admin@scolapp.com` (super-admin), `directeur@scolapp.com` (admin),
-`proviseur@scolapp.com` (director), `comptable@scolapp.com` (accountant),
-`caissier@scolapp.com`, `surveillant@scolapp.com`, plus generated teacher/guardian/student
+(all password `password`): `admin@raedapp.com` (super-admin), `directeur@raedapp.com` (admin),
+`proviseur@raedapp.com` (director), `comptable@raedapp.com` (accountant),
+`caissier@raedapp.com`, `surveillant@raedapp.com`, plus generated teacher/guardian/student
 accounts (see the table printed at the end of `DatabaseSeeder`).
 
 ## Conventions to follow
@@ -136,4 +147,6 @@ accounts (see the table printed at the end of `DatabaseSeeder`).
 - Scope every tenant query by `school_id`. Never trust an unscoped `Model::find()` for tenant data.
 - Use existing Enums and Actions/Services rather than inlining business logic in Volt components.
 - Reference models in routes/links by `uuid`.
+- **Brand logo:** `public/images/logoraedapp.png` — used across all layouts (nav/sidebar/footer), the
+  login shell, the `School` logo fallback, the payment email, and the favicon. Swap this one file to rebrand.
 - Run `./vendor/bin/pint` before committing.

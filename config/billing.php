@@ -4,11 +4,11 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | D-Money Payment Gateway — api.scolapp.com
+    | D-Money Payment Gateway — api.raedapp.com
     |--------------------------------------------------------------------------
     */
 
-    'api_url'    => env('BILLING_API_URL', 'https://api.scolapp.com'),
+    'api_url'    => env('BILLING_API_URL', 'https://api.raedapp.com'),
 
     /*
     | API key sent as Bearer token in the Authorization header.
@@ -21,7 +21,7 @@ return [
     | D-Money POSTs here; the gateway saves it to MySQL.
     | Laravel then polls GET /payment/notify/{order_id} to read the status.
     */
-    'notify_url' => env('BILLING_NOTIFY_URL', 'https://api.scolapp.com/payment/notify'),
+    'notify_url' => env('BILLING_NOTIFY_URL', 'https://api.raedapp.com/payment/notify'),
 
     /*
     | Set DMONEY_ENABLED=false in .env to disable D-Money payments gracefully
