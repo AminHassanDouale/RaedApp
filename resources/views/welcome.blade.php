@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-site-verification" content="T6i8BoKlXo1erZxpC-sPsDh6-UuMh53M_h1xkGJMtfw" />
     @php
         $seoTitle = 'RaedApp — Logiciel de gestion scolaire tout-en-un';
         $seoDesc  = "RaedApp est la plateforme de gestion scolaire nouvelle génération pour les écoles de Djibouti et d'Afrique francophone : inscriptions, présences, notes & bulletins, finances et communication réunies. Paiement en ligne de la scolarité (D-Money, Waafi, CAC Pay, Exim Pay) et notifications Email + WhatsApp automatiques.";
