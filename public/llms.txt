@@ -1,0 +1,21 @@
+# RaedApp
+
+> RaedApp est une plateforme SaaS de gestion scolaire tout-en-un pour les écoles de Djibouti et d'Afrique francophone. Elle réunit inscriptions, présences, notes & bulletins, finances et communication dans une seule plateforme en ligne.
+
+Key facts:
+- 100% en ligne (aucune installation), multi-écoles (SaaS).
+- Paiement de la scolarité en ligne : D-Money, Waafi, CAC Pay, Exim Pay — avec reçus PDF automatiques.
+- Notifications automatiques par Email + WhatsApp (reçus, absences, rappels d'échéance, relances).
+- Interface trilingue : français (par défaut), arabe (droite-à-gauche) et anglais.
+- 7 portails dédiés : administration, enseignant, surveillant, parent, élève, caissier, plateforme.
+
+## Fonctionnalités
+- Académique : inscriptions, cycles/niveaux/classes, matières, notes, bulletins, présences, emplois du temps, salles.
+- Finance : barèmes de frais, factures, paiements en ligne & au guichet, réconciliation, recouvrement et relances automatisées.
+- Communication : annonces, messagerie, notifications Email + WhatsApp.
+
+## Liens
+- Accueil : https://raedapp.tech/
+- Créer un compte : https://raedapp.tech/signup
+- Se connecter : https://raedapp.tech/login
+- Contact : contact@raedapp.com

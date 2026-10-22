@@ -173,10 +173,10 @@ new #[Layout('layouts.app')] class extends Component {
         <x-button label="Créer une classe" icon="o-plus" wire:click="$set('showCreate', true)" class="btn-primary" />
     </div>
     @else
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 stagger">
         @foreach($classes as $class)
         @php $fillRate = $class->capacity > 0 ? min(100, round(($class->enrollments_count / $class->capacity) * 100)) : 0; @endphp
-        <x-card wire:key="class-{{ $class->id }}" class="hover:shadow-md transition-shadow">
+        <x-card wire:key="class-{{ $class->id }}" class="hover-lift">
             <div class="flex items-start justify-between mb-2">
                 <div>
                     <h3 class="font-black text-lg">{{ $class->name }}</h3>

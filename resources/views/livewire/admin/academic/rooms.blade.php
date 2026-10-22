@@ -152,9 +152,9 @@ new #[Layout('layouts.app')] class extends Component {
         <x-select wire:model.live="stateFilter" :options="$stateOptions" class="max-w-[10rem]" />
     </div>
 
-    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 stagger">
         @forelse($rooms as $room)
-        <x-card class="{{ !$room->is_active ? 'opacity-60' : '' }} hover:shadow-md transition-shadow">
+        <x-card class="{{ !$room->is_active ? 'opacity-60' : '' }} hover-lift">
             <div class="flex items-start justify-between mb-3">
                 <div class="flex items-center gap-2">
                     <div class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">

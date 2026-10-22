@@ -110,23 +110,21 @@ new #[Layout('layouts.app')] class extends Component {
     </div>
 
     {{-- Stats --}}
-    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
-        <div class="rounded-2xl bg-gradient-to-br from-primary to-primary/70 p-4 text-primary-content">
-            <p class="text-sm opacity-80">Années scolaires</p>
-            <p class="text-3xl font-black mt-1">{{ $stats['years'] }}</p>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6 stagger">
+        @foreach([
+            ['label' => 'Années scolaires',        'value' => $stats['years'],   'icon' => 'o-calendar',         'grad' => 'from-primary to-primary/70',     'text' => 'text-primary-content'],
+            ['label' => 'Cycles',                   'value' => $stats['cycles'],  'icon' => 'o-squares-2x2',      'grad' => 'from-secondary to-secondary/70', 'text' => 'text-secondary-content'],
+            ['label' => 'Niveaux',                  'value' => $stats['grades'],  'icon' => 'o-academic-cap',     'grad' => 'from-accent to-accent/70',       'text' => 'text-accent-content'],
+            ['label' => 'Classes (année en cours)', 'value' => $stats['classes'], 'icon' => 'o-building-library', 'grad' => 'from-info to-info/70',           'text' => 'text-info-content'],
+        ] as $s)
+        <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br {{ $s['grad'] }} p-4 {{ $s['text'] }} hover-lift">
+            <x-icon name="{{ $s['icon'] }}" class="absolute -right-3 -top-3 w-20 h-20 opacity-15" />
+            <div class="relative flex items-center gap-1.5 text-sm opacity-90">
+                <x-icon name="{{ $s['icon'] }}" class="w-4 h-4" /> {{ $s['label'] }}
+            </div>
+            <p class="relative text-3xl font-black mt-1">{{ $s['value'] }}</p>
         </div>
-        <div class="rounded-2xl bg-gradient-to-br from-secondary to-secondary/70 p-4 text-secondary-content">
-            <p class="text-sm opacity-80">Cycles</p>
-            <p class="text-3xl font-black mt-1">{{ $stats['cycles'] }}</p>
-        </div>
-        <div class="rounded-2xl bg-gradient-to-br from-accent to-accent/70 p-4 text-accent-content">
-            <p class="text-sm opacity-80">Niveaux</p>
-            <p class="text-3xl font-black mt-1">{{ $stats['grades'] }}</p>
-        </div>
-        <div class="rounded-2xl bg-gradient-to-br from-info to-info/70 p-4 text-info-content">
-            <p class="text-sm opacity-80">Classes (année en cours)</p>
-            <p class="text-3xl font-black mt-1">{{ $stats['classes'] }}</p>
-        </div>
+        @endforeach
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">

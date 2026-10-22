@@ -130,3 +130,44 @@
         scroll-behavior: auto !important;
     }
 }
+
+/* ===========================================================================
+   RaedApp brand theme
+   Re-skin DaisyUI's primary / secondary / accent + soften corner radii so every
+   btn-primary, text-primary, badge, focus ring and card across ALL portals
+   (admin, platform, teacher, monitor, guardian, student, caissier) adopts the
+   brand — violet → fuchsia → cyan — in one place. Cascades to every view.
+   =========================================================================== */
+[data-theme="light"],
+[data-theme="dark"] {
+    --color-primary:           oklch(55% 0.24 294);    /* violet  (#7c3aed-ish) */
+    --color-primary-content:   oklch(98% 0.012 294);
+    --color-secondary:         oklch(66% 0.26 322);    /* fuchsia (#d946ef-ish) */
+    --color-secondary-content: oklch(98% 0.012 322);
+    --color-accent:            oklch(72% 0.13 215);    /* cyan    (#06b6d4-ish) */
+    --color-accent-content:    oklch(25% 0.04 230);
+
+    /* Softer, more modern corner radii (cards / buttons / inputs) */
+    --radius-box:      1rem;
+    --radius-field:    0.65rem;
+    --radius-selector: 0.5rem;
+}
+
+/* ===========================================================================
+   Shared component polish — cascades to every form and card across all views.
+   =========================================================================== */
+@layer components {
+    /* Brand focus ring on every form control (Mary UI / DaisyUI inputs). */
+    .input:focus, .input:focus-within,
+    .select:focus, .textarea:focus {
+        border-color: var(--color-primary);
+        box-shadow: 0 0 0 3px color-mix(in oklch, var(--color-primary) 20%, transparent);
+        outline: none;
+    }
+
+    /* Cards read as a calm, premium surface everywhere; interactive ones opt
+       into motion with `hover-lift` (defined in the motion layer above). */
+    .card {
+        box-shadow: 0 1px 2px rgb(16 12 40 / 0.04), 0 10px 30px -16px rgb(76 29 149 / 0.16);
+    }
+}

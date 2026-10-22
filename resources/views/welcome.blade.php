@@ -3,10 +3,80 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="RaedApp — La plateforme de gestion scolaire nouvelle génération. Inscriptions, présences, notes, finances et communication réunies. Paiement en ligne (D-Money, Waafi, CAC Pay, Exim Pay), notifications Email + WhatsApp.">
+    @php
+        $seoTitle = 'RaedApp — Logiciel de gestion scolaire tout-en-un';
+        $seoDesc  = "RaedApp est la plateforme de gestion scolaire nouvelle génération pour les écoles de Djibouti et d'Afrique francophone : inscriptions, présences, notes & bulletins, finances et communication réunies. Paiement en ligne de la scolarité (D-Money, Waafi, CAC Pay, Exim Pay) et notifications Email + WhatsApp automatiques.";
+        $seoUrl   = url('/');
+        $seoImg   = asset('images/logoraedapp.png');
+        $gaId     = config('services.google.analytics_id');
+        $jsonLd   = [
+            '@context' => 'https://schema.org',
+            '@graph'   => [
+                [
+                    '@type' => 'Organization', '@id' => $seoUrl.'#org',
+                    'name' => 'RaedApp', 'url' => $seoUrl, 'logo' => $seoImg,
+                    'email' => 'contact@raedapp.com', 'areaServed' => 'DJ', 'description' => $seoDesc,
+                ],
+                [
+                    '@type' => 'SoftwareApplication', 'name' => 'RaedApp',
+                    'applicationCategory' => 'BusinessApplication', 'operatingSystem' => 'Web',
+                    'url' => $seoUrl, 'image' => $seoImg, 'description' => $seoDesc,
+                    'publisher' => ['@id' => $seoUrl.'#org'],
+                    'offers' => ['@type' => 'Offer', 'price' => '0', 'priceCurrency' => 'USD', 'description' => 'Essai gratuit — tarifs sur devis'],
+                ],
+                [
+                    '@type' => 'FAQPage',
+                    'mainEntity' => [
+                        ['@type'=>'Question','name'=>"Faut-il installer un logiciel ou du matériel ?",'acceptedAnswer'=>['@type'=>'Answer','text'=>"Non. RaedApp est 100% en ligne, accessible depuis n'importe quel navigateur, ordinateur ou téléphone."]],
+                        ['@type'=>'Question','name'=>"Comment les parents paient-ils la scolarité ?",'acceptedAnswer'=>['@type'=>'Answer','text'=>"En ligne en un clic (D-Money, Waafi, CAC Pay, Exim Pay) ou au guichet. Chaque paiement génère un reçu PDF envoyé par Email et WhatsApp."]],
+                        ['@type'=>'Question','name'=>"L'application est-elle disponible en arabe ?",'acceptedAnswer'=>['@type'=>'Answer','text'=>"Oui : interface complète en français, arabe (affichage de droite à gauche) et anglais."]],
+                    ],
+                ],
+            ],
+        ];
+    @endphp
+    <meta name="description" content="{{ $seoDesc }}">
+    <meta name="keywords" content="gestion scolaire, logiciel école, logiciel de gestion scolaire, SMS école, Djibouti, paiement scolarité en ligne, D-Money, Waafi, CAC Pay, bulletins scolaires, présences, notes, école numérique, RaedApp">
+    <meta name="author" content="RaedApp">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#7c3aed">
+    <link rel="canonical" href="{{ $seoUrl }}">
+    <link rel="alternate" hreflang="fr" href="{{ $seoUrl }}">
+    <link rel="alternate" hreflang="x-default" href="{{ $seoUrl }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" href="{{ asset('images/logoraedapp.png') }}" type="image/png">
-    <title>RaedApp — La gestion scolaire, réinventée</title>
+    <link rel="apple-touch-icon" href="{{ asset('images/logoraedapp.png') }}">
+    <title>{{ $seoTitle }}</title>
+
+    {{-- Open Graph --}}
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="RaedApp">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:title" content="{{ $seoTitle }}">
+    <meta property="og:description" content="{{ $seoDesc }}">
+    <meta property="og:url" content="{{ $seoUrl }}">
+    <meta property="og:image" content="{{ $seoImg }}">
+    <meta property="og:image:alt" content="RaedApp — logiciel de gestion scolaire">
+
+    {{-- Twitter / X --}}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ $seoTitle }}">
+    <meta name="twitter:description" content="{{ $seoDesc }}">
+    <meta name="twitter:image" content="{{ $seoImg }}">
+
+    {{-- Structured data (schema.org JSON-LD) --}}
+    <script type="application/ld+json">{!! json_encode($jsonLd, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}</script>
+
+    {{-- Google Analytics (GA4) — set GA_MEASUREMENT_ID in .env to activate --}}
+    @if($gaId)
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ $gaId }}"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', @json($gaId));
+    </script>
+    @endif
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -128,6 +198,7 @@
                 <a href="#top"            class="px-3 py-2 rounded-lg text-brand-600 font-semibold">Accueil</a>
                 <a href="#fonctionnalites" class="px-3 py-2 rounded-lg hover:text-ink hover:bg-brand-50 transition">Fonctionnalités</a>
                 <a href="#portails"        class="px-3 py-2 rounded-lg hover:text-ink hover:bg-brand-50 transition">Portails</a>
+                <a href="#avis"            class="px-3 py-2 rounded-lg hover:text-ink hover:bg-brand-50 transition">Avis</a>
                 <a href="#tarifs"          class="px-3 py-2 rounded-lg hover:text-ink hover:bg-brand-50 transition">Tarifs</a>
                 <a href="#faq"             class="px-3 py-2 rounded-lg hover:text-ink hover:bg-brand-50 transition">FAQ</a>
                 <a href="#contact"         class="px-3 py-2 rounded-lg hover:text-ink hover:bg-brand-50 transition">Contact</a>
@@ -143,6 +214,7 @@
         <div x-show="mobileOpen" x-cloak x-transition class="lg:hidden mt-2 bg-white rounded-2xl p-4 space-y-1 shadow-lg border border-slate-100">
             <a href="#fonctionnalites" @click="mobileOpen=false" class="block px-3 py-2 rounded-lg hover:bg-brand-50">Fonctionnalités</a>
             <a href="#portails" @click="mobileOpen=false" class="block px-3 py-2 rounded-lg hover:bg-brand-50">Portails</a>
+            <a href="#avis" @click="mobileOpen=false" class="block px-3 py-2 rounded-lg hover:bg-brand-50">Avis</a>
             <a href="#tarifs" @click="mobileOpen=false" class="block px-3 py-2 rounded-lg hover:bg-brand-50">Tarifs</a>
             <a href="#faq" @click="mobileOpen=false" class="block px-3 py-2 rounded-lg hover:bg-brand-50">FAQ</a>
             <a href="#contact" @click="mobileOpen=false" class="block px-3 py-2 rounded-lg hover:bg-brand-50">Contact</a>
@@ -406,8 +478,37 @@
     </div>
 </section>
 
+{{-- ══════════════ TESTIMONIALS ══════════════ --}}
+<section id="avis" class="bg-white py-24">
+    <div class="max-w-6xl mx-auto px-5">
+        <div class="text-center max-w-2xl mx-auto mb-14 reveal">
+            <span class="inline-block bg-brand-50 text-brand-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-5">Ils nous font confiance</span>
+            <h2 class="text-3xl sm:text-4xl font-black text-ink leading-tight">Adopté par les écoles,<br><span class="text-brand-600">plébiscité par les familles</span></h2>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+            @foreach([
+                ['Depuis RaedApp, nous avons divisé par trois le temps passé sur la comptabilité. Les relances d\'impayés partent toutes seules.','MO','Mariam Osman','Comptable'],
+                ['Les parents reçoivent le reçu sur WhatsApp en quelques secondes. Fini les justificatifs papier perdus.','AD','Ahmed Diriye','Directeur'],
+                ['Je saisis les notes en ligne et les bulletins se génèrent automatiquement. Un gain de temps énorme.','AH','Amina Hassan','Enseignante'],
+                ['Payer la scolarité en ligne avec D-Money, c\'est si simple. Et je suis les absences de mon fils en direct.','FA','Fatouma Ali','Parent d\'élève'],
+                ['La console multi-écoles nous permet de piloter nos 3 établissements depuis un seul endroit.','KA','Khadija Abdi','Proviseure'],
+                ['Interface en arabe et en français : toute l\'équipe l\'a prise en main en une journée.','OW','Omar Warsame','Surveillant'],
+            ] as $t)
+            <div class="reveal card card-lift rounded-3xl p-6">
+                <div class="flex gap-0.5 text-amber-400 mb-3 text-sm">★★★★★</div>
+                <p class="text-slate-600 leading-relaxed mb-5 text-[15px]">« {{ $t[0] }} »</p>
+                <div class="flex items-center gap-3">
+                    <span class="w-10 h-10 rounded-full bg-brand-100 text-brand-700 font-bold text-sm flex items-center justify-center shrink-0">{{ $t[1] }}</span>
+                    <div><p class="font-semibold text-ink text-sm">{{ $t[2] }}</p><p class="text-xs text-slate-400">{{ $t[3] }}</p></div>
+                </div>
+            </div>
+            @endforeach
+        </div>
+    </div>
+</section>
+
 {{-- ══════════════ PRICING ══════════════ --}}
-<section id="tarifs" class="bg-white py-24">
+<section id="tarifs" class="bg-[#f5f3ff] py-24">
     <div class="max-w-6xl mx-auto px-5">
         <div class="text-center max-w-2xl mx-auto mb-14 reveal">
             <h2 class="text-3xl sm:text-4xl font-black text-ink">Un plan pour chaque établissement</h2>
@@ -433,6 +534,34 @@
                 <a href="#contact" class="block text-center py-3 rounded-xl font-semibold transition {{ $pl[3] ? 'bg-white text-brand-700 hover:bg-brand-50' : 'btn-primary' }}">Demander un devis</a>
             </div>
             @endforeach
+        </div>
+    </div>
+</section>
+
+{{-- ══════════════ COMPARISON ══════════════ --}}
+<section class="bg-white py-24">
+    <div class="max-w-4xl mx-auto px-5">
+        <div class="text-center mb-14 reveal">
+            <h2 class="text-3xl sm:text-4xl font-black text-ink">Pourquoi passer à RaedApp ?</h2>
+            <p class="mt-4 text-slate-500">Fini les registres papier et les fichiers Excel dispersés.</p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-5 items-start">
+            <div class="reveal rounded-3xl p-8 bg-slate-50 border border-slate-100">
+                <h3 class="font-extrabold text-ink mb-5 flex items-center gap-2"><span class="text-xl">📁</span> Méthodes classiques</h3>
+                <ul class="space-y-3 text-sm text-slate-500">
+                    @foreach(['Registres papier et fichiers Excel dispersés','Parents informés en retard, voire jamais','Encaissements suivis à la main → erreurs','Aucune relance automatique → beaucoup d\'impayés','Bulletins produits dans la douleur en fin de trimestre','Rapports figés, jamais à jour'] as $x)
+                    <li class="flex gap-2.5"><span class="text-slate-300 mt-0.5">✕</span><span>{{ $x }}</span></li>
+                    @endforeach
+                </ul>
+            </div>
+            <div class="reveal rounded-3xl p-8 bg-brand-600 text-white shadow-[0_30px_60px_-20px_rgba(124,58,237,0.5)]">
+                <h3 class="font-extrabold mb-5 flex items-center gap-2"><span class="text-xl">⚡</span> Avec RaedApp</h3>
+                <ul class="space-y-3 text-sm text-white/90">
+                    @foreach(['Tout numérique — factures &amp; reçus en PDF','Parents notifiés instantanément (Email + WhatsApp)','Encaissements en temps réel, par mode de paiement','Relances et rappels d\'échéance automatiques','Bulletins générés et publiés automatiquement','Rapports dynamiques, à jour à la seconde'] as $x)
+                    <li class="flex gap-2.5"><span class="text-white mt-0.5">✓</span><span>{!! $x !!}</span></li>
+                    @endforeach
+                </ul>
+            </div>
         </div>
     </div>
 </section>

@@ -15,7 +15,7 @@ new #[Layout('layouts.app')] class extends Component {
     // Form
     public string $cf_name               = '';
     public string $cf_code               = '';
-    public string $cf_color              = '#6366f1';
+    public string $cf_color              = '#7c3aed';
     public float  $cf_default_coefficient = 1;
     public bool   $cf_is_active          = true;
 
@@ -47,7 +47,7 @@ new #[Layout('layouts.app')] class extends Component {
         $this->editId                = $id;
         $this->cf_name               = $subject->name;
         $this->cf_code               = $subject->code;
-        $this->cf_color              = $subject->color ?? '#6366f1';
+        $this->cf_color              = $subject->color ?? '#7c3aed';
         $this->cf_default_coefficient = $subject->default_coefficient ?? 1;
         $this->cf_is_active          = $subject->is_active ?? true;
         $this->showEdit              = true;
@@ -89,7 +89,7 @@ new #[Layout('layouts.app')] class extends Component {
     private function resetForm(): void
     {
         $this->cf_name = $this->cf_code = '';
-        $this->cf_color = '#6366f1';
+        $this->cf_color = '#7c3aed';
         $this->cf_default_coefficient = 1;
         $this->cf_is_active = true;
         $this->editId = 0;
@@ -123,13 +123,13 @@ new #[Layout('layouts.app')] class extends Component {
                  icon="o-magnifying-glass" clearable class="flex-1 max-w-sm" />
     </div>
 
-    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 stagger">
         @forelse($subjects as $subject)
-        <x-card class="{{ !$subject->is_active ? 'opacity-60' : '' }} hover:shadow-md transition-shadow">
+        <x-card class="{{ !$subject->is_active ? 'opacity-60' : '' }} hover-lift">
             <div class="flex items-start justify-between mb-3">
                 <div class="flex items-center gap-2">
                     <div class="w-8 h-8 rounded-lg"
-                         style="background-color: {{ $subject->color ?? '#6366f1' }}30; border: 2px solid {{ $subject->color ?? '#6366f1' }}">
+                         style="background-color: {{ $subject->color ?? '#7c3aed' }}30; border: 2px solid {{ $subject->color ?? '#7c3aed' }}">
                     </div>
                     <span class="text-xs font-mono font-bold text-base-content/60">{{ $subject->code }}</span>
                 </div>
@@ -142,7 +142,7 @@ new #[Layout('layouts.app')] class extends Component {
                 </div>
             </div>
 
-            <h3 class="font-bold mb-1" style="color: {{ $subject->color ?? '#6366f1' }}">{{ $subject->name }}</h3>
+            <h3 class="font-bold mb-1" style="color: {{ $subject->color ?? '#7c3aed' }}">{{ $subject->name }}</h3>
 
             <div class="flex items-center gap-3 text-xs text-base-content/60 mb-2">
                 <span>×{{ $subject->default_coefficient }}</span>
@@ -157,7 +157,7 @@ new #[Layout('layouts.app')] class extends Component {
                 <x-badge value="Inactive" class="badge-ghost badge-xs" />
                 @endif
                 <input type="checkbox" class="toggle toggle-success toggle-xs"
-                       :checked="{{ $subject->is_active ? 'true' : 'false' }}"
+                       @checked($subject->is_active)
                        wire:click="toggleActive({{ $subject->id }})" />
             </div>
         </x-card>

@@ -48,4 +48,9 @@ return [
         ],
     ],
 
+    // Google Analytics (GA4). Set GA_MEASUREMENT_ID=G-XXXXXXXXXX in .env to enable.
+    'google' => [
+        'analytics_id' => env('GA_MEASUREMENT_ID'),
+    ],
+
 ];

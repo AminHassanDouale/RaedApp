@@ -1,2 +1,13 @@
 User-agent: *
-Disallow:
+Allow: /
+# Keep private app areas out of search indexes (they are auth-gated anyway)
+Disallow: /admin
+Disallow: /platform
+Disallow: /teacher
+Disallow: /monitor
+Disallow: /guardian
+Disallow: /student
+Disallow: /caissier
+Disallow: /profil
+
+Sitemap: https://raedapp.tech/sitemap.xml

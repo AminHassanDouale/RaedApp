@@ -132,9 +132,9 @@ new #[Layout('layouts.app')] class extends Component {
     @php $cycleName = $cycleGrades->first()->academicCycle?->name ?? 'Sans cycle'; @endphp
     <div wire:key="cycle-group-{{ $cycleId }}" class="mb-6">
         <h3 class="font-bold text-base-content/60 text-sm uppercase tracking-wider mb-3">{{ $cycleName }}</h3>
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 stagger">
             @foreach($cycleGrades as $grade)
-            <x-card wire:key="grade-{{ $grade->id }}" class="hover:shadow-md transition-shadow">
+            <x-card wire:key="grade-{{ $grade->id }}" class="hover-lift">
                 <div class="flex items-start justify-between">
                     <div>
                         <span class="badge badge-outline badge-xs font-mono mb-1">{{ $grade->code }}</span>

@@ -157,9 +157,9 @@ new #[Layout('layouts.app')] class extends Component {
     </x-header>
 
     {{-- Cycles grid --}}
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 stagger">
         @forelse($cycles as $cycle)
-        <x-card wire:key="cycle-{{ $cycle->id }}">
+        <x-card wire:key="cycle-{{ $cycle->id }}" class="hover-lift">
             <div class="flex items-start justify-between mb-3">
                 <div>
                     <div class="flex items-center gap-2 mb-1">
