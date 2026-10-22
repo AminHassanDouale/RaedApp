@@ -23,9 +23,12 @@ return new class extends Migration
         // Migrate data
         DB::statement("UPDATE students SET name = TRIM(CONCAT(COALESCE(first_name,''), ' ', COALESCE(last_name,'')))");
 
-        // Drop the index on last_name first — SQLite refuses to drop a column
-        // while an index still references it (no-op/safe on other drivers).
-        if (Schema::hasIndex('students', ['school_id', 'last_name'])) {
+        // SQLite refuses to drop a column while an index references it, so the
+        // index must go first there. On MySQL the column drop updates the index
+        // automatically, and an *explicit* drop fails ("needed in a foreign key
+        // constraint") because the school_id FK relies on it — so skip it there.
+        if (Schema::getConnection()->getDriverName() === 'sqlite'
+            && Schema::hasIndex('students', ['school_id', 'last_name'])) {
             Schema::table('students', function (Blueprint $table) {
                 $table->dropIndex(['school_id', 'last_name']);
             });
