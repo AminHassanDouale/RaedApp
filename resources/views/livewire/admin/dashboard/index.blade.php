@@ -185,12 +185,12 @@ new #[Layout('layouts.app')] class extends Component
             <div class="flex flex-wrap items-end gap-2">
                 <x-select wire:model.live="preset" class="select-sm w-44"
                           :options="[
-                            ['id' => 'this_month',  'name' => 'Ce mois-ci'],
-                            ['id' => 'last_month',  'name' => 'Mois dernier'],
-                            ['id' => 'last30',      'name' => '30 derniers jours'],
-                            ['id' => 'year',        'name' => 'Cette année'],
-                            ['id' => 'school_year', 'name' => 'Année scolaire'],
-                            ['id' => 'custom',      'name' => 'Personnalisé'],
+                            ['id' => 'this_month',  'name' => __('dashboard.range.this_month')],
+                            ['id' => 'last_month',  'name' => __('dashboard.range.last_month')],
+                            ['id' => 'last30',      'name' => __('dashboard.range.last30')],
+                            ['id' => 'year',        'name' => __('dashboard.range.year')],
+                            ['id' => 'school_year', 'name' => __('dashboard.range.school_year')],
+                            ['id' => 'custom',      'name' => __('dashboard.range.custom')],
                           ]" />
                 @if($preset === 'custom')
                 <input type="date" wire:model.live="from" class="input input-bordered input-sm" />
@@ -204,10 +204,10 @@ new #[Layout('layouts.app')] class extends Component
     {{-- KPI cards --}}
     <div class="grid grid-cols-2 gap-4 lg:grid-cols-4 stagger">
         @foreach([
-            ['label' => 'Encaissé (période)', 'value' => number_format($revenuePeriod) . ' DJF', 'icon' => 'o-banknotes',            'grad' => 'from-emerald-500 to-teal-600'],
-            ['label' => 'Paiements (période)','value' => number_format($paymentsCount),           'icon' => 'o-credit-card',          'grad' => 'from-cyan-500 to-sky-600'],
-            ['label' => 'Solde impayé',       'value' => number_format($totalBalance) . ' DJF',   'icon' => 'o-exclamation-triangle', 'grad' => 'from-amber-500 to-orange-600'],
-            ['label' => 'Nouvelles inscr.',   'value' => number_format($newEnrollments),          'icon' => 'o-user-plus',            'grad' => 'from-indigo-500 to-violet-600'],
+            ['label' => __('dashboard.kpi.collected'),       'value' => number_format($revenuePeriod) . ' DJF', 'icon' => 'o-banknotes',            'grad' => 'from-emerald-500 to-teal-600'],
+            ['label' => __('dashboard.kpi.payments'),        'value' => number_format($paymentsCount),           'icon' => 'o-credit-card',          'grad' => 'from-cyan-500 to-sky-600'],
+            ['label' => __('dashboard.kpi.unpaid'),          'value' => number_format($totalBalance) . ' DJF',   'icon' => 'o-exclamation-triangle', 'grad' => 'from-amber-500 to-orange-600'],
+            ['label' => __('dashboard.kpi.new_enrollments'), 'value' => number_format($newEnrollments),          'icon' => 'o-user-plus',            'grad' => 'from-indigo-500 to-violet-600'],
         ] as $kpi)
         <div class="relative p-5 overflow-hidden bg-base-100 shadow-lg rounded-2xl">
             <div class="absolute top-0 right-0 w-24 h-24 translate-x-1/2 -translate-y-1/2 rounded-full opacity-10 bg-gradient-to-br {{ $kpi['grad'] }}"></div>
@@ -226,22 +226,22 @@ new #[Layout('layouts.app')] class extends Component
 
     {{-- Charts row 1: revenue trend + payments by method --}}
     <div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
-        <x-card title="Évolution des encaissements" subtitle="{{ $rangeLabel }}" class="lg:col-span-2" shadow>
+        <x-card :title="__('dashboard.charts.revenue')" subtitle="{{ $rangeLabel }}" class="lg:col-span-2" shadow>
             <div wire:key="chart-revenue-{{ $chartKey }}" class="h-72">
                 @if($hasRevenue)
                 <canvas x-data x-init="new Chart($el, @js($charts['revenue']))"></canvas>
                 @else
-                <div class="h-full flex items-center justify-center text-base-content/40 text-sm">Aucun encaissement sur la période.</div>
+                <div class="h-full flex items-center justify-center text-base-content/40 text-sm">{{ __('dashboard.empty.no_revenue') }}</div>
                 @endif
             </div>
         </x-card>
 
-        <x-card title="Modes de paiement" shadow>
+        <x-card :title="__('dashboard.charts.methods')" shadow>
             <div wire:key="chart-methods-{{ $chartKey }}" class="h-72">
                 @if($hasMethods)
                 <canvas x-data x-init="new Chart($el, @js($charts['methods']))"></canvas>
                 @else
-                <div class="h-full flex items-center justify-center text-base-content/40 text-sm">Aucune donnée.</div>
+                <div class="h-full flex items-center justify-center text-base-content/40 text-sm">{{ __('dashboard.empty.no_data') }}</div>
                 @endif
             </div>
         </x-card>
@@ -249,24 +249,24 @@ new #[Layout('layouts.app')] class extends Component
 
     {{-- Charts row 2: invoices status + students by cycle + attendance --}}
     <div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
-        <x-card title="Factures par statut" shadow>
+        <x-card :title="__('dashboard.charts.invoice_status')" shadow>
             <div wire:key="chart-status-{{ $chartKey }}" class="h-64">
                 <canvas x-data x-init="new Chart($el, @js($charts['status']))"></canvas>
             </div>
         </x-card>
 
-        <x-card title="Élèves par cycle" shadow>
+        <x-card :title="__('dashboard.charts.students_cycle')" shadow>
             <div wire:key="chart-cycle-{{ $chartKey }}" class="h-64">
                 <canvas x-data x-init="new Chart($el, @js($charts['cycle']))"></canvas>
             </div>
         </x-card>
 
-        <x-card title="Présences (période)" shadow>
+        <x-card :title="__('dashboard.charts.attendance')" shadow>
             <div wire:key="chart-att-{{ $chartKey }}" class="h-64">
                 @if($hasAttendance)
                 <canvas x-data x-init="new Chart($el, @js($charts['attendance']))"></canvas>
                 @else
-                <div class="h-full flex items-center justify-center text-base-content/40 text-sm">Aucune présence enregistrée.</div>
+                <div class="h-full flex items-center justify-center text-base-content/40 text-sm">{{ __('dashboard.empty.no_attendance') }}</div>
                 @endif
             </div>
         </x-card>
@@ -284,7 +284,7 @@ new #[Layout('layouts.app')] class extends Component
                 <span class="font-bold text-emerald-600">{{ number_format($payment->amount) }} DJF</span>
             </div>
             @empty
-            <x-alert icon="o-information-circle" class="alert-info">Aucun paiement récent.</x-alert>
+            <x-alert icon="o-information-circle" class="alert-info">{{ __('dashboard.empty.no_payments') }}</x-alert>
             @endforelse
         </x-card>
 
@@ -299,7 +299,7 @@ new #[Layout('layouts.app')] class extends Component
                 <p class="text-xs text-base-content/60 line-clamp-1">{{ $ann->body }}</p>
             </div>
             @empty
-            <x-alert icon="o-information-circle" class="alert-info">Aucune annonce.</x-alert>
+            <x-alert icon="o-information-circle" class="alert-info">{{ __('dashboard.empty.no_announcements') }}</x-alert>
             @endforelse
         </x-card>
     </div>
