@@ -206,7 +206,7 @@
             </div>
             <div class="hidden lg:flex items-center gap-2">
                 <a href="{{ route('login') }}" class="btn-ghost text-sm font-semibold text-slate-700 px-4 py-2.5 rounded-xl">Se connecter</a>
-                <a href="{{ route('register') }}" data-magnetic="0.25" class="btn-primary text-sm font-semibold px-5 py-2.5 rounded-xl">Essayer maintenant</a>
+                <a href="#contact" data-magnetic="0.25" class="btn-primary text-sm font-semibold px-5 py-2.5 rounded-xl">Demander une démo</a>
             </div>
             <button @click="mobileOpen=!mobileOpen" class="lg:hidden p-2 text-ink">
                 <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
@@ -221,7 +221,7 @@
             <a href="#contact" @click="mobileOpen=false" class="block px-3 py-2 rounded-lg hover:bg-brand-50">Contact</a>
             <div class="pt-2 flex gap-2">
                 <a href="{{ route('login') }}" class="flex-1 text-center py-2.5 rounded-xl border border-slate-200 font-semibold text-sm">Connexion</a>
-                <a href="{{ route('register') }}" class="flex-1 text-center btn-primary py-2.5 rounded-xl font-semibold text-sm">Essayer</a>
+                <a href="#contact" @click="mobileOpen=false" class="flex-1 text-center btn-primary py-2.5 rounded-xl font-semibold text-sm">Démo</a>
             </div>
         </div>
     </div>
@@ -241,7 +241,7 @@
             et encaisser la scolarité en ligne, en toute sérénité.
         </p>
         <div class="mt-9 flex flex-col sm:flex-row gap-3 justify-center items-center">
-            <a href="{{ route('register') }}" data-magnetic="0.28" class="btn-primary font-semibold px-7 py-4 rounded-2xl w-full sm:w-auto">Créer mon compte</a>
+            <a href="#contact" data-magnetic="0.28" class="btn-primary font-semibold px-7 py-4 rounded-2xl w-full sm:w-auto">Demander une démo</a>
             <a href="#demo" class="btn-ghost group flex items-center gap-3 font-semibold text-slate-700 px-5 py-4 rounded-2xl">
                 <span class="w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center text-brand-600 group-hover:scale-105 transition">
                     <svg class="w-4 h-4 ml-0.5" fill="currentColor" viewBox="0 0 20 20"><path d="M6 4l10 6-10 6V4z"/></svg>
@@ -265,7 +265,7 @@
 
         <div class="relative flex justify-center">
             {{-- Phone --}}
-            <div class="phone p-2.5 w-[300px] shrink-0 relative z-10" data-parallax="-0.12">
+            <div class="phone p-2.5 w-[270px] sm:w-[300px] shrink-0 relative z-10" data-parallax="-0.12">
                 <div class="phone-screen p-4 h-[560px]">
                     <div class="flex items-center justify-between text-[11px] font-semibold text-slate-500 px-1 pt-1">
                         <span>9:41</span>
@@ -679,7 +679,7 @@
                 <p class="font-semibold text-ink text-sm mb-4">Compte</p>
                 <ul class="space-y-2.5 text-sm text-slate-500">
                     <li><a href="{{ route('login') }}" class="hover:text-brand-600 transition">Se connecter</a></li>
-                    <li><a href="{{ route('register') }}" class="hover:text-brand-600 transition">Créer un compte</a></li>
+                    <li><a href="#contact" class="hover:text-brand-600 transition">Demander une démo</a></li>
                     <li><a href="#contact" class="hover:text-brand-600 transition">Demander une démo</a></li>
                 </ul>
             </div>

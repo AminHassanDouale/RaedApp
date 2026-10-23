@@ -33,6 +33,12 @@
     text-align: right;
 }
 
+/* ── Responsive safety net ──────────────────────────────────────────────────
+   Never let any page scroll sideways on phones. Wide content (tables, code,
+   diagrams) scrolls inside its own container, not the body. */
+html, body { max-width: 100%; overflow-x: hidden; }
+.table-wrap, .table-responsive { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
 /* ===========================================================================
    Motion — keyframes
    =========================================================================== */

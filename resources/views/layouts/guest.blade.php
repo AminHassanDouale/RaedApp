@@ -75,15 +75,7 @@
     </div>
 
     {{-- Right panel — form --}}
-    <div class="relative w-full lg:w-1/2 xl:w-2/5 flex flex-col items-center justify-center min-h-screen px-6 py-12 bg-base-100">
-
-        {{-- Language switcher (fr / en / ar) --}}
-        <div class="absolute top-5 right-5 rtl:right-auto rtl:left-5 z-10 inline-flex items-center gap-1 rounded-full bg-base-200 p-1 text-xs font-semibold">
-            @foreach(['fr' => 'FR', 'en' => 'EN', 'ar' => 'ع'] as $code => $label)
-            <a href="{{ route('locale.switch', $code) }}"
-               class="px-2.5 py-1 rounded-full transition {{ app()->getLocale() === $code ? 'bg-primary text-primary-content' : 'text-base-content/60 hover:text-base-content' }}">{{ $label }}</a>
-            @endforeach
-        </div>
+    <div class="w-full lg:w-1/2 xl:w-2/5 flex flex-col items-center justify-center min-h-screen px-6 py-12 bg-base-100">
 
         {{-- Mobile logo (shown only on small screens) --}}
         <div class="lg:hidden text-center mb-8">
