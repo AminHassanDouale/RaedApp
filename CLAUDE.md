@@ -2,6 +2,16 @@
 
 Guidance for working in this repository. Read this first.
 
+## Detailed reference docs (read when relevant)
+This file is the quick index. Deeper, task-specific references live alongside it:
+- **[architecture.md](architecture.md)** — stack, multi-tenancy, roles/portals, integrations, **deployment & ops** (VPS, Docker MySQL, nginx, mail, WhatsApp).
+- **[design.md](design.md)** — brand, color palette (DaisyUI override), motion system, landing-page design.
+- **[frontend.md](frontend.md)** — the two frontends (app build vs CDN landing), Volt, layouts, i18n, build gotchas.
+- **[backend.md](backend.md)** — models/traits/enums/actions/services, notifications & channels, WhatsApp/mail/D-Money, migrations.
+- **[structure.md](structure.md)** — directory map and where things live.
+
+Keep these updated when you make structural, design, or ops changes.
+
 ## What this is
 
 **RaedApp** — a multi-tenant SaaS **school management platform** (SMS) for schools in
