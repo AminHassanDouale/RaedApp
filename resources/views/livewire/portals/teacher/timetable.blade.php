@@ -186,9 +186,9 @@ new #[Layout('layouts.teacher')] class extends Component {
                         <div class="rounded-xl p-2 text-left shadow-sm"
                              style="{{ $c
                                 ? 'background:color-mix(in srgb,'.$c.' 15%,white);border-left:3px solid '.$c
-                                : 'background:#eef2ff;border-left:3px solid #4f46e5' }}">
+                                : 'background:#eef2ff;border-left:3px solid #0f0f10' }}">
                             <p class="font-bold text-xs truncate"
-                               style="{{ $c ? 'color:'.$c : 'color:#4f46e5' }}">
+                               style="{{ $c ? 'color:'.$c : 'color:#0f0f10' }}">
                                 {{ $entry->subject?->name }}
                             </p>
                             @if($entry->template?->schoolClass)

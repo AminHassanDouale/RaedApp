@@ -69,7 +69,7 @@ new #[Layout('layouts.empty')] class extends Component {
         @endif
 
         {{-- Header --}}
-        <div style="background:linear-gradient(135deg,#1e3a8a 0%,#1d4ed8 55%,#3b82f6 100%);padding:28px 32px 24px;color:white;position:relative;overflow:hidden;">
+        <div style="background:linear-gradient(135deg,#1e3a8a 0%,#d4f82a 55%,#d4f82a 100%);padding:28px 32px 24px;color:white;position:relative;overflow:hidden;">
             <div style="position:absolute;top:-50px;right:-50px;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,0.04);"></div>
             <div style="position:absolute;bottom:-70px;right:100px;width:140px;height:140px;border-radius:50%;background:rgba(255,255,255,0.03);"></div>
 
@@ -141,7 +141,7 @@ new #[Layout('layouts.empty')] class extends Component {
                     @if($invoice->school->phone)<p style="font-size:0.78rem;color:#64748b;margin:0;">{{ $invoice->school->phone }}</p>@endif
                 </div>
                 <div style="background:linear-gradient(135deg,#eff6ff,#dbeafe);border:1px solid #bfdbfe;border-radius:12px;padding:16px;">
-                    <p style="font-size:0.62rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#3b82f6;margin:0 0 8px;">Destinataire</p>
+                    <p style="font-size:0.62rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#d4f82a;margin:0 0 8px;">Destinataire</p>
                     <p style="font-weight:800;color:#1e293b;margin:0 0 4px;">{{ $invoice->student->full_name }}</p>
                     @if($invoice->student->student_code)<p style="font-size:0.78rem;font-family:monospace;color:#64748b;margin:0 0 2px;">N° élève : <strong>{{ $invoice->student->student_code }}</strong></p>@endif
                     @if($invoice->enrollment?->reference)<p style="font-size:0.78rem;font-family:monospace;color:#64748b;margin:0 0 2px;">N° inscription : <strong>{{ $invoice->enrollment->reference }}</strong></p>@endif
@@ -152,7 +152,7 @@ new #[Layout('layouts.empty')] class extends Component {
             {{-- Items table --}}
             <table style="width:100%;border-collapse:collapse;font-size:0.88rem;margin-bottom:24px;">
                 <thead>
-                    <tr style="background:linear-gradient(90deg,#1e3a8a,#1d4ed8);color:white;border-radius:8px;">
+                    <tr style="background:linear-gradient(90deg,#1e3a8a,#d4f82a);color:white;border-radius:8px;">
                         <th style="text-align:left;padding:10px 14px;font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;border-radius:8px 0 0 0;">Description</th>
                         @if($invoice->installment_number)
                         <th style="text-align:center;padding:10px 14px;font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;">Versement</th>
@@ -294,8 +294,8 @@ new #[Layout('layouts.empty')] class extends Component {
                     <p style="margin:0;">Généré le {{ now()->format('d/m/Y à H:i') }}</p>
                 </div>
                 <div style="display:flex;align-items:center;gap:5px;opacity:0.45;">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="5" fill="#1d4ed8"/><path d="M6 8h12M6 12h8M6 16h10" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
-                    <span style="font-size:0.7rem;font-weight:700;color:#1d4ed8;letter-spacing:0.05em;">RaedApp SMS</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="5" fill="#d4f82a"/><path d="M6 8h12M6 12h8M6 16h10" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+                    <span style="font-size:0.7rem;font-weight:700;color:#d4f82a;letter-spacing:0.05em;">RaedApp SMS</span>
                 </div>
             </div>
         </div>

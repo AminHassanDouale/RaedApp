@@ -21,10 +21,10 @@
 <body class="min-h-screen font-sans antialiased bg-base-200 overflow-x-hidden">
 
 {{-- ── Navbar (outside x-main so it renders above the drawer) ── --}}
-<x-nav sticky full-width class="border-b border-cyan-100 bg-white/80 backdrop-blur-md z-30">
+<x-nav sticky full-width class="border-b border-zinc-100 bg-white/80 backdrop-blur-md z-30">
     <x-slot:brand>
-        <label for="caissier-drawer" class="lg:hidden cursor-pointer mr-2 p-1 rounded-lg hover:bg-cyan-50">
-            <x-icon name="o-bars-3" class="w-6 h-6 text-cyan-600" />
+        <label for="caissier-drawer" class="lg:hidden cursor-pointer mr-2 p-1 rounded-lg hover:bg-zinc-50">
+            <x-icon name="o-bars-3" class="w-6 h-6 text-zinc-600" />
         </label>
         <div class="flex items-center gap-2">
             @if(auth()->user()?->school?->logo)
@@ -43,8 +43,8 @@
         </x-dropdown>
         <x-theme-toggle class="btn-ghost btn-sm" />
         <div class="flex items-center gap-2 pl-2 border-l border-base-200">
-            <div class="w-8 h-8 rounded-full bg-cyan-100 flex items-center justify-center shrink-0">
-                <span class="text-cyan-700 font-bold text-sm">{{ substr(auth()->user()?->name ?? 'C', 0, 1) }}</span>
+            <div class="w-8 h-8 rounded-full bg-zinc-100 flex items-center justify-center shrink-0">
+                <span class="text-zinc-700 font-bold text-sm">{{ substr(auth()->user()?->name ?? 'C', 0, 1) }}</span>
             </div>
             <span class="text-sm font-medium hidden lg:block truncate max-w-28">{{ auth()->user()?->name }}</span>
         </div>
@@ -63,22 +63,22 @@
                 @endif
                 <div class="min-w-0">
                     <p class="font-bold text-white text-sm truncate">{{ auth()->user()?->full_name }}</p>
-                    <p class="text-cyan-200 text-xs">{{ __('navigation.caissier_portal') }}</p>
+                    <p class="text-zinc-200 text-xs">{{ __('navigation.caissier_portal') }}</p>
                 </div>
             </div>
             <div class="mt-3 flex items-center gap-2">
                 <div class="w-2 h-2 rounded-full bg-green-400 shrink-0"></div>
-                <span class="text-xs text-cyan-200 truncate">{{ auth()->user()?->school?->name }}</span>
+                <span class="text-xs text-zinc-200 truncate">{{ auth()->user()?->school?->name }}</span>
             </div>
         </div>
 
         <x-menu activate-by-route class="px-2">
-            <x-menu-item title="{{ __('navigation.dashboard') }}"      icon="o-squares-2x2"              link="{{ route('caissier.dashboard') }}" class="text-cyan-100 hover:bg-white/10 rounded-lg" />
-            <x-menu-item title="{{ __('navigation.record_payment') }}" icon="o-credit-card"              link="{{ route('caissier.payment') }}"   class="text-cyan-100 hover:bg-white/10 rounded-lg" />
-            <x-menu-item title="{{ __('navigation.invoices') }}"       icon="o-document-currency-dollar" link="{{ route('caissier.invoices') }}"  class="text-cyan-100 hover:bg-white/10 rounded-lg" />
-            <x-menu-item title="{{ __('navigation.daily_report') }}"   icon="o-chart-bar-square"         link="{{ route('caissier.report') }}"    class="text-cyan-100 hover:bg-white/10 rounded-lg" />
+            <x-menu-item title="{{ __('navigation.dashboard') }}"      icon="o-squares-2x2"              link="{{ route('caissier.dashboard') }}" class="text-zinc-100 hover:bg-white/10 rounded-lg" />
+            <x-menu-item title="{{ __('navigation.record_payment') }}" icon="o-credit-card"              link="{{ route('caissier.payment') }}"   class="text-zinc-100 hover:bg-white/10 rounded-lg" />
+            <x-menu-item title="{{ __('navigation.invoices') }}"       icon="o-document-currency-dollar" link="{{ route('caissier.invoices') }}"  class="text-zinc-100 hover:bg-white/10 rounded-lg" />
+            <x-menu-item title="{{ __('navigation.daily_report') }}"   icon="o-chart-bar-square"         link="{{ route('caissier.report') }}"    class="text-zinc-100 hover:bg-white/10 rounded-lg" />
             <x-menu-separator />
-            <x-menu-item title="{{ __('navigation.profile') }}" icon="o-user-circle"                    link="{{ route('profile.caissier') }}" class="text-cyan-100 hover:bg-white/10 rounded-lg" />
+            <x-menu-item title="{{ __('navigation.profile') }}" icon="o-user-circle"                    link="{{ route('profile.caissier') }}" class="text-zinc-100 hover:bg-white/10 rounded-lg" />
             <x-menu-item title="{{ __('navigation.logout') }}"  icon="o-arrow-right-start-on-rectangle" link="{{ route('auth.logout') }}" no-wire-navigate class="text-red-300 hover:bg-red-500/20 rounded-lg" />
         </x-menu>
     </x-slot:sidebar>

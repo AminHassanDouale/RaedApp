@@ -244,7 +244,7 @@ new #[Layout('layouts.app')] class extends Component {
 
     {{-- ── INFO BANNER ─────────────────────────────────────────────────────────── --}}
     @php
-        $subjectColor = $assessment->subject?->color ?? '#6366f1';
+        $subjectColor = $assessment->subject?->color ?? '#0f0f10';
         $typeIcon     = $assessment->type?->icon() ?? 'o-clipboard-document-list';
         $typeColor    = $assessment->type?->color() ?? 'badge-outline';
     @endphp

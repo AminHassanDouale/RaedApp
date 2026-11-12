@@ -526,7 +526,7 @@ new #[Layout('layouts.app')] class extends Component {
                 <div class="flex flex-wrap gap-1.5">
                     @foreach($teacher->subjects as $subject)
                     <span class="px-2.5 py-1 rounded-full text-xs font-semibold"
-                          style="background-color: {{ $subject->color ?? '#6366f1' }}20; color: {{ $subject->color ?? '#6366f1' }}">
+                          style="background-color: {{ $subject->color ?? '#0f0f10' }}20; color: {{ $subject->color ?? '#0f0f10' }}">
                         {{ $subject->name }}
                     </span>
                     @endforeach

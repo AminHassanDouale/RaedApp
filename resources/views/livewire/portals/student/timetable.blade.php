@@ -105,7 +105,7 @@ new #[Layout('layouts.student')] class extends Component {
     {{-- ── TABLE VIEW ──────────────────────────────────────────────────────────── --}}
     <div class="overflow-x-auto rounded-2xl border border-base-200 shadow-sm">
         <table class="table table-sm w-full bg-base-100">
-            <thead style="background: linear-gradient(135deg,#7c3aed,#8b5cf6); color:white;">
+            <thead style="background: linear-gradient(135deg,#0f0f10,#d4f82a); color:white;">
                 <tr>
                     <th class="py-3 px-4 text-left font-semibold text-sm w-28">Heure</th>
                     @foreach($days as $num => $name)
@@ -146,9 +146,9 @@ new #[Layout('layouts.student')] class extends Component {
                         <div class="rounded-xl p-2 text-left shadow-sm"
                              style="{{ $c
                                 ? 'background:color-mix(in srgb,'.$c.' 15%,white);border-left:3px solid '.$c
-                                : 'background:#f5f3ff;border-left:3px solid #7c3aed' }}">
+                                : 'background:#f5f3ff;border-left:3px solid #0f0f10' }}">
                             <p class="font-bold text-xs truncate"
-                               style="{{ $c ? 'color:'.$c : 'color:#7c3aed' }}">
+                               style="{{ $c ? 'color:'.$c : 'color:#0f0f10' }}">
                                 {{ $entry->subject?->name }}
                             </p>
                             @if($entry->teacher)

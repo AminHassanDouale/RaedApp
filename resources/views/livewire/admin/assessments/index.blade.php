@@ -128,7 +128,7 @@ new #[Layout('layouts.app')] class extends Component {
                 </td>
                 <td>
                     <span class="px-2 py-0.5 rounded-lg text-xs font-semibold"
-                          style="background-color: {{ $assessment->subject?->color ?? '#6366f1' }}20; color: {{ $assessment->subject?->color ?? '#6366f1' }}">
+                          style="background-color: {{ $assessment->subject?->color ?? '#0f0f10' }}20; color: {{ $assessment->subject?->color ?? '#0f0f10' }}">
                         {{ $assessment->subject?->name }}
                     </span>
                 </td>

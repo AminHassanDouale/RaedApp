@@ -266,7 +266,7 @@ new #[Layout('layouts.app')] class extends Component {
                         <div class="flex flex-wrap gap-1">
                             @foreach($subjectOptions->whereIn('id', $subjectIds) as $s)
                             <span class="px-2 py-0.5 rounded-full text-xs font-semibold"
-                                  style="background-color: {{ $s->color ?? '#6366f1' }}20; color: {{ $s->color ?? '#6366f1' }}">
+                                  style="background-color: {{ $s->color ?? '#0f0f10' }}20; color: {{ $s->color ?? '#0f0f10' }}">
                                 {{ $s->name }}
                             </span>
                             @endforeach

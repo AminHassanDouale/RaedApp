@@ -121,7 +121,7 @@ new #[Layout('layouts.app')] class extends Component
         foreach ($attRows as $s => $c) { $attLabels[] = $attMap[$s] ?? ucfirst((string) $s); $attData[] = (int) $c; }
 
         // ── Chart configs ─────────────────────────────────────────────────────
-        $pal      = ['#6366f1', '#06b6d4', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6', '#ec4899', '#14b8a6'];
+        $pal      = ['#0f0f10', '#06b6d4', '#10b981', '#f59e0b', '#ef4444', '#d4f82a', '#ec4899', '#14b8a6'];
         $baseOpts = ['responsive' => true, 'maintainAspectRatio' => false];
 
         $charts = [
@@ -146,7 +146,7 @@ new #[Layout('layouts.app')] class extends Component
             ],
             'cycle' => [
                 'type' => 'bar',
-                'data' => ['labels' => $cycleLabels, 'datasets' => [['label' => 'Élèves', 'data' => $cycleData, 'backgroundColor' => '#6366f1', 'borderRadius' => 6]]],
+                'data' => ['labels' => $cycleLabels, 'datasets' => [['label' => 'Élèves', 'data' => $cycleData, 'backgroundColor' => '#0f0f10', 'borderRadius' => 6]]],
                 'options' => $baseOpts + ['plugins' => ['legend' => ['display' => false]], 'scales' => ['y' => ['beginAtZero' => true, 'ticks' => ['precision' => 0]]]],
             ],
             'attendance' => [

@@ -77,7 +77,7 @@ new #[Layout('layouts.app')] class extends Component {
 
         $subjects = Subject::where('school_id', $schoolId)->where('is_active', true)
             ->orderBy('name')->get()
-            ->map(fn($s) => ['id' => $s->id, 'name' => $s->name, 'color' => $s->color ?? '#6366f1'])->all();
+            ->map(fn($s) => ['id' => $s->id, 'name' => $s->name, 'color' => $s->color ?? '#0f0f10'])->all();
 
         $classes = SchoolClass::where('school_id', $schoolId)
             ->when($currentYear, fn($q) => $q->where('academic_year_id', $currentYear->id))
@@ -259,8 +259,8 @@ new #[Layout('layouts.app')] class extends Component {
                             @if($selectedSubject)
                             <div class="flex items-center gap-2">
                                 <div class="w-3 h-3 rounded-full shrink-0"
-                                     style="background-color: {{ $selectedSubject->color ?? '#6366f1' }}"></div>
-                                <span class="text-sm font-medium" style="color: {{ $selectedSubject->color ?? '#6366f1' }}">
+                                     style="background-color: {{ $selectedSubject->color ?? '#0f0f10' }}"></div>
+                                <span class="text-sm font-medium" style="color: {{ $selectedSubject->color ?? '#0f0f10' }}">
                                     {{ $selectedSubject->name }}
                                 </span>
                             </div>

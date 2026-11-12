@@ -56,7 +56,7 @@ new #[Layout('layouts.teacher')] class extends Component {
                 'labels' => ['Présent', 'Absent', 'Retard', 'Excusé'],
                 'datasets' => [[
                     'data' => array_values($entryCounts),
-                    'backgroundColor' => ['#16a34a', '#dc2626', '#f59e0b', '#3b82f6'],
+                    'backgroundColor' => ['#16a34a', '#dc2626', '#f59e0b', '#d4f82a'],
                     'borderWidth' => 0,
                 ]],
             ],
@@ -81,7 +81,7 @@ new #[Layout('layouts.teacher')] class extends Component {
     </x-header>
 
     {{-- Welcome banner --}}
-    <div class="relative overflow-hidden rounded-2xl p-6 text-white" style="background: linear-gradient(135deg, #4f46e5 0%, #6366f1 50%, #818cf8 100%)">
+    <div class="relative overflow-hidden rounded-2xl p-6 text-white" style="background: linear-gradient(135deg, #0f0f10 0%, #0f0f10 50%, #a8a29e 100%)">
         <div class="absolute top-0 right-0 w-40 h-40 rounded-full bg-white/10 -translate-y-10 translate-x-10"></div>
         <div class="absolute bottom-0 left-0 w-24 h-24 rounded-full bg-white/5 translate-y-8 -translate-x-6"></div>
         <div class="relative">

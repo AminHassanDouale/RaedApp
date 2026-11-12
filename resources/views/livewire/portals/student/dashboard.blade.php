@@ -76,8 +76,8 @@ new #[Layout('layouts.student')] class extends Component {
                     'label' => 'Note (%)',
                     'data' => $trendScores->map(fn($s) => $s->assessment && $s->assessment->max_score
                         ? round($s->score / $s->assessment->max_score * 100, 1) : 0)->all(),
-                    'borderColor' => '#7c3aed',
-                    'backgroundColor' => 'rgba(124,58,237,.12)',
+                    'borderColor' => '#0f0f10',
+                    'backgroundColor' => 'rgba(212,248,42,.12)',
                     'fill' => true, 'tension' => 0.4, 'pointRadius' => 4,
                 ]],
             ],
@@ -102,7 +102,7 @@ new #[Layout('layouts.student')] class extends Component {
     </x-header>
 
     {{-- Welcome banner --}}
-    <div class="relative overflow-hidden rounded-2xl p-6 text-white" style="background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 50%, #a78bfa 100%)">
+    <div class="relative overflow-hidden rounded-2xl p-6 text-white" style="background: linear-gradient(135deg, #0f0f10 0%, #d4f82a 50%, #a8a29e 100%)">
         <div class="absolute top-0 right-0 w-40 h-40 rounded-full bg-white/10 -translate-y-10 translate-x-10"></div>
         <div class="absolute bottom-0 left-0 w-24 h-24 rounded-full bg-white/5 translate-y-8 -translate-x-6"></div>
         <div class="relative">
