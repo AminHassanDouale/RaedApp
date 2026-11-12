@@ -207,7 +207,7 @@ new #[Layout('layouts.app')] class extends Component
             ['label' => __('dashboard.kpi.collected'),       'value' => number_format($revenuePeriod) . ' DJF', 'icon' => 'o-banknotes',            'grad' => 'from-emerald-500 to-teal-600'],
             ['label' => __('dashboard.kpi.payments'),        'value' => number_format($paymentsCount),           'icon' => 'o-credit-card',          'grad' => 'from-cyan-500 to-sky-600'],
             ['label' => __('dashboard.kpi.unpaid'),          'value' => number_format($totalBalance) . ' DJF',   'icon' => 'o-exclamation-triangle', 'grad' => 'from-amber-500 to-orange-600'],
-            ['label' => __('dashboard.kpi.new_enrollments'), 'value' => number_format($newEnrollments),          'icon' => 'o-user-plus',            'grad' => 'from-indigo-500 to-violet-600'],
+            ['label' => __('dashboard.kpi.new_enrollments'), 'value' => number_format($newEnrollments),          'icon' => 'o-user-plus',            'grad' => 'from-zinc-500 to-zinc-600'],
         ] as $kpi)
         <div class="relative p-5 overflow-hidden bg-base-100 shadow-lg rounded-2xl">
             <div class="absolute top-0 right-0 w-24 h-24 translate-x-1/2 -translate-y-1/2 rounded-full opacity-10 bg-gradient-to-br {{ $kpi['grad'] }}"></div>

@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <title>Export Factures</title>
     <style>
-        body { font-family: DejaVu Sans, sans-serif; font-size: 11px; color: #1a1a2e; }
-        h1   { font-size: 18px; color: #4f46e5; margin-bottom: 4px; }
+        body { font-family: DejaVu Sans, sans-serif; font-size: 11px; color: #0f0f10; }
+        h1   { font-size: 18px; color: #0f0f10; margin-bottom: 4px; }
         p    { margin: 2px 0; color: #6b7280; }
         table { width: 100%; border-collapse: collapse; margin-top: 16px; }
-        thead th { background: #4f46e5; color: white; padding: 8px 6px; text-align: left; font-size: 10px; }
+        thead th { background: #0f0f10; color: white; padding: 8px 6px; text-align: left; font-size: 10px; }
         tbody tr:nth-child(even) { background: #f8fafc; }
         tbody td { padding: 6px; border-bottom: 1px solid #e5e7eb; }
         .text-right { text-align: right; }
         .badge-paid    { color: #16a34a; font-weight: bold; }
         .badge-overdue { color: #dc2626; font-weight: bold; }
-        .badge-issued  { color: #2563eb; }
+        .badge-issued  { color: #0f0f10; }
         .badge-partial { color: #d97706; }
         .badge-draft   { color: #6b7280; }
         .badge-cancelled { color: #ef4444; }

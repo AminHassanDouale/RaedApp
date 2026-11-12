@@ -173,11 +173,11 @@ new #[Layout('layouts.caissier')] class extends Component {
                     <span class="text-xs font-semibold text-teal-700">Factures</span>
                 </a>
                 <a href="{{ route('caissier.report') }}" wire:navigate
-                   class="flex flex-col items-center gap-2 p-4 rounded-xl bg-indigo-50 hover:bg-indigo-100 transition-colors group">
-                    <div class="w-10 h-10 rounded-full bg-indigo-600 flex items-center justify-center group-hover:scale-110 transition-transform">
+                   class="flex flex-col items-center gap-2 p-4 rounded-xl bg-zinc-50 hover:bg-zinc-100 transition-colors group">
+                    <div class="w-10 h-10 rounded-full bg-zinc-600 flex items-center justify-center group-hover:scale-110 transition-transform">
                         <x-icon name="o-chart-bar" class="w-5 h-5 text-white" />
                     </div>
-                    <span class="text-xs font-semibold text-indigo-700">Rapport</span>
+                    <span class="text-xs font-semibold text-zinc-700">Rapport</span>
                 </a>
             </div>
         </x-card>

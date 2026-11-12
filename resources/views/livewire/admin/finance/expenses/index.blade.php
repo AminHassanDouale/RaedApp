@@ -211,7 +211,7 @@ new #[Layout('layouts.app')] class extends Component {
                 @forelse($expenses as $expense)
                 @php
                     $catColor = match($expense->category) {
-                        'salaires'    => 'bg-purple-100 text-purple-700',
+                        'salaires'    => 'bg-zinc-100 text-zinc-700',
                         'loyer'       => 'bg-blue-100 text-blue-700',
                         'fournitures' => 'bg-amber-100 text-amber-700',
                         'services'    => 'bg-cyan-100 text-cyan-700',

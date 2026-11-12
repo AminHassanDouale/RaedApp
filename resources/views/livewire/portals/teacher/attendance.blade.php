@@ -173,9 +173,9 @@ new #[Layout('layouts.teacher')] class extends Component {
 
         <div class="space-y-2">
             @foreach($students as $student)
-            <div class="flex items-center gap-3 p-3 rounded-xl bg-base-50 border border-base-200 hover:border-indigo-200 transition-colors">
-                <div class="w-9 h-9 rounded-full bg-indigo-100 flex items-center justify-center flex-shrink-0">
-                    <span class="text-sm font-bold text-indigo-700">{{ substr($student->name, 0, 1) }}</span>
+            <div class="flex items-center gap-3 p-3 rounded-xl bg-base-50 border border-base-200 hover:border-zinc-200 transition-colors">
+                <div class="w-9 h-9 rounded-full bg-zinc-100 flex items-center justify-center flex-shrink-0">
+                    <span class="text-sm font-bold text-zinc-700">{{ substr($student->name, 0, 1) }}</span>
                 </div>
                 <div class="flex-1 min-w-0">
                     <p class="font-semibold text-sm truncate">{{ $student->full_name }}</p>

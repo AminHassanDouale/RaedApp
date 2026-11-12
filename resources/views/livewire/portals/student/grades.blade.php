@@ -39,8 +39,8 @@ new #[Layout('layouts.student')] class extends Component {
 
     @if($overall)
     <div class="grid grid-cols-2 gap-4">
-        <x-card class="border-0 shadow-sm bg-gradient-to-br from-violet-50 to-white text-center">
-            <p class="text-4xl font-black text-violet-700">{{ round($overall->avg_pct ?? 0) }}%</p>
+        <x-card class="border-0 shadow-sm bg-gradient-to-br from-zinc-50 to-white text-center">
+            <p class="text-4xl font-black text-zinc-700">{{ round($overall->avg_pct ?? 0) }}%</p>
             <p class="text-xs text-base-content/60 mt-1">Moyenne générale</p>
             <div class="w-full bg-base-200 rounded-full h-2 mt-3">
                 <div class="h-2 rounded-full {{ ($overall->avg_pct ?? 0) >= 50 ? 'bg-success' : 'bg-error' }}" style="width: {{ min(100, $overall->avg_pct ?? 0) }}%"></div>

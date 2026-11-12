@@ -64,8 +64,8 @@ new #[Layout('layouts.teacher')] class extends Component {
                 <tr class="hover border-b border-base-100">
                     <td>
                         <div class="flex items-center gap-3">
-                            <div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center">
-                                <span class="text-xs font-bold text-indigo-700">{{ substr($student->name, 0, 1) }}</span>
+                            <div class="w-8 h-8 rounded-full bg-zinc-100 flex items-center justify-center">
+                                <span class="text-xs font-bold text-zinc-700">{{ substr($student->name, 0, 1) }}</span>
                             </div>
                             <span class="font-medium">{{ $student->full_name }}</span>
                         </div>

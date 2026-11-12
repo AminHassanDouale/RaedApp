@@ -132,9 +132,9 @@ new #[Layout('layouts.guardian')] class extends Component {
     {{-- Quick access --}}
     <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
         @php $qa = [
-            ['guardian.timetable',  'o-clock',                     __('navigation.timetable'),     'from-violet-500 to-purple-600'],
+            ['guardian.timetable',  'o-clock',                     __('navigation.timetable'),     'from-zinc-500 to-zinc-600'],
             ['guardian.attendance', 'o-calendar-days',             __('navigation.attendance'),    'from-amber-500 to-orange-600'],
-            ['guardian.grades',     'o-chart-bar',                 __('navigation.grades'),        'from-blue-500 to-indigo-600'],
+            ['guardian.grades',     'o-chart-bar',                 __('navigation.grades'),        'from-blue-500 to-zinc-600'],
             ['guardian.bulletins',  'o-document-text',             __('navigation.report_cards'),  'from-emerald-500 to-teal-600'],
             ['guardian.invoices',   'o-document-currency-dollar',  __('navigation.invoices'),      'from-rose-500 to-red-600'],
         ]; @endphp

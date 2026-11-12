@@ -15,18 +15,18 @@
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
     <style>
-        .portal-gradient { background: linear-gradient(135deg, #4f46e5 0%, #6366f1 50%, #818cf8 100%); }
-        .sidebar-teacher  { background: linear-gradient(180deg, #1e1b4b 0%, #312e81 100%); }
+        .portal-gradient { background: linear-gradient(135deg, #1f1f23 0%, #1f1f23 50%, #1f1f23 100%); }
+        .sidebar-teacher  { background: linear-gradient(180deg, #0f0f10 0%, #0f0f10 100%); }
     </style>
     @stack('head-styles')
 </head>
 <body class="min-h-screen font-sans antialiased bg-base-200 overflow-x-hidden">
 
 {{-- ── Navbar (outside x-main so it renders above the drawer) ── --}}
-<x-nav sticky full-width class="border-b border-indigo-100 bg-white/80 backdrop-blur-md z-30">
+<x-nav sticky full-width class="border-b border-zinc-100 bg-white/80 backdrop-blur-md z-30">
     <x-slot:brand>
-        <label for="teacher-drawer" class="lg:hidden cursor-pointer mr-2 p-1 rounded-lg hover:bg-indigo-50">
-            <x-icon name="o-bars-3" class="w-6 h-6 text-indigo-600" />
+        <label for="teacher-drawer" class="lg:hidden cursor-pointer mr-2 p-1 rounded-lg hover:bg-zinc-50">
+            <x-icon name="o-bars-3" class="w-6 h-6 text-zinc-600" />
         </label>
         <div class="flex items-center gap-2">
             @if(auth()->user()?->school?->logo)
@@ -45,8 +45,8 @@
         </x-dropdown>
         <x-theme-toggle class="btn-ghost btn-sm" />
         <div class="flex items-center gap-2 pl-2 border-l border-base-200">
-            <div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center shrink-0">
-                <span class="text-indigo-700 font-bold text-sm">{{ substr(auth()->user()?->name ?? 'T', 0, 1) }}</span>
+            <div class="w-8 h-8 rounded-full bg-zinc-100 flex items-center justify-center shrink-0">
+                <span class="text-zinc-700 font-bold text-sm">{{ substr(auth()->user()?->name ?? 'T', 0, 1) }}</span>
             </div>
             <span class="text-sm font-medium hidden lg:block truncate max-w-28">{{ auth()->user()?->name }}</span>
         </div>
@@ -65,24 +65,24 @@
                 @endif
                 <div class="min-w-0">
                     <p class="font-bold text-white text-sm truncate">{{ auth()->user()?->full_name }}</p>
-                    <p class="text-indigo-200 text-xs">{{ __('navigation.teacher_portal') }}</p>
+                    <p class="text-zinc-200 text-xs">{{ __('navigation.teacher_portal') }}</p>
                 </div>
             </div>
             <div class="mt-3 flex items-center gap-2">
                 <div class="w-2 h-2 rounded-full bg-green-400 shrink-0"></div>
-                <span class="text-xs text-indigo-200 truncate">{{ auth()->user()?->school?->name }}</span>
+                <span class="text-xs text-zinc-200 truncate">{{ auth()->user()?->school?->name }}</span>
             </div>
         </div>
 
         <x-menu activate-by-route class="px-2">
-            <x-menu-item title="{{ __('navigation.dashboard') }}"   icon="o-squares-2x2"   link="{{ route('teacher.dashboard') }}"   class="text-indigo-100 hover:bg-white/10 rounded-lg" />
-            <x-menu-item title="{{ __('navigation.timetable') }}"   icon="o-table-cells"   link="{{ route('teacher.timetable') }}"   class="text-indigo-100 hover:bg-white/10 rounded-lg" />
-            <x-menu-item title="{{ __('navigation.attendance') }}"  icon="o-calendar-days" link="{{ route('teacher.attendance') }}"  class="text-indigo-100 hover:bg-white/10 rounded-lg" />
-            <x-menu-item title="{{ __('navigation.assessments') }}" icon="o-pencil-square"  link="{{ route('teacher.assessments') }}" class="text-indigo-100 hover:bg-white/10 rounded-lg" />
-            <x-menu-item title="{{ __('navigation.students') }}"    icon="o-user-group"    link="{{ route('teacher.students') }}"    class="text-indigo-100 hover:bg-white/10 rounded-lg" />
-            <x-menu-item title="{{ __('navigation.messages') }}"    icon="o-envelope"      link="{{ route('teacher.messages') }}"    class="text-indigo-100 hover:bg-white/10 rounded-lg" />
+            <x-menu-item title="{{ __('navigation.dashboard') }}"   icon="o-squares-2x2"   link="{{ route('teacher.dashboard') }}"   class="text-zinc-100 hover:bg-white/10 rounded-lg" />
+            <x-menu-item title="{{ __('navigation.timetable') }}"   icon="o-table-cells"   link="{{ route('teacher.timetable') }}"   class="text-zinc-100 hover:bg-white/10 rounded-lg" />
+            <x-menu-item title="{{ __('navigation.attendance') }}"  icon="o-calendar-days" link="{{ route('teacher.attendance') }}"  class="text-zinc-100 hover:bg-white/10 rounded-lg" />
+            <x-menu-item title="{{ __('navigation.assessments') }}" icon="o-pencil-square"  link="{{ route('teacher.assessments') }}" class="text-zinc-100 hover:bg-white/10 rounded-lg" />
+            <x-menu-item title="{{ __('navigation.students') }}"    icon="o-user-group"    link="{{ route('teacher.students') }}"    class="text-zinc-100 hover:bg-white/10 rounded-lg" />
+            <x-menu-item title="{{ __('navigation.messages') }}"    icon="o-envelope"      link="{{ route('teacher.messages') }}"    class="text-zinc-100 hover:bg-white/10 rounded-lg" />
             <x-menu-separator />
-            <x-menu-item title="{{ __('navigation.profile') }}" icon="o-user-circle"                    link="{{ route('profile.teacher') }}" class="text-indigo-100 hover:bg-white/10 rounded-lg" />
+            <x-menu-item title="{{ __('navigation.profile') }}" icon="o-user-circle"                    link="{{ route('profile.teacher') }}" class="text-zinc-100 hover:bg-white/10 rounded-lg" />
             <x-menu-item title="{{ __('navigation.logout') }}"  icon="o-arrow-right-start-on-rectangle" link="{{ route('auth.logout') }}" no-wire-navigate class="text-red-300 hover:bg-red-500/20 rounded-lg" />
         </x-menu>
     </x-slot:sidebar>

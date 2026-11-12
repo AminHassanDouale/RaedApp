@@ -70,7 +70,7 @@
     .status-pending { background: #fef9c3; color: #854d0e; padding: 1px 6px; border-radius: 20px; font-size: 8px; font-weight: bold; }
     .status-other { background: #fee2e2; color: #991b1b; padding: 1px 6px; border-radius: 20px; font-size: 8px; font-weight: bold; }
 
-    .installment-summary { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 10px 14px; margin-bottom: 16px; font-size: 10px; }
+    .installment-summary { background: #fbfee8; border: 1px solid #dff29a; border-radius: 8px; padding: 10px 14px; margin-bottom: 16px; font-size: 10px; }
 </style>
 </head>
 <body>

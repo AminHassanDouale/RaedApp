@@ -7,7 +7,7 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: DejaVu Sans, sans-serif; font-size: 11px; color: #1e293b; background: #fff; }
 
-        .header { background: #1e3a8a; color: white; padding: 20px 24px 16px; }
+        .header { background: #0f0f10; color: white; padding: 20px 24px 16px; }
         .header-flex { display: table; width: 100%; }
         .header-left { display: table-cell; vertical-align: top; width: 60%; }
         .header-right { display: table-cell; vertical-align: top; text-align: right; width: 40%; }
@@ -29,7 +29,7 @@
         .party-cell { display: table-cell; width: 50%; padding-right: 10px; vertical-align: top; }
         .party-cell:last-child { padding-right: 0; padding-left: 10px; }
         .party-box { border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px; }
-        .party-box-blue { border-color: #bfdbfe; background: #eff6ff; }
+        .party-box-blue { border-color: #dff29a; background: #fbfee8; }
         .party-label { font-size: 7px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.1em; color: #94a3b8; margin-bottom: 6px; }
         .party-name { font-size: 12px; font-weight: bold; color: #1e293b; margin-bottom: 2px; }
         .party-sub { font-size: 9px; color: #64748b; }
@@ -37,15 +37,15 @@
         .section-title { font-size: 8px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.1em; color: #94a3b8; margin-bottom: 8px; margin-top: 14px; }
 
         table.detail { width: 100%; border-collapse: collapse; font-size: 10px; }
-        table.detail thead tr { background: #1e3a8a; color: white; }
+        table.detail thead tr { background: #0f0f10; color: white; }
         table.detail thead th { padding: 7px 10px; text-align: left; font-size: 8px; text-transform: uppercase; letter-spacing: 0.06em; }
         table.detail thead th.r { text-align: right; }
         table.detail tbody tr { border-bottom: 1px solid #f1f5f9; }
         table.detail tbody td { padding: 8px 10px; }
         table.detail tbody td.r { text-align: right; font-weight: bold; }
         table.detail tfoot td { padding: 8px 10px; font-weight: bold; text-align: right; }
-        .total-row { background: #eff6ff; border-top: 2px solid #bfdbfe; }
-        .total-row td { color: #1e3a8a; font-size: 13px; }
+        .total-row { background: #fbfee8; border-top: 2px solid #dff29a; }
+        .total-row td { color: #0f0f10; font-size: 13px; }
         .paid-row { background: #f0fdf4; }
         .paid-row td { color: #166534; }
         .balance-row { background: #fff7ed; border-top: 2px dashed #fed7aa; }
@@ -53,7 +53,7 @@
 
         .footer { margin-top: 24px; border-top: 1px solid #e2e8f0; padding-top: 10px; display: table; width: 100%; }
         .footer-left { display: table-cell; font-size: 8px; color: #94a3b8; line-height: 1.6; }
-        .footer-right { display: table-cell; text-align: right; font-size: 9px; font-weight: bold; color: #1d4ed8; }
+        .footer-right { display: table-cell; text-align: right; font-size: 9px; font-weight: bold; color: #0f0f10; }
 
         .watermark { position: fixed; top: 45%; left: 10%; font-size: 72px; font-weight: 900; color: rgba(22,163,74,0.05); transform: rotate(-35deg); white-space: nowrap; letter-spacing: 8px; }
     </style>
@@ -120,7 +120,7 @@
         </div>
         <div class="party-cell">
             <div class="party-box party-box-blue">
-                <div class="party-label" style="color:#3b82f6;">Destinataire</div>
+                <div class="party-label" style="color:#0f0f10;">Destinataire</div>
                 <div class="party-name">{{ $invoice->student?->full_name }}</div>
                 @if($invoice->student?->student_code)
                 <div class="party-sub">Réf : {{ $invoice->student->student_code }}</div>
@@ -164,7 +164,7 @@
         <tfoot>
             <tr class="total-row">
                 <td colspan="{{ 1 + ($invoice->installment_number ? 1 : 0) + ($invoice->vat_rate > 0 ? 1 : 0) }}" style="text-align:right;text-transform:uppercase;letter-spacing:0.06em;font-size:9px;">Total</td>
-                <td style="font-size:14px;color:#1e3a8a;">{{ number_format((int)$invoice->total, 0, ',', ' ') }} DJF</td>
+                <td style="font-size:14px;color:#0f0f10;">{{ number_format((int)$invoice->total, 0, ',', ' ') }} DJF</td>
             </tr>
             @if($invoice->paid_total > 0)
             <tr class="paid-row">

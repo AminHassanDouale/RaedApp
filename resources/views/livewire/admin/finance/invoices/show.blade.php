@@ -158,7 +158,7 @@ new #[Layout('layouts.app')] class extends Component {
                 {{-- Amounts --}}
                 <div class="grid grid-cols-3 gap-4 mb-6">
                     @foreach([
-                        ['label' => 'Total',  'val' => $invoice->total,      'color' => 'text-purple-600'],
+                        ['label' => 'Total',  'val' => $invoice->total,      'color' => 'text-zinc-600'],
                         ['label' => 'Payé',   'val' => $invoice->paid_total, 'color' => 'text-green-600'],
                         ['label' => 'Solde',  'val' => $invoice->balance_due,'color' => 'text-orange-600'],
                     ] as $a)

@@ -254,7 +254,7 @@ new #[Layout('layouts.app')] class extends Component {
 
                 {{-- Invoice summary --}}
                 @if($selectedInvoice)
-                <div class="bg-linear-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-xl p-4 space-y-2 text-sm">
+                <div class="bg-linear-to-r from-blue-50 to-zinc-50 border border-blue-200 rounded-xl p-4 space-y-2 text-sm">
                     <div class="flex items-center gap-2 mb-3">
                         <x-icon name="o-document-text" class="w-4 h-4 text-blue-500"/>
                         <span class="font-semibold text-blue-800">{{ $selectedInvoice->reference }}</span>
@@ -333,7 +333,7 @@ new #[Layout('layouts.app')] class extends Component {
                                 @foreach([
                                     ['cash',          'o-banknotes',      'Espèces',          'bg-emerald-50 border-emerald-400 text-emerald-700'],
                                     ['bank_transfer',  'o-building-library','Virement',         'bg-blue-50 border-blue-400 text-blue-700'],
-                                    ['check',          'o-document-check', 'Chèque',           'bg-purple-50 border-purple-400 text-purple-700'],
+                                    ['check',          'o-document-check', 'Chèque',           'bg-zinc-50 border-zinc-400 text-zinc-700'],
                                     ['mobile_money',   'o-device-phone-mobile','Mobile Money', 'bg-orange-50 border-orange-400 text-orange-700'],
                                 ] as [$val, $icon, $label, $activeClass])
                                 <button type="button" wire:click="$set('method', '{{ $val }}')"
@@ -363,8 +363,8 @@ new #[Layout('layouts.app')] class extends Component {
 
                         {{-- Check fields --}}
                         @if($method === 'check')
-                        <div class="bg-purple-50 border border-purple-200 rounded-xl p-4 space-y-3">
-                            <p class="text-xs font-semibold text-purple-700 flex items-center gap-1.5">
+                        <div class="bg-zinc-50 border border-zinc-200 rounded-xl p-4 space-y-3">
+                            <p class="text-xs font-semibold text-zinc-700 flex items-center gap-1.5">
                                 <x-icon name="o-document-check" class="w-3.5 h-3.5"/> Paiement par chèque
                             </p>
                             <x-input label="Numéro de chèque *" wire:model="transactionRef"

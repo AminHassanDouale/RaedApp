@@ -18,15 +18,15 @@
 
     {{-- Left panel — branding (hidden on mobile) --}}
     <div class="hidden lg:flex lg:w-1/2 xl:w-3/5 relative overflow-hidden flex-col justify-between p-12"
-         style="background: linear-gradient(135deg, #4f46e5 0%, #6366f1 40%, #8b5cf6 70%, #a78bfa 100%)">
+         style="background: linear-gradient(135deg, #1f1f23 0%, #1f1f23 40%, #1f1f23 70%, #1f1f23 100%)">
 
         {{-- Decorative blobs --}}
         <div class="absolute top-0 left-0 w-72 h-72 rounded-full opacity-20"
              style="background: white; filter: blur(80px); transform: translate(-30%, -30%)"></div>
         <div class="absolute bottom-0 right-0 w-96 h-96 rounded-full opacity-15"
-             style="background: #818cf8; filter: blur(100px); transform: translate(30%, 30%)"></div>
+             style="background: #1f1f23; filter: blur(100px); transform: translate(30%, 30%)"></div>
         <div class="absolute top-1/2 left-1/3 w-48 h-48 rounded-full opacity-10"
-             style="background: #c4b5fd; filter: blur(60px)"></div>
+             style="background: #d4f82a; filter: blur(60px)"></div>
 
         {{-- Top: Logo --}}
         <div class="relative z-10">
@@ -43,10 +43,10 @@
             <div>
                 <h1 class="text-4xl xl:text-5xl font-extrabold text-white leading-tight">
                     Gérez votre<br>
-                    <span class="text-violet-200">école</span> avec<br>
+                    <span class="text-zinc-200">école</span> avec<br>
                     simplicité.
                 </h1>
-                <p class="mt-4 text-indigo-200 text-base xl:text-lg leading-relaxed max-w-sm">
+                <p class="mt-4 text-zinc-200 text-base xl:text-lg leading-relaxed max-w-sm">
                     Présences, notes, emplois du temps, paiements —
                     tout en un seul endroit.
                 </p>
@@ -68,7 +68,7 @@
             <div class="bg-white/10 backdrop-blur rounded-2xl p-4 border border-white/15 text-center">
                 <p class="text-2xl">{{ $icon }}</p>
                 <p class="text-white font-bold text-lg mt-1">{{ $val }}</p>
-                <p class="text-indigo-200 text-xs mt-0.5">{{ $label }}</p>
+                <p class="text-zinc-200 text-xs mt-0.5">{{ $label }}</p>
             </div>
             @endforeach
         </div>

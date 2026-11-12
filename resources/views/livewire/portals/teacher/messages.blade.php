@@ -28,8 +28,8 @@ new #[Layout('layouts.teacher')] class extends Component {
         @forelse($threads as $thread)
         <a href="{{ route('teacher.messages.thread', $thread->uuid) }}" wire:navigate
            class="flex items-center gap-4 p-4 border-b border-base-100 hover:bg-base-50 transition-colors">
-            <div class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center shrink-0">
-                <x-icon name="o-envelope" class="w-5 h-5 text-indigo-600" />
+            <div class="w-10 h-10 rounded-full bg-zinc-100 flex items-center justify-center shrink-0">
+                <x-icon name="o-envelope" class="w-5 h-5 text-zinc-600" />
             </div>
             <div class="flex-1 min-w-0">
                 <p class="font-semibold text-sm truncate">{{ $thread->subject }}</p>

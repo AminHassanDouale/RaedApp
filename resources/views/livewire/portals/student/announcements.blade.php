@@ -37,8 +37,8 @@ new #[Layout('layouts.student')] class extends Component {
         @forelse($announcements as $ann)
         <x-card shadow class="border-0 hover:shadow-md transition-shadow">
             <div class="flex items-start gap-4">
-                <div class="w-10 h-10 rounded-xl bg-violet-100 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <x-icon name="o-megaphone" class="w-5 h-5 text-violet-600" />
+                <div class="w-10 h-10 rounded-xl bg-zinc-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <x-icon name="o-megaphone" class="w-5 h-5 text-zinc-600" />
                 </div>
                 <div class="flex-1 min-w-0">
                     <div class="flex items-start justify-between gap-2">

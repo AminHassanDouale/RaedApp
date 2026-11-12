@@ -84,8 +84,8 @@ new #[Layout('layouts.platform')] class extends Component {
         </x-card>
         <x-card shadow class="border-0">
             <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl bg-violet-100 flex items-center justify-center shrink-0">
-                    <x-icon name="o-users" class="w-5 h-5 text-violet-600" />
+                <div class="w-10 h-10 rounded-xl bg-zinc-100 flex items-center justify-center shrink-0">
+                    <x-icon name="o-users" class="w-5 h-5 text-zinc-600" />
                 </div>
                 <div>
                     <p class="text-2xl font-black">{{ $totalUsers }}</p>

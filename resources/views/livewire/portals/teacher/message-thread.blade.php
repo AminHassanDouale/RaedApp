@@ -83,7 +83,7 @@ new #[Layout('layouts.teacher')] class extends Component {
                 @php $isMe = $msg->sender_id === auth()->id(); @endphp
                 <div class="flex {{ $isMe ? 'justify-end' : 'justify-start' }} gap-3">
                     @if(!$isMe)
-                    <div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-700 text-xs font-bold shrink-0 mt-1">
+                    <div class="w-8 h-8 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-700 text-xs font-bold shrink-0 mt-1">
                         {{ substr($msg->sender?->name ?? '?', 0, 1) }}
                     </div>
                     @endif
@@ -91,7 +91,7 @@ new #[Layout('layouts.teacher')] class extends Component {
                         @if(!$isMe)
                         <p class="text-xs text-base-content/60 mb-1">{{ $msg->sender?->name ?? $msg->sender?->email }}</p>
                         @endif
-                        <div class="px-4 py-3 rounded-2xl {{ $isMe ? 'bg-indigo-600 text-white rounded-tr-none' : 'bg-base-200 rounded-tl-none' }}">
+                        <div class="px-4 py-3 rounded-2xl {{ $isMe ? 'bg-zinc-600 text-white rounded-tr-none' : 'bg-base-200 rounded-tl-none' }}">
                             <p class="text-sm whitespace-pre-wrap">{{ $msg->body }}</p>
                         </div>
                         <p class="text-xs text-base-content/40 mt-1 {{ $isMe ? 'text-right' : '' }}">
@@ -99,7 +99,7 @@ new #[Layout('layouts.teacher')] class extends Component {
                         </p>
                     </div>
                     @if($isMe)
-                    <div class="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center text-white text-xs font-bold shrink-0 mt-1">
+                    <div class="w-8 h-8 rounded-full bg-zinc-600 flex items-center justify-center text-white text-xs font-bold shrink-0 mt-1">
                         {{ substr(auth()->user()->name ?? '?', 0, 1) }}
                     </div>
                     @endif
@@ -128,7 +128,7 @@ new #[Layout('layouts.teacher')] class extends Component {
             <h4 class="font-bold text-sm">Participants ({{ $participants->count() }})</h4>
             @foreach($participants as $recipient)
             <div class="flex items-center gap-2">
-                <div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-700 font-bold text-xs shrink-0">
+                <div class="w-8 h-8 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-700 font-bold text-xs shrink-0">
                     {{ substr($recipient->user?->name ?? '?', 0, 1) }}
                 </div>
                 <div class="min-w-0">

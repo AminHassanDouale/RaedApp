@@ -551,8 +551,8 @@ new #[Layout('layouts.app')] class extends Component {
     @else
     {{-- ── CALENDAR VIEW ─────────────────────────────────────────────────────────── --}}
     @php
-        $calColors  = ['!bg-sky-200','!bg-emerald-200','!bg-violet-200','!bg-rose-200',
-                       '!bg-amber-200','!bg-teal-200','!bg-fuchsia-200','!bg-orange-200'];
+        $calColors  = ['!bg-sky-200','!bg-emerald-200','!bg-zinc-200','!bg-rose-200',
+                       '!bg-amber-200','!bg-teal-200','!bg-zinc-200','!bg-orange-200'];
         $calEvents  = [];
         $monthStart = now()->startOfMonth();
         $monthEnd   = now()->endOfMonth();

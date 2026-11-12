@@ -45,8 +45,8 @@ new #[Layout('layouts.student')] class extends Component {
         $entries = $allEntries->groupBy('day_of_week');
 
         // Generate calendar events for current month from recurring weekly schedule
-        $calColors  = ['!bg-sky-200', '!bg-emerald-200', '!bg-violet-200', '!bg-rose-200',
-                       '!bg-amber-200', '!bg-teal-200', '!bg-fuchsia-200', '!bg-orange-200'];
+        $calColors  = ['!bg-sky-200', '!bg-emerald-200', '!bg-zinc-200', '!bg-rose-200',
+                       '!bg-amber-200', '!bg-teal-200', '!bg-zinc-200', '!bg-orange-200'];
         $calEvents  = [];
         $monthStart = now()->startOfMonth();
         $monthEnd   = now()->endOfMonth();

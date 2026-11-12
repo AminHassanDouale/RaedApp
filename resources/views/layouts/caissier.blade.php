@@ -13,8 +13,8 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
     @livewireStyles
     <style>
-        .portal-gradient  { background: linear-gradient(135deg, #0891b2 0%, #06b6d4 50%, #22d3ee 100%); }
-        .sidebar-caissier { background: linear-gradient(180deg, #083344 0%, #0c4a6e 100%); }
+        .portal-gradient  { background: linear-gradient(135deg, #1f1f23 0%, #1f1f23 50%, #1f1f23 100%); }
+        .sidebar-caissier { background: linear-gradient(180deg, #0f0f10 0%, #0f0f10 100%); }
     </style>
     @stack('head-styles')
 </head>

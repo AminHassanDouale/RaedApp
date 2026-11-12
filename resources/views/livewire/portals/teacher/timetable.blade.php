@@ -65,8 +65,8 @@ new #[Layout('layouts.teacher')] class extends Component {
         $entries = $allEntries->groupBy('day_of_week');
 
         // Generate calendar events for current month from recurring weekly schedule
-        $calColors  = ['!bg-sky-200', '!bg-emerald-200', '!bg-violet-200', '!bg-rose-200',
-                       '!bg-amber-200', '!bg-teal-200', '!bg-fuchsia-200', '!bg-orange-200'];
+        $calColors  = ['!bg-sky-200', '!bg-emerald-200', '!bg-zinc-200', '!bg-rose-200',
+                       '!bg-amber-200', '!bg-teal-200', '!bg-zinc-200', '!bg-orange-200'];
         $calEvents  = [];
         $monthStart = now()->startOfMonth();
         $monthEnd   = now()->endOfMonth();
@@ -145,7 +145,7 @@ new #[Layout('layouts.teacher')] class extends Component {
     {{-- ── TABLE VIEW ──────────────────────────────────────────────────────────── --}}
     <div class="overflow-x-auto rounded-2xl border border-base-200 shadow-sm">
         <table class="table table-sm w-full bg-base-100">
-            <thead class="bg-indigo-600 text-white">
+            <thead class="bg-zinc-600 text-white">
                 <tr>
                     <th class="py-3 px-4 text-left font-semibold text-sm w-28">Heure</th>
                     @foreach($days as $num => $name)
@@ -218,7 +218,7 @@ new #[Layout('layouts.teacher')] class extends Component {
     {{-- Legend --}}
     <div class="flex flex-wrap items-center gap-4 text-xs text-base-content/50">
         <span class="flex items-center gap-1.5">
-            <span class="w-3 h-3 rounded bg-indigo-200 inline-block"></span> Cours planifié
+            <span class="w-3 h-3 rounded bg-zinc-200 inline-block"></span> Cours planifié
         </span>
         <span class="flex items-center gap-1.5">
             <span class="w-3 h-3 rounded bg-base-200 inline-block"></span> Libre

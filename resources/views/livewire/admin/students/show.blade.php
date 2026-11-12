@@ -257,7 +257,7 @@ new #[Layout('layouts.app')] class extends Component {
             {{-- Finance mini-summary --}}
             <div class="grid grid-cols-2 gap-3 sm:grid-cols-4">
                 @foreach([
-                    ['label' => 'Total facturé', 'val' => number_format($financeSummary['total']).' DJF', 'class' => 'text-purple-600'],
+                    ['label' => 'Total facturé', 'val' => number_format($financeSummary['total']).' DJF', 'class' => 'text-zinc-600'],
                     ['label' => 'Payé',           'val' => number_format($financeSummary['paid']).' DJF',  'class' => 'text-green-600'],
                     ['label' => 'Solde',          'val' => number_format($financeSummary['balance']).' DJF','class' => 'text-amber-600'],
                     ['label' => 'En retard',      'val' => $financeSummary['overdue'].' facture(s)',        'class' => 'text-red-600'],

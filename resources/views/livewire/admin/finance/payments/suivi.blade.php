@@ -230,7 +230,7 @@ new #[Layout('layouts.app')] class extends Component {
         @php $kpis = [
             ['label' => 'Mobile Money encaissé',  'value' => number_format($dmoneyTotal, 0, ',', ' '), 'unit' => 'DJF · confirmés',  'icon' => 'o-device-phone-mobile', 'grad' => 'from-emerald-500 to-teal-600'],
             ['label' => 'Mobile Money en attente', 'value' => number_format($dmoneyPending),            'unit' => 'transactions',     'icon' => 'o-clock',              'grad' => 'from-amber-500 to-orange-600'],
-            ['label' => 'Caisse physique',         'value' => number_format($manualTotal, 0, ',', ' '), 'unit' => 'DJF',              'icon' => 'o-banknotes',          'grad' => 'from-violet-500 to-indigo-600'],
+            ['label' => 'Caisse physique',         'value' => number_format($manualTotal, 0, ',', ' '), 'unit' => 'DJF',              'icon' => 'o-banknotes',          'grad' => 'from-zinc-500 to-zinc-600'],
             ['label' => "Encaissé aujourd'hui",    'value' => number_format($todayTotal, 0, ',', ' '),  'unit' => 'DJF · tous modes', 'icon' => 'o-calendar-days',      'grad' => 'from-cyan-500 to-sky-600'],
         ]; @endphp
         @foreach($kpis as $kpi)

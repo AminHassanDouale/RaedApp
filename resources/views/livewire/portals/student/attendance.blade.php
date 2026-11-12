@@ -52,8 +52,8 @@ new #[Layout('layouts.student')] class extends Component {
             <p class="text-3xl font-black text-warning">{{ $stats['late'] }}</p>
             <p class="text-xs text-base-content/60 mt-1">Retards</p>
         </x-card>
-        <x-card class="border-0 shadow-sm text-center bg-gradient-to-br from-violet-50 to-white">
-            <p class="text-3xl font-black text-violet-700">{{ $presRate }}%</p>
+        <x-card class="border-0 shadow-sm text-center bg-gradient-to-br from-zinc-50 to-white">
+            <p class="text-3xl font-black text-zinc-700">{{ $presRate }}%</p>
             <p class="text-xs text-base-content/60 mt-1">Taux de présence</p>
             <div class="w-full bg-base-200 rounded-full h-1.5 mt-2">
                 <div class="h-1.5 rounded-full {{ $presRate >= 75 ? 'bg-success' : ($presRate >= 50 ? 'bg-warning' : 'bg-error') }}" style="width: {{ $presRate }}%"></div>

@@ -8,17 +8,18 @@
         body { font-family: DejaVu Sans, sans-serif; font-size: 11px; color: #1e293b; background: #fff; }
 
         .header {
-            background: #1e3a8a;
+            background: #0f0f10;
             color: white;
             padding: 20px 24px 16px;
             position: relative;
+            border-bottom: 3px solid #d4f82a;
         }
         .header-flex { display: table; width: 100%; }
         .header-left { display: table-cell; vertical-align: top; width: 60%; }
         .header-right { display: table-cell; vertical-align: top; text-align: right; width: 40%; }
         .school-name { font-size: 16px; font-weight: bold; margin-bottom: 3px; }
         .school-sub  { font-size: 9px; opacity: 0.7; line-height: 1.5; }
-        .doc-type    { font-size: 22px; font-weight: bold; letter-spacing: -0.5px; }
+        .doc-type    { font-size: 22px; font-weight: bold; letter-spacing: -0.5px; color: #d4f82a; }
         .doc-ref     { font-size: 12px; font-weight: bold; opacity: 0.85; margin-top: 2px; }
         .status-pill {
             display: inline-block;
@@ -47,7 +48,7 @@
         .party-cell { display: table-cell; width: 50%; padding-right: 10px; vertical-align: top; }
         .party-cell:last-child { padding-right: 0; padding-left: 10px; }
         .party-box { border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px; }
-        .party-box-blue { border-color: #bfdbfe; background: #eff6ff; }
+        .party-box-blue { border-color: #dff29a; background: #fbfee8; }
         .party-label { font-size: 7px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.1em; color: #94a3b8; margin-bottom: 6px; }
         .party-name { font-size: 12px; font-weight: bold; color: #1e293b; margin-bottom: 2px; }
         .party-sub { font-size: 9px; color: #64748b; }
@@ -55,7 +56,7 @@
         .section-title { font-size: 8px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.1em; color: #94a3b8; margin-bottom: 8px; margin-top: 14px; }
 
         table.detail { width: 100%; border-collapse: collapse; font-size: 10px; }
-        table.detail thead tr { background: #1e3a8a; color: white; }
+        table.detail thead tr { background: #0f0f10; color: white; }
         table.detail thead th { padding: 7px 10px; text-align: left; font-size: 8px; text-transform: uppercase; letter-spacing: 0.06em; }
         table.detail thead th.r { text-align: right; }
         table.detail tbody tr { border-bottom: 1px solid #f1f5f9; }
@@ -63,8 +64,8 @@
         table.detail tbody td { padding: 7px 10px; }
         table.detail tbody td.r { text-align: right; font-weight: bold; }
         table.detail tfoot td { padding: 8px 10px; font-weight: bold; }
-        .total-row { background: #eff6ff !important; border-top: 2px solid #bfdbfe; }
-        .total-row td { color: #1e3a8a; font-size: 12px; }
+        .total-row { background: #fbfee8 !important; border-top: 2px solid #dff29a; }
+        .total-row td { color: #0f0f10; font-size: 12px; }
         .paid-row { background: #f0fdf4 !important; }
         .paid-row td { color: #166534; }
         .balance-row { background: #fff7ed !important; border-top: 2px dashed #fed7aa; }
@@ -83,7 +84,7 @@
             width: 100%;
         }
         .footer-left { display: table-cell; font-size: 8px; color: #94a3b8; line-height: 1.6; }
-        .footer-right { display: table-cell; text-align: right; font-size: 9px; font-weight: bold; color: #1d4ed8; }
+        .footer-right { display: table-cell; text-align: right; font-size: 9px; font-weight: bold; color: #0f0f10; }
 
         .watermark {
             position: fixed;
@@ -149,7 +150,7 @@
         </div>
         <div class="meta-cell">
             <div class="meta-label">Montant réglé</div>
-            <div class="meta-value" style="color:#1e3a8a;font-size:14px;">{{ number_format((int)$payment->amount, 0, ',', ' ') }} DJF</div>
+            <div class="meta-value" style="color:#0f0f10;font-size:14px;">{{ number_format((int)$payment->amount, 0, ',', ' ') }} DJF</div>
         </div>
     </div>
 </div>
@@ -168,7 +169,7 @@
         </div>
         <div class="party-cell">
             <div class="party-box party-box-blue">
-                <div class="party-label" style="color:#3b82f6;">Destinataire</div>
+                <div class="party-label" style="color:#0f0f10;">Destinataire</div>
                 <div class="party-name">{{ $payment->student?->full_name }}</div>
                 @if($payment->student?->student_code)
                 <div class="party-sub">Réf : {{ $payment->student->student_code }}</div>
@@ -204,7 +205,7 @@
         <tfoot>
             <tr class="total-row">
                 <td colspan="3" style="text-align:right;text-transform:uppercase;letter-spacing:0.06em;font-size:9px;">Total réglé</td>
-                <td style="text-align:right;font-size:14px;color:#1e3a8a;">{{ number_format((int)$payment->amount, 0, ',', ' ') }} DJF</td>
+                <td style="text-align:right;font-size:14px;color:#0f0f10;">{{ number_format((int)$payment->amount, 0, ',', ' ') }} DJF</td>
             </tr>
         </tfoot>
     </table>

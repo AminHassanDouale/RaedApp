@@ -12,8 +12,8 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
     <style>
-        .portal-gradient { background: linear-gradient(135deg, #1e293b 0%, #334155 50%, #475569 100%); }
-        .sidebar-platform { background: linear-gradient(180deg, #020617 0%, #0f172a 100%); }
+        .portal-gradient { background: linear-gradient(135deg, #1f1f23 0%, #1f1f23 50%, #1f1f23 100%); }
+        .sidebar-platform { background: linear-gradient(180deg, #0f0f10 0%, #0f0f10 100%); }
     </style>
     @stack('head-styles')
 </head>

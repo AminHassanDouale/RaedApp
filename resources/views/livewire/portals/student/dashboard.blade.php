@@ -106,10 +106,10 @@ new #[Layout('layouts.student')] class extends Component {
         <div class="absolute top-0 right-0 w-40 h-40 rounded-full bg-white/10 -translate-y-10 translate-x-10"></div>
         <div class="absolute bottom-0 left-0 w-24 h-24 rounded-full bg-white/5 translate-y-8 -translate-x-6"></div>
         <div class="relative">
-            <p class="text-violet-200 text-sm font-medium">{{ __('navigation.welcome_back') }}</p>
+            <p class="text-zinc-200 text-sm font-medium">{{ __('navigation.welcome_back') }}</p>
             <h2 class="text-2xl font-black mt-1">{{ $student?->full_name ?? auth()->user()->full_name }}</h2>
             @if($enrollment)
-                <p class="text-violet-200 mt-1">
+                <p class="text-zinc-200 mt-1">
                     {{ $enrollment->schoolClass?->name }} · {{ $enrollment->grade?->name }}
                 </p>
             @endif
@@ -118,11 +118,11 @@ new #[Layout('layouts.student')] class extends Component {
 
     {{-- KPI cards --}}
     <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 stagger">
-        <x-card class="border-0 shadow-sm bg-gradient-to-br from-violet-50 to-white text-center">
-            <div class="w-10 h-10 rounded-xl bg-violet-100 flex items-center justify-center mx-auto mb-2">
-                <x-icon name="o-chart-bar" class="w-5 h-5 text-violet-600" />
+        <x-card class="border-0 shadow-sm bg-gradient-to-br from-zinc-50 to-white text-center">
+            <div class="w-10 h-10 rounded-xl bg-zinc-100 flex items-center justify-center mx-auto mb-2">
+                <x-icon name="o-chart-bar" class="w-5 h-5 text-zinc-600" />
             </div>
-            <p class="text-2xl font-black text-violet-700">{{ $totalScores }}</p>
+            <p class="text-2xl font-black text-zinc-700">{{ $totalScores }}</p>
             <p class="text-xs text-base-content/60">{{ __('navigation.notes') }}</p>
         </x-card>
 
@@ -155,11 +155,11 @@ new #[Layout('layouts.student')] class extends Component {
     <x-card title="{{ __('navigation.quick_access') }}" shadow separator>
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <a href="{{ route('student.timetable') }}" wire:navigate
-               class="flex flex-col items-center gap-2 p-4 rounded-xl bg-violet-50 hover:bg-violet-100 transition-colors group">
-                <div class="w-10 h-10 rounded-full bg-violet-600 flex items-center justify-center group-hover:scale-110 transition-transform">
+               class="flex flex-col items-center gap-2 p-4 rounded-xl bg-zinc-50 hover:bg-zinc-100 transition-colors group">
+                <div class="w-10 h-10 rounded-full bg-zinc-600 flex items-center justify-center group-hover:scale-110 transition-transform">
                     <x-icon name="o-table-cells" class="w-5 h-5 text-white" />
                 </div>
-                <span class="text-xs font-semibold text-violet-700">{{ __('navigation.timetable') }}</span>
+                <span class="text-xs font-semibold text-zinc-700">{{ __('navigation.timetable') }}</span>
             </a>
             <a href="{{ route('student.grades') }}" wire:navigate
                class="flex flex-col items-center gap-2 p-4 rounded-xl bg-green-50 hover:bg-green-100 transition-colors group">
@@ -204,8 +204,8 @@ new #[Layout('layouts.student')] class extends Component {
         <x-card title="{{ __('navigation.recent_grades') }}" shadow separator>
             @forelse($recentScores as $score)
             <div class="flex items-center gap-3 py-2 border-b border-base-100 last:border-0">
-                <div class="w-8 h-8 rounded-lg bg-violet-100 flex items-center justify-center flex-shrink-0">
-                    <x-icon name="o-pencil-square" class="w-4 h-4 text-violet-600" />
+                <div class="w-8 h-8 rounded-lg bg-zinc-100 flex items-center justify-center flex-shrink-0">
+                    <x-icon name="o-pencil-square" class="w-4 h-4 text-zinc-600" />
                 </div>
                 <div class="flex-1 min-w-0">
                     <p class="text-sm font-medium truncate">{{ $score->assessment?->title }}</p>
