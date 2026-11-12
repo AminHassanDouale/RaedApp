@@ -8,14 +8,15 @@
         $seoTitle = 'RaedApp — Logiciel de gestion scolaire tout-en-un';
         $seoDesc  = "RaedApp est la plateforme de gestion scolaire nouvelle génération pour les écoles de Djibouti et d'Afrique francophone : inscriptions, présences, notes & bulletins, finances et communication réunies. Paiement en ligne de la scolarité (D-Money, Waafi, CAC Pay, Exim Pay) et notifications Email + WhatsApp automatiques.";
         $seoUrl   = url('/');
-        $seoImg   = asset('images/logoraedapp.png');
+        $seoImg   = asset('images/logoraedapp.png');   // raster — og:image / social cards (export the new SVG to PNG to refresh)
+        $logoSvg  = asset('images/logo-raedapp.svg');   // vector brand mark — favicon / structured-data logo
         $gaId     = config('services.google.analytics_id');
         $jsonLd   = [
             '@context' => 'https://schema.org',
             '@graph'   => [
                 [
                     '@type' => 'Organization', '@id' => $seoUrl.'#org',
-                    'name' => 'RaedApp', 'url' => $seoUrl, 'logo' => $seoImg,
+                    'name' => 'RaedApp', 'url' => $seoUrl, 'logo' => $logoSvg,
                     'email' => 'contact@raedapp.com', 'areaServed' => 'DJ', 'description' => $seoDesc,
                 ],
                 [
