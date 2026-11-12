@@ -8,7 +8,7 @@
     <title>{{ config('app.name', 'RaedApp') }} — @yield('title', __('navigation.student_portal'))</title>
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600,700&display=swap" rel="stylesheet"/>
-    <link rel="icon" href="{{ asset('images/logoraedapp.png') }}" type="image/png">
+    <link rel="icon" href="{{ asset('images/logo-raedapp.svg') }}" type="image/svg+xml">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
@@ -30,7 +30,7 @@
             @if(auth()->user()?->school?->logo)
                 <img src="{{ auth()->user()->school->logo_url }}" alt="" class="w-7 h-7 rounded-lg object-cover shrink-0 ring-1 ring-current/20">
             @else
-                <img src="{{ asset('images/logoraedapp.png') }}" alt="RaedApp" class="w-7 h-7 rounded-lg object-contain shrink-0">
+                <img src="{{ asset('images/logo-raedapp.svg') }}" alt="RaedApp" class="w-7 h-7 rounded-lg object-contain shrink-0">
             @endif
             <span class="font-black text-sm truncate max-w-36 hidden sm:block">{{ auth()->user()?->school?->name }}</span>
         </div>
@@ -59,7 +59,7 @@
                 @if(auth()->user()?->school?->logo)
                     <img src="{{ auth()->user()->school->logo_url }}" alt="" class="w-11 h-11 rounded-xl object-cover shrink-0 ring-2 ring-white/30">
                 @else
-                    <img src="{{ asset('images/logoraedapp.png') }}" alt="RaedApp" class="w-11 h-11 rounded-xl object-contain shrink-0">
+                    <img src="{{ asset('images/logo-raedapp.svg') }}" alt="RaedApp" class="w-11 h-11 rounded-xl object-contain shrink-0">
                 @endif
                 <div class="min-w-0">
                     <p class="font-bold text-white text-sm truncate">{{ auth()->user()?->full_name }}</p>

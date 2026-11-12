@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600,700,800&display=swap" rel="stylesheet"/>
 
-    <link rel="icon" href="{{ asset('images/logoraedapp.png') }}" type="image/png">
+    <link rel="icon" href="{{ asset('images/logo-raedapp.svg') }}" type="image/svg+xml">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
 </head>
@@ -32,7 +32,7 @@
         <div class="relative z-10">
             <div class="flex items-center gap-3">
                 <div class="w-11 h-11 rounded-xl bg-white flex items-center justify-center p-1.5 shadow-lg">
-                    <img src="{{ asset('images/logoraedapp.png') }}" alt="RaedApp" class="w-full h-full object-contain">
+                    <img src="{{ asset('images/logo-raedapp.svg') }}" alt="RaedApp" class="w-full h-full object-contain">
                 </div>
                 <span class="text-white font-bold text-xl tracking-tight">RaedApp</span>
             </div>
@@ -79,7 +79,7 @@
 
         {{-- Mobile logo (shown only on small screens) --}}
         <div class="lg:hidden text-center mb-8">
-            <img src="{{ asset('images/logoraedapp.png') }}" alt="RaedApp" class="h-14 mx-auto object-contain">
+            <img src="{{ asset('images/logo-raedapp.svg') }}" alt="RaedApp" class="h-14 mx-auto object-contain">
             <p class="text-base-content/50 text-xs uppercase tracking-widest mt-2">School Management</p>
         </div>
 

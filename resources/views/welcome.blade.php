@@ -40,12 +40,12 @@
     <meta name="keywords" content="gestion scolaire, logiciel école, logiciel de gestion scolaire, SMS école, Djibouti, paiement scolarité en ligne, D-Money, Waafi, CAC Pay, bulletins scolaires, présences, notes, école numérique, RaedApp">
     <meta name="author" content="RaedApp">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
-    <meta name="theme-color" content="#7c3aed">
+    <meta name="theme-color" content="#0f0f10">
     <link rel="canonical" href="{{ $seoUrl }}">
     <link rel="alternate" hreflang="fr" href="{{ $seoUrl }}">
     <link rel="alternate" hreflang="x-default" href="{{ $seoUrl }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="icon" href="{{ asset('images/logoraedapp.png') }}" type="image/png">
+    <link rel="icon" href="{{ asset('images/logo-raedapp.svg') }}" type="image/svg+xml">
     <link rel="apple-touch-icon" href="{{ asset('images/logoraedapp.png') }}">
     <title>{{ $seoTitle }}</title>
 
@@ -90,8 +90,9 @@
                 extend: {
                     fontFamily: { sans: ['"Plus Jakarta Sans"','ui-sans-serif','system-ui'] },
                     colors: {
-                        brand: { 50:'#f3effe',100:'#ede9fe',200:'#ddd6fe',300:'#c4b5fd',400:'#a78bfa',500:'#8b5cf6',600:'#7c3aed',700:'#6d28d9' },
-                        ink: '#171225',
+                        brand: { 50:'#f6f6f5',100:'#e7e5e4',200:'#d6d3d1',300:'#a8a29e',400:'#78716c',500:'#44403c',600:'#1c1917',700:'#0a0a0a' },
+                        acid:  { DEFAULT:'#d4f82a', 400:'#e4ff52', 600:'#c7ef1f' },
+                        ink: '#0f0f10',
                     },
                 }
             }
@@ -102,18 +103,18 @@
 
     <style>
         :root {
-            --primary:#7c3aed; --ink:#171225; --muted:#5b5570; --line:#ecebf3;
+            --primary:#0f0f10; --ink:#0f0f10; --muted:#5b5570; --line:#e7e5e4;
             --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
             --ease-back: cubic-bezier(0.34, 1.4, 0.5, 1);
         }
         * { font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif; }
         html, body { max-width: 100%; }
         body { background: #ffffff; color: var(--ink); }
-        ::selection { background: #ddd6fe; color: #4c1d95; }
+        ::selection { background: #d6d3d1; color: #0f0f10; }
         ::-webkit-scrollbar { width: 10px; }
-        ::-webkit-scrollbar-track { background: #f6f5fb; }
-        ::-webkit-scrollbar-thumb { background: #ddd6fe; border-radius: 6px; }
-        ::-webkit-scrollbar-thumb:hover { background: #c4b5fd; }
+        ::-webkit-scrollbar-track { background: #f5f5f4; }
+        ::-webkit-scrollbar-thumb { background: #d6d3d1; border-radius: 6px; }
+        ::-webkit-scrollbar-thumb:hover { background: #d6d3d1; }
         h1,h2,h3 { letter-spacing: -0.03em; }
         .text-muted { color: var(--muted); }
 
@@ -121,27 +122,27 @@
         .hero-wash {
             background:
                 radial-gradient(760px 420px at 50% -8%, rgba(167,139,250,0.20), transparent 60%),
-                linear-gradient(180deg, #faf9ff 0%, #ffffff 42%);
+                linear-gradient(180deg, #fafafa 0%, #ffffff 42%);
         }
         .blob { position:absolute; border-radius:50%; filter: blur(70px); opacity:.42; pointer-events:none; }
 
         /* Pill buttons */
         .pill { border-radius:9999px; transition: transform .18s var(--ease-out), box-shadow .3s, background-position .5s, background-color .2s, color .2s, border-color .2s; }
         .btn-primary {
-            position:relative; overflow:hidden; color:#fff;
-            background: linear-gradient(100deg,#7c3aed,#8b5cf6 55%,#a855f7);
-            background-size:200% 100%; box-shadow: 0 10px 26px -10px rgba(124,58,237,0.55);
+            position:relative; overflow:hidden; color:#0f0f10; font-weight:700;
+            background: linear-gradient(100deg,#c7ef1f,#d4f82a 55%,#e4ff52);
+            background-size:200% 100%; box-shadow: 0 10px 26px -10px rgba(212,248,42,0.6);
         }
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 18px 38px -12px rgba(124,58,237,0.6); background-position:100% 0; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 18px 40px -12px rgba(212,248,42,0.72); background-position:100% 0; }
         .btn-primary:active { transform: translateY(0) scale(.98); }
         .btn-outline { background:#fff; color:var(--ink); border:1px solid var(--line); }
-        .btn-outline:hover { border-color:#c4b5fd; transform: translateY(-2px); box-shadow:0 10px 24px -14px rgba(124,58,237,0.4); }
+        .btn-outline:hover { border-color:#d6d3d1; transform: translateY(-2px); box-shadow:0 10px 24px -14px rgba(15,15,16,0.4); }
         .btn-outline:active { transform: translateY(0) scale(.98); }
 
         /* Cards */
         .card { background:#fff; border:1px solid var(--line); box-shadow: 0 1px 2px rgba(23,18,37,0.04); }
         .card-lift { transition: transform .35s var(--ease-out), box-shadow .35s var(--ease-out), border-color .3s; }
-        .card-lift:hover { transform: translateY(-5px); box-shadow: 0 24px 50px -22px rgba(124,58,237,0.26); border-color:#e3dcfb; }
+        .card-lift:hover { transform: translateY(-5px); box-shadow: 0 24px 50px -22px rgba(15,15,16,0.26); border-color:#e3dcfb; }
 
         /* Scroll reveal — slight scale/overshoot (back.out feel) */
         .reveal { opacity:0; transform: translateY(26px) scale(.985); transition: opacity .6s ease, transform .65s var(--ease-back); }
@@ -163,17 +164,17 @@
         @keyframes playpulse { 0%{ transform:scale(.9); opacity:.7 } 70%{ transform:scale(1.35); opacity:0 } 100%{ opacity:0 } }
 
         /* Input -> output automation cards */
-        .io-in  { background:#f6f5fb; border:1px solid var(--line); }
-        .io-out { background:#f6f0ff; border:1px solid #e7dcfb; }
-        .io-arrow { color:#a78bfa; }
+        .io-in  { background:#f5f5f4; border:1px solid var(--line); }
+        .io-out { background:#f5f5f4; border:1px solid #e7e5e4; }
+        .io-arrow { color:#171717; }
 
         /* Stepnum */
-        .stepnum { width:44px; height:44px; border-radius:14px; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:17px; color:#fff; background:linear-gradient(135deg,#7c3aed,#a855f7); box-shadow:0 10px 24px -10px rgba(124,58,237,0.6); }
+        .stepnum { width:44px; height:44px; border-radius:14px; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:17px; color:#fff; background:linear-gradient(135deg,#0f0f10,#0f0f10); box-shadow:0 10px 24px -10px rgba(15,15,16,0.6); }
 
         /* Calculator range */
-        input[type=range].slider { -webkit-appearance:none; appearance:none; height:8px; border-radius:9999px; background:linear-gradient(90deg,#7c3aed,#a855f7); outline:none; }
-        input[type=range].slider::-webkit-slider-thumb { -webkit-appearance:none; appearance:none; width:26px; height:26px; border-radius:50%; background:#fff; border:3px solid #7c3aed; box-shadow:0 4px 12px rgba(124,58,237,.4); cursor:pointer; }
-        input[type=range].slider::-moz-range-thumb { width:26px; height:26px; border-radius:50%; background:#fff; border:3px solid #7c3aed; box-shadow:0 4px 12px rgba(124,58,237,.4); cursor:pointer; }
+        input[type=range].slider { -webkit-appearance:none; appearance:none; height:8px; border-radius:9999px; background:linear-gradient(90deg,#0f0f10,#0f0f10); outline:none; }
+        input[type=range].slider::-webkit-slider-thumb { -webkit-appearance:none; appearance:none; width:26px; height:26px; border-radius:50%; background:#fff; border:3px solid #0f0f10; box-shadow:0 4px 12px rgba(15,15,16,.4); cursor:pointer; }
+        input[type=range].slider::-moz-range-thumb { width:26px; height:26px; border-radius:50%; background:#fff; border:3px solid #0f0f10; box-shadow:0 4px 12px rgba(15,15,16,.4); cursor:pointer; }
 
         /* Marquee */
         .marquee { overflow:hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); }
@@ -197,15 +198,15 @@
 
 {{-- Scroll progress --}}
 <div class="fixed top-0 inset-x-0 h-[3px] z-[60] pointer-events-none" aria-hidden="true">
-    <div class="scroll-progress" style="background:linear-gradient(90deg,#7c3aed,#a855f7,#22d3ee);"></div>
+    <div class="scroll-progress" style="background:linear-gradient(90deg,#0f0f10,#0f0f10,#d4f82a);"></div>
 </div>
 
 {{-- ══════════════ NAV ══════════════ --}}
 <nav class="fixed top-0 inset-x-0 z-50 px-4 transition-all duration-500" :class="scrolled ? 'pt-3' : 'pt-5'">
     <div class="max-w-6xl mx-auto">
-        <div class="flex items-center justify-between gap-4 bg-white/85 backdrop-blur-xl rounded-full pl-5 pr-3 py-2.5 border border-[#ecebf3]" :class="scrolled ? 'shadow-[0_10px_30px_-14px_rgba(23,18,37,0.2)]' : ''">
+        <div class="flex items-center justify-between gap-4 bg-white/85 backdrop-blur-xl rounded-full pl-5 pr-3 py-2.5 border border-[#e7e5e4]" :class="scrolled ? 'shadow-[0_10px_30px_-14px_rgba(23,18,37,0.2)]' : ''">
             <a href="#top" class="flex items-center gap-2.5 shrink-0">
-                <img src="{{ asset('images/logoraedapp.png') }}" alt="RaedApp" class="h-8 w-8">
+                <img src="{{ asset('images/logo-raedapp.svg') }}" alt="RaedApp" class="h-8 w-8">
                 <span class="font-extrabold text-lg text-ink">Raed<span class="text-brand-600">App</span></span>
             </a>
             <div class="hidden lg:flex items-center gap-1 text-sm font-medium text-muted">
@@ -223,14 +224,14 @@
                 <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
             </button>
         </div>
-        <div x-show="mobileOpen" x-cloak x-transition class="lg:hidden mt-2 bg-white rounded-2xl p-4 space-y-1 shadow-xl border border-[#ecebf3]">
+        <div x-show="mobileOpen" x-cloak x-transition class="lg:hidden mt-2 bg-white rounded-2xl p-4 space-y-1 shadow-xl border border-[#e7e5e4]">
             <a href="#demo" @click="mobileOpen=false" class="block px-3 py-2 rounded-lg hover:bg-brand-50">Démo</a>
             <a href="#fonctionnalites" @click="mobileOpen=false" class="block px-3 py-2 rounded-lg hover:bg-brand-50">Fonctionnalités</a>
             <a href="#portails" @click="mobileOpen=false" class="block px-3 py-2 rounded-lg hover:bg-brand-50">Portails</a>
             <a href="#calcul" @click="mobileOpen=false" class="block px-3 py-2 rounded-lg hover:bg-brand-50">Vos gains</a>
             <a href="#faq" @click="mobileOpen=false" class="block px-3 py-2 rounded-lg hover:bg-brand-50">FAQ</a>
             <div class="pt-2 flex gap-2">
-                <a href="{{ route('login') }}" class="flex-1 text-center py-2.5 rounded-full border border-[#ecebf3] font-semibold text-sm">Connexion</a>
+                <a href="{{ route('login') }}" class="flex-1 text-center py-2.5 rounded-full border border-[#e7e5e4] font-semibold text-sm">Connexion</a>
                 <a href="#contact" @click="mobileOpen=false" class="flex-1 text-center btn-primary pill py-2.5 font-semibold text-sm">Démo</a>
             </div>
         </div>
@@ -239,10 +240,10 @@
 
 {{-- ══════════════ HERO ══════════════ --}}
 <section id="top" class="hero-wash relative overflow-hidden pt-36 lg:pt-44 pb-20">
-    <div class="blob" style="width:360px;height:360px;background:#c4b5fd;top:-120px;left:50%;transform:translateX(-50%);"></div>
+    <div class="blob" style="width:360px;height:360px;background:#d6d3d1;top:-120px;left:50%;transform:translateX(-50%);"></div>
 
     <div class="relative max-w-3xl mx-auto px-5 text-center">
-        <a href="#demo" class="hero-rise inline-flex items-center gap-2 bg-white border border-[#ecebf3] text-brand-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-7 shadow-sm hover:border-brand-200 transition" style="transition-delay:.05s">
+        <a href="#demo" class="hero-rise inline-flex items-center gap-2 bg-white border border-[#e7e5e4] text-brand-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-7 shadow-sm hover:border-brand-200 transition" style="transition-delay:.05s">
             <span class="w-2 h-2 rounded-full bg-emerald-500"></span> Nouveau — l'application en action
         </a>
         <h1 class="text-[2.6rem] leading-[1.05] sm:text-6xl sm:leading-[1.03] font-extrabold text-ink hero-rise" style="transition-delay:.12s">
@@ -273,7 +274,7 @@
                 <span class="win-dot" style="background:#febc2e"></span>
                 <span class="win-dot" style="background:#28c840"></span>
                 <span class="ml-3 flex items-center gap-2 text-xs text-muted font-medium">
-                    <img src="{{ asset('images/logoraedapp.png') }}" class="w-4 h-4" alt=""> app.raedapp.com — Démonstration
+                    <img src="{{ asset('images/logo-raedapp.svg') }}" class="w-4 h-4" alt=""> app.raedapp.com — Démonstration
                 </span>
             </div>
             {{-- Auto-cycling product tour (uselipo-style). No video file needed —
@@ -285,12 +286,12 @@
                 ['Paiements','emerald','<rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/>'],
                 ['Communication','rose','<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>'],
             ]; @endphp
-            <div class="relative bg-[#f6f5fb] px-5 py-8 sm:px-8 sm:py-10" x-data="demo()" x-init="start()"
+            <div class="relative bg-[#f5f5f4] px-5 py-8 sm:px-8 sm:py-10" x-data="demo()" x-init="start()"
                  @mouseenter="stop()" @mouseleave="start()">
                 {{-- floating app window --}}
-                <div class="mx-auto max-w-sm bg-white rounded-2xl border border-[#ecebf3] shadow-[0_30px_60px_-30px_rgba(23,18,37,0.4)] overflow-hidden">
-                    <div class="flex items-center gap-2 px-4 py-3 border-b border-[#ecebf3]">
-                        <img src="{{ asset('images/logoraedapp.png') }}" class="w-4 h-4" alt="">
+                <div class="mx-auto max-w-sm bg-white rounded-2xl border border-[#e7e5e4] shadow-[0_30px_60px_-30px_rgba(23,18,37,0.4)] overflow-hidden">
+                    <div class="flex items-center gap-2 px-4 py-3 border-b border-[#e7e5e4]">
+                        <img src="{{ asset('images/logo-raedapp.svg') }}" class="w-4 h-4" alt="">
                         <span class="text-sm font-bold text-ink" x-text="titles[active]">Élèves</span>
                         <span class="ml-auto flex items-center gap-1.5 text-[11px] font-semibold text-emerald-600"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> En direct</span>
                     </div>
@@ -298,7 +299,7 @@
                         {{-- 0 — Élèves --}}
                         <div x-show="active===0" x-cloak x-transition.opacity.duration.450ms class="absolute inset-0 p-4 sm:p-5 space-y-2.5">
                             @foreach([['FA','Fatima Ahmed','6ème A','Inscrit','emerald'],['OD','Omar Diriye','5ème B','Inscrit','emerald'],['IH','Idris Hassan','CM2','En attente','amber']] as $r)
-                            <div class="flex items-center gap-3 rounded-xl border border-[#ecebf3] px-3 py-2.5">
+                            <div class="flex items-center gap-3 rounded-xl border border-[#e7e5e4] px-3 py-2.5">
                                 <span class="w-9 h-9 rounded-full bg-brand-100 text-brand-700 text-xs font-bold flex items-center justify-center shrink-0">{{ $r[0] }}</span>
                                 <div class="flex-1 min-w-0"><p class="text-sm font-semibold text-ink truncate">{{ $r[1] }}</p><p class="text-xs text-muted">{{ $r[2] }}</p></div>
                                 <span class="text-[11px] font-bold px-2 py-1 rounded-full bg-{{ $r[4] }}-50 text-{{ $r[4] }}-600">{{ $r[3] }}</span>
@@ -309,7 +310,7 @@
                         <div x-show="active===1" x-cloak x-transition.opacity.duration.450ms class="absolute inset-0 p-4 sm:p-5 space-y-2.5">
                             <p class="text-xs font-semibold text-muted">6ème A · Appel du jour</p>
                             @foreach([['Fatima Ahmed','Présent',true],['Amina Hassan','Absent',false],['Omar Diriye','Présent',true]] as $r)
-                            <div class="flex items-center gap-3 rounded-xl border border-[#ecebf3] px-3 py-2.5">
+                            <div class="flex items-center gap-3 rounded-xl border border-[#e7e5e4] px-3 py-2.5">
                                 <span class="w-2.5 h-2.5 rounded-full {{ $r[2] ? 'bg-emerald-500' : 'bg-red-500' }}"></span>
                                 <p class="flex-1 text-sm font-semibold text-ink">{{ $r[0] }}</p>
                                 <span class="text-[11px] font-bold {{ $r[2] ? 'text-emerald-600' : 'text-red-600' }}">{{ $r[1] }}</span>
@@ -324,7 +325,7 @@
                         <div x-show="active===2" x-cloak x-transition.opacity.duration.450ms class="absolute inset-0 p-4 sm:p-5 space-y-2">
                             <p class="text-xs font-semibold text-muted mb-0.5">Fatima Ahmed · Trimestre 2</p>
                             @foreach([['Mathématiques','16'],['Français','14'],['Sciences','15']] as $g)
-                            <div class="flex items-center justify-between rounded-xl border border-[#ecebf3] px-3 py-2.5">
+                            <div class="flex items-center justify-between rounded-xl border border-[#e7e5e4] px-3 py-2.5">
                                 <p class="text-sm font-semibold text-ink">{{ $g[0] }}</p>
                                 <span class="text-sm font-bold text-brand-600">{{ $g[1] }}<span class="text-xs text-muted">/20</span></span>
                             </div>
@@ -336,7 +337,7 @@
                         </div>
                         {{-- 3 — Paiements --}}
                         <div x-show="active===3" x-cloak x-transition.opacity.duration.450ms class="absolute inset-0 p-4 sm:p-5">
-                            <div class="rounded-2xl border border-[#ecebf3] p-4">
+                            <div class="rounded-2xl border border-[#e7e5e4] p-4">
                                 <div class="flex items-center justify-between">
                                     <div><p class="text-sm font-bold text-ink">Scolarité — Trim. 2</p><p class="text-xs text-muted">Fatima Ahmed · 6ème A</p></div>
                                     <span class="text-[11px] font-bold px-2 py-1 rounded-full bg-emerald-50 text-emerald-600">Payé</span>
@@ -371,7 +372,7 @@
 
                 {{-- dock --}}
                 <div class="mt-7 flex justify-center">
-                    <div class="inline-flex items-end gap-2 bg-white/90 backdrop-blur rounded-2xl border border-[#ecebf3] shadow-[0_14px_36px_-16px_rgba(23,18,37,0.3)] px-2.5 py-2.5">
+                    <div class="inline-flex items-end gap-2 bg-white/90 backdrop-blur rounded-2xl border border-[#e7e5e4] shadow-[0_14px_36px_-16px_rgba(23,18,37,0.3)] px-2.5 py-2.5">
                         @foreach($dock as $i => $d)
                         <button type="button" @click="go({{ $i }})" aria-label="{{ $d[0] }}"
                                 class="relative w-11 h-11 rounded-xl flex items-center justify-center transition-all duration-300 cursor-pointer bg-{{ $d[1] }}-50 text-{{ $d[1] }}-600"
@@ -388,7 +389,7 @@
 </section>
 
 {{-- ══════════════ PROOF BAR ══════════════ --}}
-<section class="bg-white border-y border-[#ecebf3]">
+<section class="bg-white border-y border-[#e7e5e4]">
     <div class="max-w-6xl mx-auto px-5 py-12">
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
             @php $proof = [
@@ -419,15 +420,15 @@
         </div>
 
         <style>
-            .flow-conn{ color:#a78bfa; }
+            .flow-conn{ color:#171717; }
             .flow-chev{ display:inline-flex; opacity:.22; animation: chevflow 2.4s linear infinite; animation-delay: calc(var(--o,0s) + var(--d,0s)); }
             @keyframes chevflow{ 0%{opacity:.18; transform:translateX(-3px)} 18%{opacity:1; transform:translateX(2px)} 46%,100%{opacity:.18; transform:translateX(-3px)} }
             .flow-outic{ display:inline-flex; animation: flowpop 2.4s ease infinite; animation-delay: var(--o,0s); }
             @keyframes flowpop{ 0%,30%{transform:scale(1)} 39%{transform:scale(1.18)} 50%{transform:scale(1)} 100%{transform:scale(1)} }
             .flow-ping{ position:relative; }
-            .flow-ping::before{ content:''; position:absolute; inset:0; border-radius:inherit; border:2px solid #a78bfa; opacity:0; animation: flowping 2.4s ease infinite; animation-delay: var(--o,0s); }
+            .flow-ping::before{ content:''; position:absolute; inset:0; border-radius:inherit; border:2px solid #171717; opacity:0; animation: flowping 2.4s ease infinite; animation-delay: var(--o,0s); }
             @keyframes flowping{ 0%,30%{transform:scale(1); opacity:0} 39%{opacity:.6} 72%{transform:scale(1.9); opacity:0} 100%{opacity:0} }
-            .flow-out::after{ content:''; position:absolute; inset:0; border-radius:inherit; pointer-events:none; opacity:0; background:radial-gradient(circle at 82% 10%, rgba(124,58,237,.14), transparent 60%); animation: flowflash 2.4s ease infinite; animation-delay: var(--o,0s); }
+            .flow-out::after{ content:''; position:absolute; inset:0; border-radius:inherit; pointer-events:none; opacity:0; background:radial-gradient(circle at 82% 10%, rgba(15,15,16,.14), transparent 60%); animation: flowflash 2.4s ease infinite; animation-delay: var(--o,0s); }
             @keyframes flowflash{ 0%,30%{opacity:0} 40%{opacity:1} 72%{opacity:0} 100%{opacity:0} }
             .flow:hover .flow-chev, .flow:hover .flow-outic, .flow:hover .flow-ping::before, .flow:hover .flow-out::after{ animation-duration: 1.2s; }
             @media (max-width:639px){ .flow-conn{ transform: rotate(90deg); margin: .25rem 0; } }
@@ -449,7 +450,7 @@
             <div class="flow reveal card card-lift rounded-2xl p-5 sm:p-6 grid sm:grid-cols-[1fr_auto_1fr] items-center gap-4" style="transition-delay: {{ $i*70 }}ms; --o: {{ $i*0.35 }}s">
                 <div class="io-in rounded-xl p-4">
                     <div class="flex items-center gap-2 mb-2">
-                        <span class="w-7 h-7 rounded-lg bg-white border border-[#ecebf3] text-ink flex items-center justify-center shrink-0">
+                        <span class="w-7 h-7 rounded-lg bg-white border border-[#e7e5e4] text-ink flex items-center justify-center shrink-0">
                             <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">{!! $f[0] !!}</svg>
                         </span>
                         <p class="text-[11px] font-bold uppercase tracking-widest text-muted">Vous faites</p>
@@ -471,7 +472,7 @@
                     </div>
                     <p class="font-bold text-ink">{{ $f[3] }}</p>
                     <p class="text-sm text-muted">{!! $f[4] !!}</p>
-                    <span class="inline-flex items-center gap-1 mt-3 text-[11px] font-bold text-brand-700 bg-white border border-[#e7dcfb] rounded-full px-2 py-0.5">
+                    <span class="inline-flex items-center gap-1 mt-3 text-[11px] font-bold text-brand-700 bg-white border border-[#e7e5e4] rounded-full px-2 py-0.5">
                         <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M11 1 3 11h5l-1 8 8-10h-5l1-8z"/></svg> {{ $f[6] }}
                     </span>
                 </div>
@@ -495,18 +496,18 @@
 </section>
 
 {{-- ══════════════ EVERYDAY TOOLS (bento) ══════════════ --}}
-<section class="bg-[#faf9ff] border-y border-[#ecebf3] py-24">
+<section class="bg-[#fafafa] border-y border-[#e7e5e4] py-24">
     <div class="max-w-5xl mx-auto px-5">
         <div class="text-center max-w-2xl mx-auto mb-14 reveal">
-            <span class="inline-block bg-white border border-[#ecebf3] text-brand-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-5">Plus que de la gestion</span>
+            <span class="inline-block bg-white border border-[#e7e5e4] text-brand-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-5">Plus que de la gestion</span>
             <h2 class="text-3xl sm:text-4xl font-extrabold text-ink">Les petits outils du quotidien</h2>
             <p class="mt-4 text-muted">Des détails qui font gagner du temps — à chaque heure de la journée.</p>
         </div>
 
         <style>
-            .mock{ position:relative; height:9.5rem; border-radius:16px; overflow:hidden; background:#f6f5fb; border:1px solid #ecebf3; }
+            .mock{ position:relative; height:9.5rem; border-radius:16px; overflow:hidden; background:#f5f5f4; border:1px solid #e7e5e4; }
             /* A — timetable "now" line */
-            .edt-line{ position:absolute; left:10px; right:10px; height:2px; background:#7c3aed; box-shadow:0 0 10px 1px rgba(124,58,237,.6); border-radius:2px; top:12%; animation: edtline 3.4s ease-in-out infinite; }
+            .edt-line{ position:absolute; left:10px; right:10px; height:2px; background:#0f0f10; box-shadow:0 0 10px 1px rgba(15,15,16,.6); border-radius:2px; top:12%; animation: edtline 3.4s ease-in-out infinite; }
             @keyframes edtline{ 0%{ top:12%; opacity:0 } 12%{ opacity:1 } 88%{ opacity:1 } 100%{ top:86%; opacity:0 } }
             /* B — announcement */
             .anno-card{ animation: annoin 3.8s ease-in-out infinite; }
@@ -541,7 +542,7 @@
                     <div class="grid grid-cols-5 gap-1.5 h-full">
                         @foreach(['violet','sky','emerald','amber','rose'] as $c)
                         <div class="flex flex-col gap-1.5">
-                            <div class="h-1.5 rounded bg-[#ded7f0]"></div>
+                            <div class="h-1.5 rounded bg-[#e7e5e4]"></div>
                             <div class="flex-1 rounded bg-{{ $c }}-100 border border-{{ $c }}-200"></div>
                             <div class="flex-1 rounded bg-{{ $c }}-50"></div>
                         </div>
@@ -560,7 +561,7 @@
             {{-- B — Annonces --}}
             <div class="reveal card card-lift rounded-3xl p-5" style="transition-delay:80ms">
                 <div class="mock flex items-center justify-center p-4">
-                    <div class="anno-card flex items-center gap-3 bg-white border border-[#ecebf3] rounded-xl shadow-md px-3 py-2.5 w-full max-w-[15rem]">
+                    <div class="anno-card flex items-center gap-3 bg-white border border-[#e7e5e4] rounded-xl shadow-md px-3 py-2.5 w-full max-w-[15rem]">
                         <span class="anno-bell w-9 h-9 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center shrink-0"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></span>
                         <div class="min-w-0"><p class="text-xs font-bold text-ink">Nouvelle annonce</p><p class="text-[11px] text-muted truncate">Sortie pédagogique vendredi</p></div>
                     </div>
@@ -576,10 +577,10 @@
             {{-- C — Reçus PDF --}}
             <div class="reveal card card-lift rounded-3xl p-5" style="transition-delay:160ms">
                 <div class="mock flex items-center justify-center p-4">
-                    <div class="relative w-32 bg-white border border-[#ecebf3] rounded-lg p-3 shadow-sm">
+                    <div class="relative w-32 bg-white border border-[#e7e5e4] rounded-lg p-3 shadow-sm">
                         <div class="flex items-center gap-1.5 mb-2">
                             <span class="w-6 h-6 rounded bg-red-500 text-white text-[8px] flex items-center justify-center font-bold shrink-0">PDF</span>
-                            <div class="h-1.5 flex-1 rounded bg-[#ecebf3]"></div>
+                            <div class="h-1.5 flex-1 rounded bg-[#e7e5e4]"></div>
                         </div>
                         <div class="space-y-1.5">
                             <div class="h-1.5 rounded bg-[#eceaf2]"></div>
@@ -602,7 +603,7 @@
             {{-- D — Multi-langue --}}
             <div class="reveal card card-lift rounded-3xl p-5" style="transition-delay:240ms">
                 <div class="mock flex flex-col items-center justify-center gap-3 p-4">
-                    <div class="flex items-center gap-1 bg-white border border-[#ecebf3] rounded-full p-1 text-[11px] font-bold text-muted">
+                    <div class="flex items-center gap-1 bg-white border border-[#e7e5e4] rounded-full p-1 text-[11px] font-bold text-muted">
                         <span class="lp lp-0 px-2.5 py-1 rounded-full">FR</span>
                         <span class="lp lp-1 px-2.5 py-1 rounded-full">ع</span>
                         <span class="lp lp-2 px-2.5 py-1 rounded-full">EN</span>
@@ -625,10 +626,10 @@
 </section>
 
 {{-- ══════════════ CALCULATOR ══════════════ --}}
-<section id="calcul" class="bg-[#faf9ff] border-y border-[#ecebf3] py-24">
+<section id="calcul" class="bg-[#fafafa] border-y border-[#e7e5e4] py-24">
     <div class="max-w-4xl mx-auto px-5">
         <div class="text-center max-w-2xl mx-auto mb-12 reveal">
-            <span class="inline-block bg-white border border-[#ecebf3] text-brand-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-5">Estimez vos gains</span>
+            <span class="inline-block bg-white border border-[#e7e5e4] text-brand-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-5">Estimez vos gains</span>
             <h2 class="text-3xl sm:text-4xl font-extrabold text-ink">Combien RaedApp vous fait gagner ?</h2>
             <p class="mt-4 text-muted">Déplacez le curseur selon la taille de votre école.</p>
         </div>
@@ -688,7 +689,7 @@
                     @foreach($portals as $i => $p)
                     <button type="button" @click="go({{ $i }})"
                             class="w-full text-left flex items-center gap-3 rounded-2xl border px-4 py-3 transition cursor-pointer"
-                            :class="active==={{ $i }} ? 'border-brand-500 bg-brand-50 shadow-[0_10px_26px_-14px_rgba(124,58,237,0.55)]' : 'border-[#ecebf3] bg-white hover:border-brand-200'">
+                            :class="active==={{ $i }} ? 'border-brand-500 bg-brand-50 shadow-[0_10px_26px_-14px_rgba(15,15,16,0.55)]' : 'border-[#e7e5e4] bg-white hover:border-brand-200'">
                         <span class="w-9 h-9 rounded-xl flex items-center justify-center shrink-0 transition-colors"
                               :class="active==={{ $i }} ? 'bg-brand-600 text-white' : 'bg-brand-50 text-brand-600'">
                             <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">{!! $p[0] !!}</svg>
@@ -721,7 +722,7 @@
                     <p class="text-muted text-sm mt-3">{{ $p[4] }}</p>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mt-5">
                         @foreach(array_slice($p[5], 0, 3) as $cap)
-                        <div class="flex items-center gap-2.5 rounded-xl border border-[#ecebf3] bg-[#faf9ff] px-3 py-2.5">
+                        <div class="flex items-center gap-2.5 rounded-xl border border-[#e7e5e4] bg-[#fafafa] px-3 py-2.5">
                             <span class="w-6 h-6 rounded-md bg-brand-50 text-brand-600 flex items-center justify-center shrink-0"><svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
                             <p class="text-sm font-semibold text-ink">{{ $cap }}</p>
                         </div>
@@ -790,10 +791,10 @@
 </section>
 
 {{-- ══════════════ FAQ ══════════════ --}}
-<section id="faq" class="bg-[#faf9ff] border-y border-[#ecebf3] py-24">
+<section id="faq" class="bg-[#fafafa] border-y border-[#e7e5e4] py-24">
     <div class="max-w-3xl mx-auto px-5">
         <div class="text-center mb-12 reveal">
-            <span class="inline-block bg-white border border-[#ecebf3] text-brand-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-5">Questions fréquentes</span>
+            <span class="inline-block bg-white border border-[#e7e5e4] text-brand-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-5">Questions fréquentes</span>
             <h2 class="text-3xl sm:text-4xl font-extrabold text-ink">Tout ce que vous devez savoir</h2>
             <p class="mt-4 text-muted">Des réponses rapides — pour en savoir plus, contactez-nous.</p>
         </div>
@@ -854,12 +855,12 @@
                 <h3 class="text-lg font-extrabold text-ink mb-6">Envoyer un message</h3>
                 <form @submit.prevent="submitContact()" class="space-y-4">
                     <div class="grid sm:grid-cols-2 gap-4">
-                        <input type="text" x-model="contact.name" required placeholder="Nom complet" class="w-full rounded-xl border border-[#ecebf3] px-4 py-3 text-sm focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none transition">
-                        <input type="email" x-model="contact.email" required placeholder="Email" class="w-full rounded-xl border border-[#ecebf3] px-4 py-3 text-sm focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none transition">
+                        <input type="text" x-model="contact.name" required placeholder="Nom complet" class="w-full rounded-xl border border-[#e7e5e4] px-4 py-3 text-sm focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none transition">
+                        <input type="email" x-model="contact.email" required placeholder="Email" class="w-full rounded-xl border border-[#e7e5e4] px-4 py-3 text-sm focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none transition">
                     </div>
-                    <input type="text" x-model="contact.school" placeholder="Nom de votre école" class="w-full rounded-xl border border-[#ecebf3] px-4 py-3 text-sm focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none transition">
-                    <input type="tel" x-model="contact.phone" placeholder="Téléphone (+253 …)" class="w-full rounded-xl border border-[#ecebf3] px-4 py-3 text-sm focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none transition">
-                    <textarea x-model="contact.message" required rows="3" placeholder="Votre message…" class="w-full rounded-xl border border-[#ecebf3] px-4 py-3 text-sm focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none transition resize-none"></textarea>
+                    <input type="text" x-model="contact.school" placeholder="Nom de votre école" class="w-full rounded-xl border border-[#e7e5e4] px-4 py-3 text-sm focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none transition">
+                    <input type="tel" x-model="contact.phone" placeholder="Téléphone (+253 …)" class="w-full rounded-xl border border-[#e7e5e4] px-4 py-3 text-sm focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none transition">
+                    <textarea x-model="contact.message" required rows="3" placeholder="Votre message…" class="w-full rounded-xl border border-[#e7e5e4] px-4 py-3 text-sm focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none transition resize-none"></textarea>
                     <button type="submit" :disabled="contactSent || contactLoading" class="btn-primary pill w-full py-3.5 font-semibold flex items-center justify-center gap-2 cursor-pointer">
                         <template x-if="contactLoading"><svg class="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.4 0 0 5.4 0 12h4z"/></svg></template>
                         <template x-if="!contactLoading && !contactSent"><span>Envoyer le message</span></template>
@@ -879,7 +880,7 @@
         <div class="grid md:grid-cols-4 gap-10 mb-10">
             <div>
                 <div class="flex items-center gap-2.5 mb-4">
-                    <img src="{{ asset('images/logoraedapp.png') }}" alt="RaedApp" class="h-8 w-8">
+                    <img src="{{ asset('images/logo-raedapp.svg') }}" alt="RaedApp" class="h-8 w-8">
                     <span class="font-extrabold text-lg">Raed<span class="text-brand-400">App</span></span>
                 </div>
                 <p class="text-sm text-white/55 leading-relaxed">La plateforme de gestion scolaire nouvelle génération, pensée pour Djibouti et l'Afrique.</p>

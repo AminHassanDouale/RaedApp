@@ -142,16 +142,16 @@ html, body { max-width: 100%; overflow-x: hidden; }
    Re-skin DaisyUI's primary / secondary / accent + soften corner radii so every
    btn-primary, text-primary, badge, focus ring and card across ALL portals
    (admin, platform, teacher, monitor, guardian, student, caissier) adopts the
-   brand — violet → fuchsia → cyan — in one place. Cascades to every view.
+   brand — near-black + acid-yellow — in one place. Cascades to every view.
    =========================================================================== */
 [data-theme="light"],
 [data-theme="dark"] {
-    --color-primary:           oklch(55% 0.24 294);    /* violet  (#7c3aed-ish) */
-    --color-primary-content:   oklch(98% 0.012 294);
-    --color-secondary:         oklch(66% 0.26 322);    /* fuchsia (#d946ef-ish) */
-    --color-secondary-content: oklch(98% 0.012 322);
-    --color-accent:            oklch(72% 0.13 215);    /* cyan    (#06b6d4-ish) */
-    --color-accent-content:    oklch(25% 0.04 230);
+    --color-primary:           oklch(22% 0 0);         /* near-black ink (#0F0F10)   */
+    --color-primary-content:   oklch(98% 0 0);         /* white on black             */
+    --color-secondary:         oklch(93% 0.21 120);    /* acid yellow (#D4F82A)      */
+    --color-secondary-content: oklch(22% 0 0);         /* black on yellow            */
+    --color-accent:            oklch(93% 0.21 120);    /* acid yellow (#D4F82A)      */
+    --color-accent-content:    oklch(22% 0 0);         /* black on yellow            */
 
     /* Softer, more modern corner radii (cards / buttons / inputs) */
     --radius-box:      1rem;
@@ -174,6 +174,6 @@ html, body { max-width: 100%; overflow-x: hidden; }
     /* Cards read as a calm, premium surface everywhere; interactive ones opt
        into motion with `hover-lift` (defined in the motion layer above). */
     .card {
-        box-shadow: 0 1px 2px rgb(16 12 40 / 0.04), 0 10px 30px -16px rgb(76 29 149 / 0.16);
+        box-shadow: 0 1px 2px rgb(16 16 18 / 0.05), 0 10px 30px -16px rgb(16 16 18 / 0.12);
     }
 }
