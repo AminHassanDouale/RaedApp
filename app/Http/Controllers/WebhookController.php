@@ -25,6 +25,15 @@ class WebhookController extends Controller
 
         Log::info('D-Money webhook received', ['order_id' => $orderId, 'trade_status' => $status]);
 
+        // Defense-in-depth: drop forged/unsigned calls early when a secret is set.
+        if (! $this->signatureIsValid($request)) {
+            Log::warning('D-Money webhook: invalid or missing signature — ignored', [
+                'order_id' => $orderId,
+                'ip'       => $request->ip(),
+            ]);
+            return response()->json(['returnCode' => 'SUCCESS', 'returnMsg' => 'OK']);
+        }
+
         if (! $orderId || ! $status) {
             Log::warning('D-Money webhook: missing required fields', $data);
             return response()->json(['returnCode' => 'SUCCESS', 'returnMsg' => 'OK']);
@@ -45,5 +54,35 @@ class WebhookController extends Controller
 
         // Always acknowledge to D-Money
         return response()->json(['returnCode' => 'SUCCESS', 'returnMsg' => 'OK']);
+    }
+
+    /**
+     * Verify the webhook's HMAC-SHA256 signature against BILLING_WEBHOOK_SECRET.
+     *
+     * Disabled (always true) when no secret is configured, so existing
+     * deployments keep working until the gateway starts signing. When a secret
+     * IS set, the gateway must send hash_hmac('sha256', <raw body>, <secret>)
+     * in the X-Webhook-Signature header (an optional "sha256=" prefix is allowed).
+     */
+    private function signatureIsValid(Request $request): bool
+    {
+        $secret = (string) config('billing.webhook_secret', '');
+
+        // Verification not configured → accept (handler still re-queries gateway).
+        if ($secret === '') {
+            return true;
+        }
+
+        $provided = (string) $request->header('X-Webhook-Signature', '');
+        if ($provided === '') {
+            return false;
+        }
+
+        // Accept both "sha256=<hex>" and bare "<hex>".
+        $provided = (string) preg_replace('/^sha256=/i', '', $provided);
+
+        $expected = hash_hmac('sha256', $request->getContent(), $secret);
+
+        return hash_equals($expected, $provided);
     }
 }
