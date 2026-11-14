@@ -84,3 +84,7 @@ Thumbs.db
 /.windsurf/
 /.zcode/
 /.zencoder/
+
+# Local pentest artifacts (scan output + disposable target DB)
+/pentest/reports/
+/database/pentest.sqlite
