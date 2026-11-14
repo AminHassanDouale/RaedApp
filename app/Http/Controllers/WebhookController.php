@@ -31,7 +31,11 @@ class WebhookController extends Controller
         }
 
         try {
-            app(SyncDmoneyPayment::class)->handle($orderId, $data);
+            // SECURITY: the webhook body is unauthenticated and forgeable, so we do
+            // NOT trust its trade_status. Passing no payload forces SyncDmoneyPayment
+            // to re-query the gateway (server-to-server) for the REAL order status —
+            // a forged POST can therefore never mark an invoice as paid.
+            app(SyncDmoneyPayment::class)->handle($orderId);
         } catch (\Throwable $e) {
             Log::error('D-Money webhook processing error', [
                 'error'    => $e->getMessage(),

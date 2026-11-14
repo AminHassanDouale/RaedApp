@@ -23,7 +23,7 @@ new #[Layout('layouts.app')] class extends Component {
 
     public function confirmPayment(int $id): void
     {
-        Payment::findOrFail($id)->update([
+        Payment::where('school_id', auth()->user()->school_id)->findOrFail($id)->update([
             'status'       => PaymentStatus::CONFIRMED->value,
             'confirmed_by' => auth()->id(),
             'confirmed_at' => now(),

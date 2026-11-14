@@ -42,7 +42,7 @@ new #[Layout('layouts.app')] class extends Component {
     public function updatedInvoiceId(): void
     {
         if ($this->invoiceId) {
-            $invoice = Invoice::find($this->invoiceId);
+            $invoice = Invoice::where('school_id', auth()->user()->school_id)->find($this->invoiceId);
             if ($invoice) {
                 $this->amount      = $invoice->balance_due;
                 $this->paymentType = 'full';
@@ -54,7 +54,7 @@ new #[Layout('layouts.app')] class extends Component {
     {
         // "Total" locks the amount to the full remaining balance
         if ($this->paymentType === 'full' && $this->invoiceId) {
-            $this->amount = (float) (Invoice::find($this->invoiceId)?->balance_due ?? $this->amount);
+            $this->amount = (float) (Invoice::where('school_id', auth()->user()->school_id)->find($this->invoiceId)?->balance_due ?? $this->amount);
         }
     }
 
@@ -71,7 +71,7 @@ new #[Layout('layouts.app')] class extends Component {
         $rules = [
             'studentId'   => 'required|integer|min:1',
             'invoiceId'   => 'required|integer|min:1',
-            'amount'      => 'required|numeric|min:1|max:' . (Invoice::find($this->invoiceId)?->balance_due ?? PHP_INT_MAX),
+            'amount'      => 'required|numeric|min:1|max:' . (Invoice::where('school_id', auth()->user()->school_id)->find($this->invoiceId)?->balance_due ?? PHP_INT_MAX),
             'method'      => 'required|string',
             'paymentDate' => 'required|date',
         ];
@@ -88,7 +88,7 @@ new #[Layout('layouts.app')] class extends Component {
             'amount.max' => 'Le montant ne peut pas dépasser le solde dû (:max DJF).',
         ]);
 
-        $invoice = Invoice::findOrFail($this->invoiceId);
+        $invoice = Invoice::where('school_id', auth()->user()->school_id)->findOrFail($this->invoiceId);
 
         $meta = [];
         if ($this->method === 'mobile_money') {
@@ -164,7 +164,7 @@ new #[Layout('layouts.app')] class extends Component {
                 ->all()
             : [];
 
-        $selectedInvoice = $this->invoiceId ? Invoice::find($this->invoiceId) : null;
+        $selectedInvoice = $this->invoiceId ? Invoice::where('school_id', auth()->user()->school_id)->find($this->invoiceId) : null;
 
         $methods = [
             ['id' => 'cash',          'name' => 'Espèces'],
