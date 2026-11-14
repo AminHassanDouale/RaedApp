@@ -17,6 +17,9 @@ return Application::configure(basePath: dirname(__DIR__))
             \App\Http\Middleware\SetLocale::class,
         ]);
 
+        // ── Baseline security headers on every response (web + api) ────────────
+        $middleware->append(\App\Http\Middleware\SecurityHeaders::class);
+
         // ── CSRF exclusions ────────────────────────────────────────────────────
         $middleware->validateCsrfTokens(except: [
             'webhooks/billing',

@@ -46,9 +46,17 @@ new #[Layout('layouts.guardian')] class extends Component {
         $this->studentUuid    = null;
     }
 
+    /** IDs of the students this guardian is actually linked to — scopes every invoice action against IDOR. */
+    private function guardianStudentIds(): \Illuminate\Support\Collection
+    {
+        return Guardian::where('user_id', auth()->id())
+            ->with('students:id')
+            ->first()?->students->pluck('id') ?? collect();
+    }
+
     public function openPayModal(int $invoiceId): void
     {
-        $invoice = Invoice::find($invoiceId);
+        $invoice = Invoice::whereIn('student_id', $this->guardianStudentIds())->find($invoiceId);
         if (! $invoice || $invoice->status === InvoiceStatus::PAID || $invoice->status === InvoiceStatus::CANCELLED) {
             return;
         }
@@ -97,7 +105,7 @@ new #[Layout('layouts.guardian')] class extends Component {
 
     public function initiateDMoney(int $invoiceId): void
     {
-        $invoice = Invoice::find($invoiceId);
+        $invoice = Invoice::whereIn('student_id', $this->guardianStudentIds())->find($invoiceId);
 
         if (! $invoice || in_array($invoice->status, [InvoiceStatus::PAID, InvoiceStatus::CANCELLED])) {
             $this->error('Facture non disponible.', position: 'toast-top toast-center');
@@ -177,7 +185,7 @@ new #[Layout('layouts.guardian')] class extends Component {
             'payMethod'         => 'required|in:waafi,cac_pay,exim_pay,saba_pay,e_dahab',
         ]);
 
-        $invoice = Invoice::with('enrollment')->find($this->payInvoiceId);
+        $invoice = Invoice::with('enrollment')->whereIn('student_id', $this->guardianStudentIds())->find($this->payInvoiceId);
 
         if (! $invoice || in_array($invoice->status, [InvoiceStatus::PAID, InvoiceStatus::CANCELLED])) {
             $this->error('Facture non disponible.', position: 'toast-top toast-center');
@@ -279,7 +287,7 @@ new #[Layout('layouts.guardian')] class extends Component {
             ->where('status', 'pending')
             ->exists();
 
-        return compact('students', 'invoices', 'totalUnpaid', 'school', 'academicYears', 'statusOptions', 'academicYearOptions', 'filtersActive', 'hasPendingDmoney');
+        return compact('students', 'studentIds', 'invoices', 'totalUnpaid', 'school', 'academicYears', 'statusOptions', 'academicYearOptions', 'filtersActive', 'hasPendingDmoney');
     }
 };
 ?>
@@ -546,7 +554,7 @@ new #[Layout('layouts.guardian')] class extends Component {
     {{-- ── Payment modal ── --}}
     <x-modal wire:model="showPayModal" title="Payer en ligne" separator>
         @if($payInvoiceId)
-        @php $payInvoice = $invoices->getCollection()->firstWhere('id', $payInvoiceId) ?? \App\Models\Invoice::find($payInvoiceId); @endphp
+        @php $payInvoice = $invoices->getCollection()->firstWhere('id', $payInvoiceId) ?? \App\Models\Invoice::whereIn('student_id', $studentIds)->find($payInvoiceId); @endphp
         @if($payInvoice)
 
         {{-- Amount banner --}}
@@ -583,12 +591,12 @@ new #[Layout('layouts.guardian')] class extends Component {
         {{-- Step 2: Instructions --}}
         @php
         $instructions = [
-            'd_money' => ['number' => $school?->phone ?? '+253 77 XX XX XX', 'name' => 'D-Money Dahabshiil', 'steps' => ['Ouvrez votre application D-Money', 'Sélectionnez "Payer un marchand"', 'Entrez le numéro : <strong>' . ($school?->phone ?? '+253 77 XX XX XX') . '</strong>', 'Montant : <strong>' . number_format($payInvoice->balance_due, 0, ',', ' ') . ' DJF</strong>', 'Confirmez avec votre code PIN']],
-            'waafi'   => ['number' => $school?->phone ?? '+253 63 XX XX XX', 'name' => 'Waafi Telesom', 'steps' => ['Composez le <strong>*843#</strong> sur votre téléphone', 'Sélectionnez "Paiement marchand"', 'Entrez le numéro : <strong>' . ($school?->phone ?? '+253 63 XX XX XX') . '</strong>', 'Montant : <strong>' . number_format($payInvoice->balance_due, 0, ',', ' ') . ' DJF</strong>', 'Validez votre paiement']],
+            'd_money' => ['number' => $school?->phone ?? '+253 77 XX XX XX', 'name' => 'D-Money Dahabshiil', 'steps' => ['Ouvrez votre application D-Money', 'Sélectionnez "Payer un marchand"', 'Entrez le numéro : <strong>' . e($school?->phone ?? '+253 77 XX XX XX') . '</strong>', 'Montant : <strong>' . number_format($payInvoice->balance_due, 0, ',', ' ') . ' DJF</strong>', 'Confirmez avec votre code PIN']],
+            'waafi'   => ['number' => $school?->phone ?? '+253 63 XX XX XX', 'name' => 'Waafi Telesom', 'steps' => ['Composez le <strong>*843#</strong> sur votre téléphone', 'Sélectionnez "Paiement marchand"', 'Entrez le numéro : <strong>' . e($school?->phone ?? '+253 63 XX XX XX') . '</strong>', 'Montant : <strong>' . number_format($payInvoice->balance_due, 0, ',', ' ') . ' DJF</strong>', 'Validez votre paiement']],
             'cac_pay' => ['number' => 'CAC-' . ($school?->id ?? 'XXXX'), 'name' => 'Cac Pay', 'steps' => ['Ouvrez votre application Cac Pay', 'Sélectionnez "Payer"', 'Entrez le code marchand : <strong>CAC-' . ($school?->id ?? 'XXXX') . '</strong>', 'Montant : <strong>' . number_format($payInvoice->balance_due, 0, ',', ' ') . ' DJF</strong>', 'Confirmez avec votre code PIN']],
-            'exim_pay' => ['number' => $school?->phone ?? '+253 XX XX XX XX', 'name' => 'Exim Pay', 'steps' => ['Ouvrez votre application Exim Pay', 'Sélectionnez "Paiement marchand"', 'Entrez le numéro : <strong>' . ($school?->phone ?? '+253 XX XX XX XX') . '</strong>', 'Montant : <strong>' . number_format($payInvoice->balance_due, 0, ',', ' ') . ' DJF</strong>', 'Confirmez avec votre code PIN']],
-            'saba_pay' => ['number' => $school?->phone ?? '+253 XX XX XX XX', 'name' => 'Saba Pay', 'steps' => ['Ouvrez votre application Saba Pay', 'Sélectionnez "Paiement"', 'Entrez le numéro : <strong>' . ($school?->phone ?? '+253 XX XX XX XX') . '</strong>', 'Montant : <strong>' . number_format($payInvoice->balance_due, 0, ',', ' ') . ' DJF</strong>', 'Validez le paiement']],
-            'e_dahab' => ['number' => $school?->phone ?? '+253 XX XX XX XX', 'name' => 'E-Dahab IBS', 'steps' => ['Ouvrez votre application E-Dahab', 'Sélectionnez "Transfert / Paiement"', 'Entrez le numéro : <strong>' . ($school?->phone ?? '+253 XX XX XX XX') . '</strong>', 'Montant : <strong>' . number_format($payInvoice->balance_due, 0, ',', ' ') . ' DJF</strong>', 'Validez le paiement']],
+            'exim_pay' => ['number' => $school?->phone ?? '+253 XX XX XX XX', 'name' => 'Exim Pay', 'steps' => ['Ouvrez votre application Exim Pay', 'Sélectionnez "Paiement marchand"', 'Entrez le numéro : <strong>' . e($school?->phone ?? '+253 XX XX XX XX') . '</strong>', 'Montant : <strong>' . number_format($payInvoice->balance_due, 0, ',', ' ') . ' DJF</strong>', 'Confirmez avec votre code PIN']],
+            'saba_pay' => ['number' => $school?->phone ?? '+253 XX XX XX XX', 'name' => 'Saba Pay', 'steps' => ['Ouvrez votre application Saba Pay', 'Sélectionnez "Paiement"', 'Entrez le numéro : <strong>' . e($school?->phone ?? '+253 XX XX XX XX') . '</strong>', 'Montant : <strong>' . number_format($payInvoice->balance_due, 0, ',', ' ') . ' DJF</strong>', 'Validez le paiement']],
+            'e_dahab' => ['number' => $school?->phone ?? '+253 XX XX XX XX', 'name' => 'E-Dahab IBS', 'steps' => ['Ouvrez votre application E-Dahab', 'Sélectionnez "Transfert / Paiement"', 'Entrez le numéro : <strong>' . e($school?->phone ?? '+253 XX XX XX XX') . '</strong>', 'Montant : <strong>' . number_format($payInvoice->balance_due, 0, ',', ' ') . ' DJF</strong>', 'Validez le paiement']],
         ];
         $inst = $instructions[$payMethod];
         @endphp
