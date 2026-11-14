@@ -52,10 +52,13 @@ class TestWhatsApp extends Command
 
         $this->info("Sending ping to {$phone}...");
         $ok = $whatsapp->sendMessage($phone, implode("\n", [
-            '✅ *RaedApp — Test WhatsApp*',
+            '✅ *RaedApp — Notifications WhatsApp activées*',
             '',
-            'Ce message confirme que l\'intégration WhatsApp fonctionne correctement.',
-            '_Instance : ' . config('services.ultramsg.instance_id') . '_',
+            'L\'intégration WhatsApp est opérationnelle. Toutes les notifications '
+                . '(factures, paiements, retards, présences, annonces) seront désormais '
+                . 'envoyées par WhatsApp aux parents.',
+            '',
+            '_Session : ' . config('services.openwa.session_id') . '_',
         ]));
 
         $ok ? $this->info('✓ Message sent.') : $this->error('✗ Failed — check logs.');
