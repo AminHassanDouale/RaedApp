@@ -45,14 +45,31 @@ php artisan queue:restart
 ### Verify it's processing
 
 ```bash
-# queue a real test and watch it drain
-php artisan whatsapp:test --type=invoice-overdue      # dispatches a queued notification
-php artisan queue:work --once                          # or let Supervisor's worker handle it
+sudo supervisorctl status raedapp-worker:*             # expect RUNNING
 sudo tail -f /var/www/raedapp/storage/logs/worker.log  # live worker output
+# safe end-to-end WhatsApp check that targets YOUR number:
+php artisan whatsapp:test --type=ping --phone=2537XXXXXXX
 ```
+
+> ⚠ **On production, never use `--type=invoice-overdue` / `attendance` / `invoice-pdf`.**
+> Those auto-select a **real guardian** from the database and send an actual
+> parent a message. Only `--type=ping --phone=<you>` is safe for a live test.
 
 If jobs pile up, scale out by raising `numprocs` in the conf (e.g. `numprocs=2`),
 then `supervisorctl reread && supervisorctl update`.
+
+### Only run ONE worker program
+
+If an older `scolapp-worker` (pre-rebrand) still exists, you'll have duplicate
+workers on the same queue. Retire the old one and keep `raedapp-worker`:
+
+```bash
+cat /etc/supervisor/conf.d/scolapp-worker.conf     # confirm it's the same app
+sudo supervisorctl stop scolapp-worker:*
+sudo rm /etc/supervisor/conf.d/scolapp-worker.conf
+sudo supervisorctl reread && sudo supervisorctl update
+sudo supervisorctl status                           # only raedapp-worker remains
+```
 
 ### Failed jobs
 
