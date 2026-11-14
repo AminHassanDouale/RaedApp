@@ -85,6 +85,7 @@ Thumbs.db
 /.zcode/
 /.zencoder/
 
-# Local pentest artifacts (scan output + disposable target DB)
+# Local pentest artifacts (scan output + disposable target DB + generated plan)
 /pentest/reports/
+/pentest/zap-plan-win.yaml
 /database/pentest.sqlite
