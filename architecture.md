@@ -53,9 +53,9 @@ Defined in `database/seeders/RolePermissionSeeder.php` (authoritative map). 9 ro
 - **Domain:** `https://raedapp.tech` (A record `@` → `187.124.32.203`; `www` CNAME → root). HTTPS via Let's Encrypt (`certbot --nginx`, auto-renew).
 - **Web:** nginx vhost `/etc/nginx/sites-available/raedapp.tech` → root `/var/www/raedapp/public`, PHP-FPM **`php8.4-fpm.sock`** (composer deps require ≥ 8.4; the box also has 8.3-fpm for other sites).
 - **Database:** **MySQL 8 in Docker** (not SQLite) — `docker-compose.yml` in project root, container `raedapp-db`, bound to `127.0.0.1:3307`, DB/user `raedapp`, data in named volume. Laravel on host connects via `pdo_mysql` (installed `php8.4-mysql`).
-- **Queue worker:** systemd unit `raedapp-queue.service` running `php8.4 artisan queue:work` as `www-data` (required — most notifications are `ShouldQueue`).
-- **Deploy flow:** `git pull && composer install --no-dev -o && npm run build && php artisan migrate --force && php artisan optimize && chown -R www-data:www-data storage bootstrap/cache`.
-- **Repos:** `origin` = `github.com/AminHassanDouale/scolapp_v2` (old), `raedapp` = `github.com/AminHassanDouale/RaedApp` (current, `main`).
+- **Queue worker:** runs under **Supervisor** — `deploy/supervisor/raedapp-worker.conf` (program `raedapp-worker`, `php artisan queue:work` as `www-data`); required, most notifications are `ShouldQueue`. Retire any old `scolapp-worker` program / `raedapp-queue.service` systemd unit so only one worker runs per queue. See `deploy/README.md`.
+- **Deploy flow:** `git pull && composer install --no-dev -o && npm run build && php artisan migrate --force && php artisan optimize && php artisan queue:restart && chown -R www-data:www-data storage bootstrap/cache`.
+- **Repos:** `origin` = `github.com/AminHassanDouale/RaedApp.git` (`main`). The old `scolapp_v2` remote has been removed.
 
 ### Deployment gotchas (learned)
 - Deploy commands run as **root** → re-`chown www-data` `storage` + `bootstrap/cache` or the app 500s.

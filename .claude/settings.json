@@ -38,8 +38,6 @@
       "Bash(php artisan tinker --execute=\"echo view\\(''welcome''\\)->render\\(\\) ? ''OK'' : ''FAIL'';\")",
       "Bash(php artisan make:migration create_contact_messages_table --no-interaction)"
     ],
-    "additionalDirectories": [
-      "C:\\Users\\Thinkpad\\.claude\\projects\\c--Users-Thinkpad-Documents-2099-scolapp-v2"
-    ]
+    "additionalDirectories": []
   }
 }
