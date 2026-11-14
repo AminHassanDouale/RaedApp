@@ -1,0 +1,39 @@
+name: Semgrep (SAST + secrets)
+
+# Static analysis for vulnerabilities and leaked secrets. Runs on every push to
+# main and on PRs; fails the build if a new finding is introduced. Tokenless —
+# uses the free community rule packs, no Semgrep account required.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  semgrep:
+    name: Scan for vulns & leaks
+    runs-on: ubuntu-latest
+    container:
+      image: semgrep/semgrep
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Semgrep scan
+        run: >
+          semgrep scan
+          --config p/php
+          --config p/security-audit
+          --config p/secrets
+          --config p/owasp-top-ten
+          --config p/xss
+          --config p/sql-injection
+          --config p/command-injection
+          --error
+          --metrics off
+          --exclude vendor
+          --exclude node_modules
+          --exclude public/build
