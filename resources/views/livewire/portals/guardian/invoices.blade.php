@@ -453,7 +453,8 @@ new #[Layout('layouts.guardian')] class extends Component {
         {{-- Actions --}}
         <div class="flex items-center gap-2 px-4 pb-4 pt-1 flex-wrap">
             @if($canPay)
-            {{-- D-Money Online (API) --}}
+            {{-- D-Money Online (API) — only when the billing gateway is enabled/configured --}}
+            @if(config('billing.enabled'))
             @php
                 $hasPendingDmoney = \App\Models\DmoneyTransaction::where('invoice_id', $invoice->id)
                     ->where('status', 'pending')->exists();
@@ -473,6 +474,7 @@ new #[Layout('layouts.guardian')] class extends Component {
                 class="btn-success btn-sm"
                 spinner="initiateDMoney({{ $invoice->id }})"
             />
+            @endif
             @endif
 
             {{-- Other providers — manual flow --}}
